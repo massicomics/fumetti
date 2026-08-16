@@ -404,6 +404,21 @@ footer{
   width:2.9rem; height:3.6rem; line-height:1;
 }
 .lb-prev{left:.7rem;} .lb-next{right:.7rem;}
+/* --- TELEFONO: due colonne, non una --- */
+@media (max-width:700px){
+  main{padding:0 .7rem 3rem;}
+  .grid{grid-template-columns:repeat(2,1fr); gap:.7rem;}
+  .tavola-card .cornice{padding:.3rem;}
+  .tavola-label{font-size:.6rem; margin-top:.4rem; letter-spacing:0;}
+  .tag-riga{font-size:.56rem; margin-top:.2rem;}
+  .cornice::after{font-size:.6rem; padding:.12rem .22rem; right:.3rem; bottom:.3rem;}
+  .foto-collana{grid-template-columns:repeat(2,1fr); gap:.7rem;}
+  .foto-wrap img{height:130px;}
+  .racc-grid{grid-template-columns:repeat(2,1fr); gap:.7rem;}
+  .racc-wrap img{height:130px;}
+  .storia-head{gap:.8rem;}
+  .storia-meta{text-align:left;}
+}
 @media (max-width:640px){
   .lb-prev,.lb-next{width:2.4rem; height:3rem; font-size:1.5rem;}
   .lb-caption{font-size:.62rem; padding:0 1rem; bottom:.6rem;}
