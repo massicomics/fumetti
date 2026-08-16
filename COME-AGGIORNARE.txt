@@ -1,0 +1,94 @@
+I FUMETTI DEL MASSI
+Come aggiungere nuovo materiale al sito
+=======================================
+
+
+COSA C'E' IN QUESTA CARTELLA
+----------------------------
+  index.html          la pagina. NON si tocca mai.
+  dati.js             l'elenco di tutto quello che si vede sul sito.
+                      E' l'unico file da modificare.
+  assets/             le immagini in alta definizione
+  assets/thumbs/      le stesse immagini in piccolo (facoltative)
+
+Le miniature servono solo a far aprire il sito piu' in fretta:
+la griglia mostra le piccole, l'alta definizione si carica solo
+quando si clicca su una tavola.
+
+Se una miniatura manca, il sito usa da solo l'immagine grande.
+Quindi si puo' benissimo aggiungere materiale mettendo UN SOLO
+file dentro assets/ e ignorando la cartella thumbs.
+
+
+COME E' ORGANIZZATO
+-------------------
+Le tavole originali sono ordinate PER AUTORE.
+Dentro ogni autore ci possono essere due cose, o una sola:
+
+    storie[]    storie complete, divise in albi
+    singole[]   tavole e illustrazioni singole
+
+Un autore puo' avere solo storie, solo tavole singole, o tutte e
+due. Il sito mostra soltanto quello che trova: se un elenco e'
+vuoto, quella parte non compare nemmeno.
+
+I conteggi ("2 storie complete", "9 tavole singole") si calcolano
+da soli. Non vanno mai aggiornati a mano.
+
+
+AGGIUNGERE UNA TAVOLA A UNA STORIA CHE C'E' GIA'
+------------------------------------------------
+1. metti la foto in   assets/tavole/<storia>/
+   con un nome tipo   14_p099.jpg
+2. apri dati.js, trova la storia, aggiungi la riga:
+       {f:"tavole/odio/14_p099.jpg", p:"99"},
+3. carica su GitHub
+
+
+AGGIUNGERE UN AUTORE NUOVO
+--------------------------
+1. crea la cartella   assets/altre/<nomeautore>/  e mettici le foto
+2. in dati.js copia un blocco autore esistente e cambialo
+3. lascia [] la parte che non ti serve (storie o singole)
+
+Nel file c'e' gia' pronto, commentato, il blocco di Marco Verni:
+quando arriveranno sue tavole basta togliere i segni di commento.
+
+
+AGGIUNGERE UNA COLLANA DI FUMETTI
+---------------------------------
+1. metti le foto in   assets/fumetti/<collana>/
+2. in dati.js copia un blocco dentro FUMETTI e cambialo
+3. l'elenco dei titoli si impagina da solo su due colonne
+
+
+LE TRE TENDINE
+--------------
+  Collezione    tutto / tavole originali / storie / singole / fumetti
+  Personaggio   vale sia sulle tavole sia sui fumetti
+  Autore        vale solo sulle tavole originali
+
+Le tendine Personaggio e Autore si riempiono da sole leggendo
+dati.js: basta che ogni pezzo abbia il suo "personaggio".
+
+Nelle tendine vanno solo i DISEGNATORI. Gli sceneggiatori
+(Nolitta, Sclavi, Max Bunker) restano nelle descrizioni.
+
+
+CARICARE SU GITHUB   (da Mac o PC, non da iPhone)
+-------------------------------------------------
+1. vai su  github.com/massicomics/fumetti
+2. "Add file" -> "Upload files"
+3. trascina index.html, dati.js e la cartella assets
+4. se chiede di sovrascrivere, conferma
+5. "Commit changes"
+6. dopo un paio di minuti il sito e' aggiornato
+
+Non serve cancellare i file vecchi: caricandone uno con lo stesso
+nome viene sostituito da solo.
+
+
+SE QUALCOSA NON TORNA
+---------------------
+Mandami le foto nuove e te le preparo io gia' pronte nei due
+formati, con la riga di dati.js gia' scritta da incollare.
