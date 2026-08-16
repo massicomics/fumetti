@@ -399,6 +399,7 @@ const FUMETTI = [
 const RACCOGLITORI = [
   "raccoglitori/img_8432.jpg",
   "raccoglitori/img_8433.jpg",
+  "raccoglitori/raccoglitori_insieme.jpg",
   "raccoglitori/img_8435.jpg",
   "raccoglitori/img_8469.jpg",
   "raccoglitori/img_8468.jpg"
