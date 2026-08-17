@@ -51,6 +51,7 @@ const AUTORI = [
       {
         id: "odio",
         titolo: "Zagor — Odio!",
+        nTavole: 212,
         navLabel: "Odio!",
         sottotitolo: "Storia completa in tre albi",
         testi: "Guido Nolitta",
@@ -119,6 +120,7 @@ const AUTORI = [
       {
         id: "deanera",
         titolo: "Zagor — la dea nera",
+        nTavole: 120,
         navLabel: "la dea nera",
         sottotitolo: "Storia completa in due albi",
         testi: "Guido Nolitta",
@@ -243,153 +245,370 @@ const AUTORI = [
 
 ];
 
-/* ---------- FUMETTI (collane di albi) ----------
-   I fumetti si filtrano SOLO per personaggio: autore e tipo
-   riguardano le tavole originali e non li toccano.            */
+/* ============================================================
+   FUMETTI — organizzati su tre livelli
+   ============================================================
+     PERSONAGGIO   Tex, Zagor, Dylan Dog...
+       SERIE       Cartonati, Serie regolare, Serie speciale...
+         GRUPPO    suddivisione ulteriore, FACOLTATIVA
+
+   Una serie può contenere gruppi, oppure avere direttamente
+   le sue foto e i suoi titoli. Il sito si adatta da solo.
+
+   Esempio con gruppi   -> Tex / Cartonati / Mondadori-CEPIM
+   Esempio senza gruppi -> Alan Ford / Serie regolare Corno
+
+   I fumetti si filtrano SOLO per personaggio: le tendine
+   Autore e Tipo riguardano le tavole originali.
+   ============================================================ */
 
 const FUMETTI = [
+
+  /* ==================== TEX ==================== */
+  {
+    id: "tex",
+    personaggio: "Tex",
+    nota: "",
+    serie: [
+      {
+        id: "tex-texoni",
+        titolo: "Texoni",
+        nota: "",
+        gruppi: [
+          {
+            id: "tex-texoni-serie",
+            n: 126,
+            titolo: "Albi Speciali",
+            crediti: "Sergio Bonelli Editore",
+            edizione: "Prima edizione",
+            conservazione: "100% tra magazzino, edicola e ottimo",
+            volumi: "126 albi, 33 titoli diversi",
+            nota: "Gli albi sono conservati in busta protettiva e in armadio chiuso. Alcuni titoli sono presenti in più copie. Tutte le copie del Texone n.9 presenti nella collezione sono complete della stampa originale della «Serata Magnus» — 25 maggio 1996, Libreria RCS Rizzoli, Bologna.",
+            foto: [
+              {f:"fumetti/tex/texoni/armadio.jpg", didascalia:"Gli Albi Speciali nell'armadio"},
+              {f:"fumetti/tex/texoni/albo09_valledelterrore.jpg", didascalia:"Albo Speciale n.9 — La valle del terrore, disegni di Magnus"},
+              {f:"fumetti/tex/texoni/serata_magnus.jpg", didascalia:"«Serata Magnus», 25 maggio 1996 — stampa omaggio della Libreria RCS Rizzoli Libri di via dei Mille, Bologna"}
+            ],
+            elenchi: [
+              {
+                cap: "I titoli presenti nella collezione",
+                voci: [
+                  "Canyon Dorado",
+                  "Capitan Jack",
+                  "Fiamme sull'Arizona",
+                  "Gli assassini",
+                  "I predatori del deserto",
+                  "I pionieri",
+                  "I ribelli di Cuba",
+                  "Il cavaliere solitario",
+                  "Il magnifico fuorilegge",
+                  "Il prezzo della vendetta",
+                  "Il profeta hualpai",
+                  "Il pueblo perduto",
+                  "Il segno del serpente",
+                  "Il soldato comanche",
+                  "L'orda del tramonto",
+                  "L'ultima frontiera",
+                  "L'ultimo ribelle",
+                  "L'uomo di Atlanta",
+                  "La cavalcata del morto",
+                  "La grande rapina",
+                  "La valle del terrore",
+                  "La vendetta delle ombre",
+                  "Mercanti di schiavi",
+                  "Ombre nella notte",
+                  "Patagonia",
+                  "Piombo rovente",
+                  "Sangue sul Colorado",
+                  "Seminoles",
+                  "Sierrita Mountains",
+                  "Tempesta su Galveston",
+                  "Terra senza legge",
+                  "Tex il grande!",
+                  "Verso l'Oregon"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "tex-cartonati",
+        titolo: "Cartonati",
+        nota: "",
+        gruppi: [
+          {
+            id: "tex-cart-mondadori",
+            n: 39,
+            titolo: "Cartonati rossi",
+            crediti: "Mondadori · edizioni CEPIM · Daim Press / Sergio Bonelli Editore",
+            edizione: "Prima edizione",
+            conservazione: "90% tra magazzino, edicola e ottimo · 10% buono",
+            nota: "Serie unica, iniziata nel 1975 con «Il mio nome è Tex», strenna natalizia pubblicata da Mondadori su licenza di Sergio Bonelli — la cui casa editrice allora si chiamava CEPIM. Il cambio di marchio sui dorsi segue le denominazioni successive della casa editrice, non un cambio di serie: pur essendocene uno blu e uno giallo, per i texani restano i «cartonati rossi». Alcuni titoli sono presenti in più copie. I volumi sono conservati in busta protettiva e in armadio chiuso. Le foto di fronte, dorso e taglio documentano lo stato di alcuni singoli pezzi.",
+            volumi: "39",
+            foto: [
+              {f:"fumetti/tex/cartonati/mondadori/scaffale.jpg", didascalia:"I 39 volumi della collezione"},
+              {f:"fumetti/tex/cartonati/mondadori/insieme.jpg", didascalia:"I 7 volumi fotografati singolarmente"},
+              {f:"fumetti/tex/cartonati/mondadori/ilmionomeetex.jpg", didascalia:"Il mio nome è Tex — copertina"},
+              {f:"fumetti/tex/cartonati/mondadori/dorso_ilmionomeetex.jpg", didascalia:"Il mio nome è Tex — dorso e taglio"},
+              {f:"fumetti/tex/cartonati/mondadori/avventuranelnord.jpg", didascalia:"Un'avventura nel nord — copertina"},
+              {f:"fumetti/tex/cartonati/mondadori/dorso_avventuranelnord.jpg", didascalia:"Un'avventura nel nord — dorso e taglio"},
+              {f:"fumetti/tex/cartonati/mondadori/mefisto.jpg", didascalia:"Tex contro Mefisto — copertina"},
+              {f:"fumetti/tex/cartonati/mondadori/dorso_mefisto.jpg", didascalia:"Tex contro Mefisto — dorso e taglio"},
+              {f:"fumetti/tex/cartonati/mondadori/piramide.jpg", didascalia:"Tex e la piramide misteriosa — copertina"},
+              {f:"fumetti/tex/cartonati/mondadori/dorso_piramide.jpg", didascalia:"Tex e la piramide misteriosa — dorso e taglio"},
+              {f:"fumetti/tex/cartonati/mondadori/conquistadelwest.jpg", didascalia:"La conquista del west — copertina"}
+            ],
+            elenchi: [
+              {
+                cap: "I 7 volumi fotografati",
+                voci: [
+                  "Il mio nome è Tex",
+                  "Un'avventura nel nord",
+                  "Tex e i fuorilegge",
+                  "Tex e gli indiani",
+                  "La conquista del west",
+                  "Tex contro Mefisto",
+                  "Tex e la piramide misteriosa"
+                ]
+              },
+              {
+                cap: "Gli altri volumi presenti nella collezione",
+                voci: [
+                  "Apache Kid",
+                  "Fiamme di guerra",
+                  "Grido di guerra",
+                  "I dominatori della valle",
+                  "I giustizieri di Vegas",
+                  "Il fiore della morte",
+                  "Tex e il segno di Cruzado",
+                  "Il segreto degli Anasazi",
+                  "La legge di Tex",
+                  "La pattuglia sperduta",
+                  "L'uomo senza passato",
+                  "Lotta sul mare",
+                  "Nell'Inferno Verde",
+                  "Sasquatch",
+                  "Sentieri di sangue",
+                  "Sfida nella città fantasma",
+                  "Tex e i soldati",
+                  "Wanted!"
+                ]
+              }
+            ]
+          },
+          {
+            id: "tex-cart-magnus",
+            n: 1,
+            titolo: "Il Tex di Magnus",
+            crediti: "",
+            edizione: "Prima edizione",
+            conservazione: "da magazzino, sempre custodito nel cofanetto originale",
+            nota: "Il volume cartonato gigante de «La valle del terrore» (Il Tex di Magnus), pubblicato da Alessandro Editore nel 1998, fu stampato in tiratura limitata a 825 copie, numerate e in formato gigante (35×50 cm), lo stesso dei disegni originali di Magnus. Volume di grande pregio, bellissimo.",
+            foto: [
+              {f:"fumetti/tex/cartonati/magnus/volume.jpg", didascalia:"Copertina"},
+              {f:"fumetti/tex/cartonati/magnus/stampa.jpg", didascalia:"Quarta di copertina, con la fotografia di Magnus"},
+              {f:"fumetti/tex/cartonati/magnus/imballo_aperto.jpg", didascalia:"Il volume nel cofanetto originale"},
+              {f:"fumetti/tex/cartonati/magnus/imballo.jpg", didascalia:"Il cofanetto chiuso"}
+            ],
+            titoli: []
+          },
+          {
+            id: "tex-cart-vari",
+            n: 4,
+            titolo: "Cartonati vari",
+            crediti: "Sergio Bonelli Editore · Federico Motta Editore",
+            edizione: "Prima edizione",
+            conservazione: "ottimo",
+            nota: "",
+            foto: [
+              "fumetti/tex/cartonati/vari/insieme.jpg"
+            ],
+            titoli: [
+              "Tex — L'inesorabile (Mauro Boselli, Claudio Villa)",
+              "La mano rossa",
+              "I cinquant'anni di Tex — omaggio ad Aurelio Galleppini",
+              "Tex — Un eroe per amico (Gianni Bono, Leonardo Gori)"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  /* ==================== ALAN FORD ==================== */
   {
     id: "alanford",
-    collana: "Alan Ford",
-    range: "1 — 10",
     personaggio: "Alan Ford",
-    crediti: "Testi di Max Bunker, disegni di Magnus",
-    editore: "Editoriale Corno",
-    edizione: "Prima edizione, originali",
-    conservazione: "da magazzino",
     nota: "",
-    foto: [
-      "fumetti/alanford/alanford_01.jpg",
-      "fumetti/alanford/alanford_02.jpg",
-      "fumetti/alanford/alanford_03.jpg",
-      "fumetti/alanford/alanford_04.jpg"
-    ],
-    titoli: [
-      "Il Gruppo T.N.T.",
-      "Il dente cariato",
-      "Operazione Frankenstein",
-      "La casa dei fantasmi",
-      "Date! Date! Date!",
-      "Alex Berry non c'è più",
-      "Una gita a San Guerreta",
-      "L'albero di Natale",
-      "Zoo Symphony",
-      "Formule"
+    serie: [
+      {
+        id: "af-corno",
+        n: 10,
+        titolo: "Serie regolare",
+        crediti: "Testi di Max Bunker, disegni di Magnus · Editoriale Corno",
+        range: "1 – 10",
+        edizione: "Prima edizione, originali",
+        conservazione: "da magazzino",
+        nota: "",
+        foto: [
+          "fumetti/alanford/alanford_01.jpg",
+          "fumetti/alanford/alanford_02.jpg",
+          "fumetti/alanford/alanford_03.jpg",
+          "fumetti/alanford/alanford_04.jpg"
+        ],
+        titoli: [
+          "Il Gruppo T.N.T.",
+          "Il dente cariato",
+          "Operazione Frankenstein",
+          "La casa dei fantasmi",
+          "Date! Date! Date!",
+          "Alex Berry non c'è più",
+          "Una gita a San Guerreta",
+          "L'albero di Natale",
+          "Zoo Symphony",
+          "Formule"
+        ]
+      }
     ]
   },
+
+  /* ==================== DYLAN DOG ==================== */
   {
     id: "dylandog",
-    collana: "Dylan Dog",
-    range: "1 — 20",
     personaggio: "Dylan Dog",
-    crediti: "Testi di Tiziano Sclavi, disegni di vari autori",
-    editore: "Daim Press / Sergio Bonelli Editore",
-    edizione: "Prima edizione, originali",
-    conservazione: "da edicola",
     nota: "",
-    foto: [
-      "fumetti/dylandog/dylandog_01.jpg",
-      "fumetti/dylandog/dylandog_02.jpg",
-      "fumetti/dylandog/dylandog_03.jpg",
-      "fumetti/dylandog/dylandog_04.jpg",
-      "fumetti/dylandog/dylandog_05.jpg",
-      "fumetti/dylandog/dylandog_06.jpg",
-      "fumetti/dylandog/dylandog_07.jpg"
-    ],
-    titoli: [
-      "L'Alba dei Morti Viventi",
-      "Jack lo Squartatore",
-      "Le Notti della Luna Piena",
-      "Il Fantasma di Anna Never",
-      "Gli Uccisori",
-      "La Bellezza del Demonio",
-      "La Zona del Crepuscolo",
-      "Il Ritorno del Mostro",
-      "Alfa e Omega",
-      "Attraverso lo Specchio",
-      "Diabolo il Grande",
-      "Killer!",
-      "Vivono tra Noi",
-      "Fra la Vita e la Morte",
-      "Canale 666",
-      "Il Castello della Paura",
-      "La Dama in Nero",
-      "Cagliostro!",
-      "Memorie dall'Invisibile",
-      "Dal Profondo"
+    serie: [
+      {
+        id: "dd-regolare",
+        n: 20,
+        titolo: "Serie regolare",
+        crediti: "Testi di Tiziano Sclavi, disegni di vari autori · Daim Press / Sergio Bonelli Editore",
+        range: "1 – 20",
+        edizione: "Prima edizione, originali",
+        conservazione: "da edicola",
+        nota: "",
+        foto: [
+          "fumetti/dylandog/dylandog_01.jpg",
+          "fumetti/dylandog/dylandog_02.jpg",
+          "fumetti/dylandog/dylandog_03.jpg",
+          "fumetti/dylandog/dylandog_04.jpg",
+          "fumetti/dylandog/dylandog_05.jpg",
+          "fumetti/dylandog/dylandog_06.jpg",
+          "fumetti/dylandog/dylandog_07.jpg"
+        ],
+        titoli: [
+          "L'Alba dei Morti Viventi",
+          "Jack lo Squartatore",
+          "Le Notti della Luna Piena",
+          "Il Fantasma di Anna Never",
+          "Gli Uccisori",
+          "La Bellezza del Demonio",
+          "La Zona del Crepuscolo",
+          "Il Ritorno del Mostro",
+          "Alfa e Omega",
+          "Attraverso lo Specchio",
+          "Diabolo il Grande",
+          "Killer!",
+          "Vivono tra Noi",
+          "Fra la Vita e la Morte",
+          "Canale 666",
+          "Il Castello della Paura",
+          "La Dama in Nero",
+          "Cagliostro!",
+          "Memorie dall'Invisibile",
+          "Dal Profondo"
+        ]
+      }
     ]
   },
+
+  /* ============ LA COMPAGNIA DELLA FORCA ============ */
   {
     id: "forca",
-    collana: "La Compagnia della Forca",
-    range: "1 — 19",
     personaggio: "La Compagnia della Forca",
-    crediti: "Magnus & Romanini",
-    editore: "",
-    edizione: "Prima edizione, originali",
-    conservazione: "ottimo",
-    nota: "Serie completa del 1979. La collezione comprende gli adesivi, la cartolina e due adesivi inediti extra rari, mai usciti nella serie regolare.",
-    foto: [
-      "fumetti/forca/forca_01.jpg",
-      "fumetti/forca/forca_02.jpg",
-      "fumetti/forca/forca_03.jpg",
-      "fumetti/forca/forca_04.jpg",
-      "fumetti/forca/forca_05.jpg"
-    ],
-    titoli: [
-      "La Compagnia della Forca",
-      "Il Castellano Sparviero",
-      "Il Rapimento di Annalisa",
-      "Il Reame di Bellorizzonte",
-      "Il Grande Torneo",
-      "Il Ritorno di Gerardo",
-      "Il Trullo dei Sette Savi",
-      "La Pantera del Mare",
-      "L'Abate Nero",
-      "L'Impero dell'Albero Secco",
-      "Il Pasticciere del Re",
-      "La Traversata Maledetta",
-      "Gli Schiavi di Punis",
-      "Il Tappeto Volante",
-      "Un Certo Dottor Nadir",
-      "La Rosa della Discordia",
-      "I Due Genii Siamesi",
-      "La Bella Fiammeggiante",
-      "La Resa dei Conti"
+    nota: "",
+    serie: [
+      {
+        id: "forca-regolare",
+        n: 19,
+        titolo: "Serie regolare",
+        crediti: "Magnus & Romanini",
+        range: "1 – 19",
+        edizione: "Prima edizione, originali",
+        conservazione: "ottimo",
+        nota: "Serie completa del 1979. La collezione comprende gli adesivi, la cartolina e due adesivi inediti extra rari, mai usciti nella serie regolare.",
+        foto: [
+          "fumetti/forca/forca_01.jpg",
+          "fumetti/forca/forca_02.jpg",
+          "fumetti/forca/forca_03.jpg",
+          "fumetti/forca/forca_04.jpg",
+          "fumetti/forca/forca_05.jpg"
+        ],
+        titoli: [
+          "La Compagnia della Forca",
+          "Il Castellano Sparviero",
+          "Il Rapimento di Annalisa",
+          "Il Reame di Bellorizzonte",
+          "Il Grande Torneo",
+          "Il Ritorno di Gerardo",
+          "Il Trullo dei Sette Savi",
+          "La Pantera del Mare",
+          "L'Abate Nero",
+          "L'Impero dell'Albero Secco",
+          "Il Pasticciere del Re",
+          "La Traversata Maledetta",
+          "Gli Schiavi di Punis",
+          "Il Tappeto Volante",
+          "Un Certo Dottor Nadir",
+          "La Rosa della Discordia",
+          "I Due Genii Siamesi",
+          "La Bella Fiammeggiante",
+          "La Resa dei Conti"
+        ]
+      }
     ]
   },
+
+  /* ==================== MAXMAGNUS ==================== */
   {
     id: "maxmagnus",
-    collana: "Maxmagnus",
-    range: "1 — 16",
     personaggio: "Maxmagnus",
-    crediti: "Testi di Max Bunker, disegni di Magnus",
-    editore: "",
-    edizione: "Prima edizione, originali",
-    conservazione: "ottimo",
-    nota: "Serie completa e originale, con tutti gli adesivi.",
-    foto: [
-      "fumetti/maxmagnus/maxmagnus_01.jpg",
-      "fumetti/maxmagnus/maxmagnus_02.jpg",
-      "fumetti/maxmagnus/maxmagnus_03.jpg"
-    ],
-    titoli: [
-      "C'era una Volta un Re",
-      "Il Giorno del Giudizio Salomonico",
-      "Il Lago dei Miracoli",
-      "Il Rapimento del Principe",
-      "La Catena della Fraternità",
-      "E il Gran Giorno Venne",
-      "Sponsali Decretati",
-      "La Festa dei Bagordi",
-      "Il Principe è Impazzito",
-      "Complotto Fatale",
-      "Natale di Pace",
-      "Minaccia nell'Ombra",
-      "La Cattura di Sante",
-      "Operazione Immagine",
-      "La Magna Tenzone",
-      "L'Ora della Rivolta"
+    nota: "",
+    serie: [
+      {
+        id: "mm-regolare",
+        n: 16,
+        titolo: "Serie regolare",
+        crediti: "Testi di Max Bunker, disegni di Magnus",
+        range: "1 – 16",
+        edizione: "Prima edizione, originali",
+        conservazione: "ottimo",
+        nota: "Serie completa e originale, con tutti gli adesivi.",
+        foto: [
+          "fumetti/maxmagnus/maxmagnus_01.jpg",
+          "fumetti/maxmagnus/maxmagnus_02.jpg",
+          "fumetti/maxmagnus/maxmagnus_03.jpg"
+        ],
+        titoli: [
+          "C'era una Volta un Re",
+          "Il Giorno del Giudizio Salomonico",
+          "Il Lago dei Miracoli",
+          "Il Rapimento del Principe",
+          "La Catena della Fraternità",
+          "E il Gran Giorno Venne",
+          "Sponsali Decretati",
+          "La Festa dei Bagordi",
+          "Il Principe è Impazzito",
+          "Complotto Fatale",
+          "Natale di Pace",
+          "Minaccia nell'Ombra",
+          "La Cattura di Sante",
+          "Operazione Immagine",
+          "La Magna Tenzone",
+          "L'Ora della Rivolta"
+        ]
+      }
     ]
   }
 ];

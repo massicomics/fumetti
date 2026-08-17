@@ -288,7 +288,9 @@ section.autore{margin-top:3.2rem;}
   box-shadow:0 2px 8px rgba(28,26,23,.16); transition:transform .18s;
 }
 .foto-wrap:hover img{transform:translateY(-3px);}
-.foto-wrap::after{
+.foto-wrap{position:relative;}
+.foto-wrap .cornice-foto{position:relative; display:block;}
+.foto-wrap .cornice-foto::after{
   content:"⤢"; position:absolute; right:.4rem; bottom:.4rem;
   font-size:.72rem; line-height:1; color:#1c1a17;
   background:rgba(250,248,242,.88); border:1px solid var(--linea);
@@ -407,6 +409,16 @@ footer{
 /* --- TELEFONO: due colonne, non una --- */
 @media (max-width:700px){
   main{padding:0 .7rem 3rem;}
+  .barra-alta{padding:.5rem .8rem;}
+  .marchio{font-size:.9rem;}
+  .btn-indice{font-size:.62rem; padding:.4rem .7rem;}
+  .filtri-bar{
+    top:2.4rem; flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
+    gap:1rem; -webkit-overflow-scrolling:touch;
+  }
+  .filtro-gruppo{flex:0 0 auto;}
+  .filtro-gruppo select{max-width:none;}
+  .filtro-reset{flex:0 0 auto;}
   .grid{grid-template-columns:repeat(2,1fr); gap:.7rem;}
   .tavola-card .cornice{padding:.3rem;}
   .tavola-label{font-size:.6rem; margin-top:.4rem; letter-spacing:0;}
@@ -425,6 +437,123 @@ footer{
   .filtri-bar{gap:.8rem; padding:.7rem .8rem;}
   .filtro-gruppo select{font-size:.85rem; max-width:11rem;}
 }
+
+/* ---------- BARRA FISSA: home + indice ---------- */
+.barra-alta{
+  position:sticky; top:0; z-index:60;
+  background:var(--inchiostro); color:var(--carta);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding:.6rem 1.2rem;
+}
+.marchio{
+  appearance:none; border:0; background:transparent; color:var(--carta);
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:1rem; cursor:pointer; padding:.2rem 0; letter-spacing:.01em;
+}
+.marchio:hover{opacity:.75;}
+.btn-indice{
+  appearance:none; border:1px solid rgba(237,230,214,.45); background:transparent;
+  color:var(--carta); font-family:'Courier New',monospace; font-size:.7rem;
+  font-weight:bold; letter-spacing:.16em; text-transform:uppercase;
+  padding:.45rem .9rem; border-radius:2px; cursor:pointer; white-space:nowrap;
+}
+.btn-indice:hover{background:rgba(237,230,214,.14);}
+.filtri-bar{top:2.6rem;}
+
+/* ---------- PANNELLO INDICE ---------- */
+.indice{
+  position:fixed; inset:0; z-index:150; display:none;
+  background:rgba(12,11,10,.6);
+}
+.indice.open{display:block;}
+.indice-inner{
+  position:absolute; top:0; right:0; bottom:0; width:min(30rem,92vw);
+  background:var(--carta); border-left:3px solid var(--inchiostro);
+  overflow-y:auto; padding:1.4rem 1.5rem 3rem;
+}
+.indice-testa{
+  display:flex; justify-content:space-between; align-items:center;
+  border-bottom:2px solid var(--inchiostro); padding-bottom:.7rem; margin-bottom:1.2rem;
+}
+.indice-testa h2{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:1.3rem; margin:0;
+}
+.indice-chiudi{
+  appearance:none; border:1px solid var(--linea); background:transparent;
+  font-size:.95rem; cursor:pointer; color:var(--inchiostro);
+  padding:.25rem .6rem; border-radius:2px;
+}
+.ind-sez{
+  font-family:'Courier New',monospace; font-size:.7rem; font-weight:bold;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--rosso);
+  margin:1.6rem 0 .5rem; padding-bottom:.35rem;
+  border-bottom:1px solid var(--linea);
+}
+.ind-sez:first-of-type{margin-top:0;}
+.indice button[data-va]{
+  display:block; width:100%; text-align:left; appearance:none;
+  border:0; border-bottom:1px solid rgba(201,189,159,.35);
+  background:transparent; cursor:pointer;
+  font-family:Georgia,serif; color:var(--inchiostro);
+  padding:.45rem 0; font-size:.98rem; line-height:1.35;
+}
+.indice button[data-va]:hover{color:var(--rosso);}
+.indice button.liv2{padding-left:1rem; font-size:.92rem;}
+.indice button.liv3{padding-left:2rem; font-size:.86rem; color:#4a4234;}
+.foto-did{
+  margin-top:.35rem; font-family:'Courier New',monospace; font-size:.64rem;
+  line-height:1.4; color:var(--tenue);
+}
+.elenco-conta{
+  float:right; font-family:'Courier New',monospace; font-size:.68rem;
+  color:var(--tenue); font-weight:normal; letter-spacing:0;
+}
+.elenco-titoli + .elenco-titoli{margin-top:1.4rem;}
+.ind-conta{
+  float:right; font-family:'Courier New',monospace; font-size:.7rem;
+  color:var(--tenue); font-weight:normal; letter-spacing:0;
+}
+.ind-sez .ind-conta{color:var(--rosso);}
+
+/* ---------- TORNA SU ---------- */
+.su{
+  position:fixed; right:1rem; bottom:1rem; z-index:55;
+  appearance:none; border:1px solid var(--inchiostro);
+  background:var(--carta); color:var(--inchiostro);
+  font-family:'Courier New',monospace; font-size:.8rem;
+  width:2.7rem; height:2.7rem; border-radius:2px; cursor:pointer;
+  box-shadow:0 3px 12px rgba(28,26,23,.28);
+  opacity:0; pointer-events:none; transition:opacity .2s;
+}
+.su.vedi{opacity:.92; pointer-events:auto;}
+
+/* ---------- FUMETTI: personaggio > serie > gruppo ---------- */
+section.personaggio{margin-top:3.4rem;}
+.pers-head{
+  border-bottom:2px solid var(--inchiostro); padding-bottom:.8rem; margin-bottom:.5rem;
+}
+.pers-etichetta{
+  font-family:'Courier New',monospace; font-size:.72rem; font-weight:bold;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--rosso);
+  margin-bottom:.3rem;
+}
+.pers-nome{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:clamp(1.5rem,3.8vw,2.1rem); margin:0; line-height:1.1;
+}
+.serie{margin-top:2.2rem;}
+.serie-etichetta{
+  font-family:'Courier New',monospace; font-size:.7rem; font-weight:bold;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--tenue);
+  border-left:3px solid var(--rosso); padding-left:.7rem; margin-bottom:1.2rem;
+}
+.gruppo.gruppo-unico{margin-top:0; border-bottom:0;}
+.gruppo{margin-top:2rem; padding-bottom:1.8rem; border-bottom:1px solid var(--linea);}
+.gruppo h4{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:1.2rem; margin:0 0 .2rem;
+}
 </style>
 </head>
 <body>
@@ -437,6 +566,11 @@ footer{
   <p class="hero-sub">Esposizione privata della mia collezione di fumetti e tavole originali.</p>
   <div class="hero-tag">Collezione privata, mostrata solo a titolo espositivo, senza fini commerciali</div>
 </header>
+
+<div class="barra-alta">
+  <button class="marchio" id="btnHome">I Fumetti del Massi</button>
+  <button class="btn-indice" id="btnIndice">☰ Indice</button>
+</div>
 
 <div class="filtri-bar" id="filtriBar">
   <div class="filtro-gruppo">
@@ -485,7 +619,7 @@ footer{
     <div class="blocco-titolo">
       <div class="sovratitolo">Collezione</div>
       <h2>Fumetti</h2>
-      <div class="blocco-sub">Albi in prima edizione, raccolti per collana</div>
+      <div class="blocco-sub">Raccolti per personaggio e serie</div>
     </div>
     <p class="nota-blocco">Tutti gli albi sono sempre stati conservati in apposite buste sigillate.</p>
     <div id="fumettiWrap"></div>
@@ -525,6 +659,18 @@ footer{
     <a href="https://wa.me/393245645064" target="_blank" rel="noopener" class="contatti-wa">WhatsApp +39 324 5645064</a>
   </div>
 </div>
+
+<div class="indice" id="indice">
+  <div class="indice-inner">
+    <div class="indice-testa">
+      <h2>Indice della collezione</h2>
+      <button class="indice-chiudi" id="indiceChiudi">✕</button>
+    </div>
+    <div id="indiceCorpo"></div>
+  </div>
+</div>
+
+<button class="su" id="btnSu" title="Torna su">▲</button>
 
 <div class="lightbox" id="lightbox">
   <button class="lb-close" id="lbClose">✕ Chiudi</button>
@@ -662,44 +808,87 @@ AUTORI.filter(a=>(a.singole||[]).length).forEach(aut=>{
   singoleWrap.appendChild(sec);
 });
 
-/* ---- BLOCCO 3: FUMETTI ---- */
+/* ---- BLOCCO 3: FUMETTI (personaggio > serie > gruppo) ---- */
 const fumettiWrap = document.getElementById("fumettiWrap");
-FUMETTI.forEach(c=>{
-  const sec = document.createElement("section");
-  sec.className = "collana";
-  sec.id = "sec-fum-" + c.id;
-  sec.dataset.personaggio = c.personaggio;
-  sec.innerHTML = `
-    <div class="collana-head">
-      <div>
-        <div class="range">Numeri ${c.range}</div>
-        <h3>${c.collana}</h3>
-      </div>
-    </div>
-    <div class="collana-crediti">${c.crediti}${c.editore ? " · " + c.editore : ""}</div>
-    <div class="scheda">
-      <div class="scheda-riga"><span class="voce">Edizione</span>${c.edizione}</div>
-      <div class="scheda-riga"><span class="voce">Stato di conservazione</span>${c.conservazione}</div>
-      <div class="scheda-riga"><span class="voce">Serie</span>completa, ${c.range.replace("—","–")}</div>
-    </div>
-    ${c.nota ? `<div class="collana-nota">${c.nota}</div>` : ""}
+
+function schedaGruppo(g){
+  const righe = [
+    g.edizione ? `<div class="scheda-riga"><span class="voce">Edizione</span>${g.edizione}</div>` : "",
+    g.conservazione ? `<div class="scheda-riga"><span class="voce">Stato di conservazione</span>${g.conservazione}</div>` : "",
+    g.range ? `<div class="scheda-riga"><span class="voce">Serie</span>completa, ${g.range}</div>` : "",
+    g.volumi ? `<div class="scheda-riga"><span class="voce">Volumi</span>${g.volumi}</div>` : ""
+  ].join("");
+  return `<div class="scheda">${righe}</div>`;
+}
+
+function corpoGruppo(g, personaggio){
+  const box = document.createElement("div");
+  box.className = "gruppo";
+  box.id = "sec-" + g.id;
+  if(!g.titolo) box.classList.add("gruppo-unico");
+  box.innerHTML = `
+    ${g.titolo ? `<h4>${g.titolo}</h4>` : ""}
+    ${g.crediti ? `<div class="collana-crediti">${g.crediti}</div>` : ""}
+    ${schedaGruppo(g)}
+    ${g.nota ? `<div class="collana-nota">${g.nota}</div>` : ""}
     <div class="foto-collana"></div>
-    <div class="elenco-titoli">
-      <div class="elenco-cap">I ${c.titoli.length} albi</div>
-      <ol>${c.titoli.map(t=>`<li>${t}</li>`).join("")}</ol>
-    </div>
+    <div class="elenchi"></div>
   `;
-  const fg = sec.querySelector(".foto-collana");
-  c.foto.forEach(rel=>{
+
+  /* le foto possono essere una stringa oppure {f, didascalia} */
+  const fg = box.querySelector(".foto-collana");
+  (g.foto || []).forEach(voce=>{
+    const rel = (typeof voce === "string") ? voce : voce.f;
+    const did = (typeof voce === "string") ? null : voce.didascalia;
     const w = document.createElement("div");
     w.className = "foto-wrap";
-    w.innerHTML = imgTag(rel, c.collana);
+    w.innerHTML = `<span class="cornice-foto">${imgTag(rel, personaggio)}</span>` + (did ? `<div class="foto-did">${did}</div>` : "");
     const idx = flatImages.length;
-    flatImages.push({rel, caption: c.collana + " " + c.range + " — " + c.edizione});
+    flatImages.push({rel, caption: did || (personaggio + (g.titolo ? " — " + g.titolo : ""))});
     w.onclick = ()=> openLightbox(idx);
     fg.appendChild(w);
   });
-  personaggiSet.add(c.personaggio);
+
+  /* un gruppo può avere più elenchi, oppure il vecchio campo titoli */
+  const el = box.querySelector(".elenchi");
+  const liste = (g.elenchi && g.elenchi.length)
+    ? g.elenchi
+    : ((g.titoli && g.titoli.length)
+        ? [{cap: (g.titoli.length === 1 ? "Il volume" : "I " + g.titoli.length + " volumi"), voci: g.titoli}]
+        : []);
+  liste.forEach(l=>{
+    const d = document.createElement("div");
+    d.className = "elenco-titoli";
+    d.innerHTML = `<div class="elenco-cap">${l.cap}<span class="elenco-conta">${l.voci.length}</span></div>
+      <ol>${l.voci.map(t=>`<li>${t}</li>`).join("")}</ol>`;
+    el.appendChild(d);
+  });
+  return box;
+}
+
+FUMETTI.forEach(pers=>{
+  const sec = document.createElement("section");
+  sec.className = "personaggio";
+  sec.id = "sec-pers-" + pers.id;
+  sec.dataset.personaggio = pers.personaggio;
+  sec.innerHTML = `
+    <div class="pers-head">
+      <div class="pers-etichetta">Personaggio</div>
+      <div class="pers-nome">${pers.personaggio}</div>
+      ${pers.nota ? `<p class="autore-nota">${pers.nota}</p>` : ""}
+    </div>
+  `;
+  (pers.serie || []).forEach(serie=>{
+    const bs = document.createElement("div");
+    bs.className = "serie";
+    bs.id = "sec-serie-" + serie.id;
+    bs.innerHTML = `<div class="serie-etichetta">${serie.titolo}</div>`;
+    /* se la serie ha gruppi li mostro, altrimenti tratto la serie stessa come gruppo */
+    const gruppi = (serie.gruppi && serie.gruppi.length) ? serie.gruppi : [serie];
+    gruppi.forEach(g=> bs.appendChild(corpoGruppo(g, pers.personaggio)));
+    sec.appendChild(bs);
+  });
+  personaggiSet.add(pers.personaggio);
   fumettiWrap.appendChild(sec);
 });
 
@@ -708,7 +897,7 @@ const rGrid = document.getElementById("raccGrid");
 RACCOGLITORI.forEach(rel=>{
   const w = document.createElement("div");
   w.className = "racc-wrap";
-  w.innerHTML = imgTag(rel, "Raccoglitore in pelle");
+  w.innerHTML = `<span class="cornice-foto">${imgTag(rel, "Raccoglitore in pelle")}</span>`;
   const idx = flatImages.length;
   flatImages.push({rel, caption:"Raccoglitori in pelle su misura, 45×35 cm"});
   w.onclick = ()=> openLightbox(idx);
@@ -750,7 +939,9 @@ function applyFiltri(){
   document.querySelectorAll(".storia").forEach(s=>{ s.style.display = haCarte(s) ? "" : "none"; });
   document.querySelectorAll("section.autore").forEach(s=>{ s.style.display = haCarte(s) ? "" : "none"; });
 
-  document.querySelectorAll("section.collana").forEach(sec=>{
+  /* i fumetti rispondono solo a Collezione e Personaggio.
+     Il filtro Autore riguarda i disegnatori delle tavole originali. */
+  document.querySelectorAll("section.personaggio").forEach(sec=>{
     const ok = vuoleFumetti && (!fp || sec.dataset.personaggio === fp);
     sec.style.display = ok ? "" : "none";
   });
@@ -822,6 +1013,142 @@ const contattiPopup = document.getElementById("contattiPopup");
 document.getElementById("contattiBtn").onclick = ()=> contattiPopup.classList.add("open");
 document.getElementById("contattiClose").onclick = ()=> contattiPopup.classList.remove("open");
 contattiPopup.addEventListener("click",(e)=>{ if(e.target === contattiPopup) contattiPopup.classList.remove("open"); });
+
+
+/* ---- INDICE DELLA COLLEZIONE ---- */
+const indice = document.getElementById("indice");
+const indiceCorpo = document.getElementById("indiceCorpo");
+
+/* conteggi: tavole per le originali, albi per i fumetti */
+/* quante tavole possiede la collezione: nTavole se indicato,
+   altrimenti si contano quelle presenti sul sito */
+function nTavoleStoria(st){
+  if(st.nTavole) return st.nTavole;
+  return (st.capitoli||[]).reduce((t,c)=> t + (c.tavole||[]).length, 0);
+}
+function nStorieAutore(a){
+  return (a.storie||[]).reduce((t,st)=> t + nTavoleStoria(st), 0);
+}
+function nGruppo(g){ return g.n || 0; }
+function nSerie(se){
+  return ((se.gruppi && se.gruppi.length) ? se.gruppi : [se]).reduce((t,g)=> t + nGruppo(g), 0);
+}
+function nPersonaggio(p){
+  return (p.serie||[]).reduce((t,se)=> t + nSerie(se), 0);
+}
+function cnt(n){ return n ? `<span class="ind-conta">${n}</span>` : ""; }
+
+function vociIndice(){
+  const h = [];
+
+  const conStorie  = AUTORI.filter(a=>(a.storie||[]).length);
+  const conSingole = AUTORI.filter(a=>(a.singole||[]).length);
+  const totStorie  = conStorie.reduce((t,a)=> t + nStorieAutore(a), 0);
+  const totSingole = conSingole.reduce((t,a)=> t + a.singole.length, 0);
+
+  h.push(`<div class="ind-sez">Tavole originali${cnt(totStorie + totSingole)}</div>`);
+
+  if(conStorie.length){
+    h.push(`<button type="button" data-va="bloccoStorie">Storie complete${cnt(totStorie)}</button>`);
+    conStorie.forEach(a=>{
+      h.push(`<button type="button" class="liv2" data-va="sec-storie-${a.id}">${a.nome}${cnt(nStorieAutore(a))}</button>`);
+      (a.storie||[]).forEach(st=>{
+        h.push(`<button type="button" class="liv3" data-va="sec-${st.id}">${st.titolo}${cnt(nTavoleStoria(st))}</button>`);
+      });
+    });
+  }
+
+  if(conSingole.length){
+    h.push(`<button type="button" data-va="bloccoSingole">Tavole singole${cnt(totSingole)}</button>`);
+    conSingole.forEach(a=>{
+      h.push(`<button type="button" class="liv2" data-va="sec-singole-${a.id}">${a.nome}${cnt(a.singole.length)}</button>`);
+    });
+  }
+
+  const totFumetti = FUMETTI.reduce((t,p)=> t + nPersonaggio(p), 0);
+  h.push(`<div class="ind-sez">Fumetti${cnt(totFumetti)}</div>`);
+  FUMETTI.forEach(p=>{
+    h.push(`<button type="button" data-va="sec-pers-${p.id}">${p.personaggio}${cnt(nPersonaggio(p))}</button>`);
+    (p.serie||[]).forEach(se=>{
+      h.push(`<button type="button" class="liv2" data-va="sec-serie-${se.id}">${se.titolo}${cnt(nSerie(se))}</button>`);
+      if(se.gruppi && se.gruppi.length > 1){
+        se.gruppi.forEach(g=>{
+          h.push(`<button type="button" class="liv3" data-va="sec-${g.id}">${g.titolo}${cnt(nGruppo(g))}</button>`);
+        });
+      }
+    });
+  });
+
+  h.push('<div class="ind-sez">Altro</div>');
+  h.push('<button type="button" data-va="raccSection">I raccoglitori</button>');
+  return h.join("");
+}
+indiceCorpo.innerHTML = vociIndice();
+
+function apriIndice(){ indice.classList.add("open"); document.body.style.overflow="hidden"; }
+function chiudiIndice(){ indice.classList.remove("open"); document.body.style.overflow=""; }
+document.getElementById("btnIndice").onclick = apriIndice;
+document.getElementById("indiceChiudi").onclick = chiudiIndice;
+indice.addEventListener("click", e=>{ if(e.target === indice) chiudiIndice(); });
+
+/* Porta alla sezione tenendo conto delle barre fisse, e si ricorregge
+   finché le immagini che si caricano smettono di spostare il contenuto. */
+function altezzaBarre(){
+  const b = document.querySelector(".barra-alta");
+  const f = document.getElementById("filtriBar");
+  return (b ? b.offsetHeight : 0) + (f ? f.offsetHeight : 0) + 10;
+}
+
+let inseguimento = null;
+function fermaInseguimento(){
+  if(inseguimento){ clearTimeout(inseguimento); inseguimento = null; }
+}
+["wheel","touchstart","keydown"].forEach(ev=>
+  window.addEventListener(ev, fermaInseguimento, {passive:true}));
+
+function vaiA(el){
+  if(!el) return;
+  fermaInseguimento();
+  let giri = 0, fermi = 0;
+  const passo = ()=>{
+    const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY - altezzaBarre());
+    if(Math.abs(window.scrollY - y) > 2){
+      window.scrollTo({top:y, behavior: giri === 0 ? "smooth" : "auto"});
+      fermi = 0;
+    } else {
+      fermi++;
+    }
+    giri++;
+    if(fermi < 3 && giri < 25) inseguimento = setTimeout(passo, 130);
+    else inseguimento = null;
+  };
+  passo();
+}
+
+indiceCorpo.addEventListener("click", e=>{
+  const a = e.target.closest("[data-va]");
+  if(!a) return;
+  chiudiIndice();
+  const el = document.getElementById(a.dataset.va);
+  if(!el) return;
+  /* se il filtro attivo nasconde quella parte, lo azzero prima di andarci */
+  if(el.offsetParent === null){
+    selC.value = ""; selP.value = ""; selA.value = ""; applyFiltri();
+  }
+  setTimeout(()=> vaiA(el), 60);
+});
+
+/* ---- HOME E TORNA SU ---- */
+document.getElementById("btnHome").onclick = ()=> window.scrollTo({top:0, behavior:"smooth"});
+const btnSu = document.getElementById("btnSu");
+btnSu.onclick = ()=> window.scrollTo({top:0, behavior:"smooth"});
+window.addEventListener("scroll", ()=>{
+  btnSu.classList.toggle("vedi", window.scrollY > 700);
+}, {passive:true});
+
+document.addEventListener("keydown", e=>{
+  if(e.key === "Escape") chiudiIndice();
+});
 
 applyFiltri();
 </script>
