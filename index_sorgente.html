@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>I Fumetti del Massi — Tavole originali di Zagor e Tex, collezione privata</title>
+<meta name="description" content="Collezione privata di tavole originali a china: le storie complete di Zagor «Odio!» e «la dea nera» disegnate da Franco Donatelli, tavole di Gallieno Ferri, Raffaele Della Monica, Mauro Laurenti, Giovanni Romanini e Marco Verni. E albi in prima edizione: Tex cartonati e Texoni, Alan Ford, Dylan Dog, Maxmagnus, La Compagnia della Forca. Esposizione senza fini commerciali.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://massicomics.github.io/fumetti/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="I Fumetti del Massi — Tavole Originali e Collezione">
+<meta property="og:description" content="Tavole originali a china di Zagor — Donatelli, Ferri, Della Monica, Laurenti, Romanini — e albi in prima edizione: Tex, Alan Ford, Dylan Dog, Maxmagnus, La Compagnia della Forca.">
+<meta property="og:url" content="https://massicomics.github.io/fumetti/">
+<meta property="og:locale" content="it_IT">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="I Fumetti del Massi">
+<meta name="twitter:description" content="Tavole originali a china di Zagor e albi a fumetti in prima edizione. Collezione privata.">
+
+<style>
+:root{
+  color-scheme: light only;
+  --carta:#ede6d6;
+  --carta-scura:#e2d8c3;
+  --inchiostro:#1c1a17;
+  --rosso:#5c1a11;
+  --tenue:#4a4234;
+  --oro:#5c3f18;
+  --linea:#c9bd9f;
+  --bianco-tavola:#faf8f2;
+  --max:1180px;
+}
+*{box-sizing:border-box;}
+/* niente scorrimento animato globale: le voci dell'indice devono
+   SALTARE al punto. Il "torna su" resta animato perché lo chiede
+   esplicitamente nel codice. */
+html{background:#ede6d6 !important; color-scheme:light only;}
+body{
+  margin:0;
+  background:#ede6d6 !important;
+  color:#1c1a17 !important;
+  font-family:Georgia,'Times New Roman',serif;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-color-scheme:dark){
+  html,body{background:#ede6d6 !important; color:#1c1a17 !important;}
+}
+a{color:inherit;}
+img{display:block;}
+
+/* ---------- HERO ---------- */
+header.hero{
+  position:relative;
+  background:#ede6d6 !important;
+  padding:5.5rem 1.5rem 3.5rem;
+  text-align:center;
+  border-bottom:3px solid var(--inchiostro);
+  overflow:hidden;
+}
+header.hero::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:14px;
+  background-image:repeating-linear-gradient(90deg,var(--inchiostro) 0 2px,transparent 2px 14px);
+  opacity:.6;
+}
+h1.wordmark{
+  font-family:Georgia,serif; font-weight:900; font-style:italic;
+  font-size:clamp(2.6rem,9vw,6.2rem); line-height:1.05; margin:0;
+  letter-spacing:-.01em; color:#1c1a17 !important; transform:rotate(-1.2deg);
+}
+h1.wordmark span{display:block;}
+h1.wordmark .del-massi{font-size:.55em; margin-top:.35em;}
+.hero-sub{
+  margin:2.2rem auto 0; max-width:34rem; font-size:1.05rem;
+  line-height:1.65; color:#2b2822 !important;
+}
+.hero-tag{
+  margin-top:1.6rem; font-family:'Courier New',monospace; font-size:.68rem;
+  letter-spacing:.16em; text-transform:uppercase; color:#6b4a1f;
+}
+
+/* ---------- BARRA FILTRI (unica navigazione) ---------- */
+.filtri-bar{
+  position:sticky; top:0; z-index:50;
+  background:var(--carta-scura);
+  border-bottom:2px solid var(--inchiostro);
+  display:flex; justify-content:center; gap:1.6rem; flex-wrap:wrap;
+  padding:.85rem 1.2rem;
+}
+.filtro-gruppo{display:flex; align-items:center; gap:.5rem;}
+.filtro-gruppo label{
+  font-family:'Courier New',monospace; font-size:.64rem; font-weight:bold;
+  letter-spacing:.16em; text-transform:uppercase; color:#6b2318;
+}
+.filtro-gruppo select{
+  font-family:Georgia,serif; font-size:.92rem;
+  background:var(--bianco-tavola); color:#1c1a17;
+  border:1px solid var(--linea); border-radius:2px; padding:.35rem .6rem;
+  max-width:14rem;
+}
+.filtro-reset{
+  appearance:none; border:1px solid var(--linea); background:transparent;
+  font-family:'Courier New',monospace; font-size:.64rem; letter-spacing:.12em;
+  text-transform:uppercase; color:#6b2318; padding:.42rem .8rem;
+  cursor:pointer; border-radius:2px;
+}
+.filtro-reset:hover{background:var(--bianco-tavola);}
+.nota-blocco{
+  margin:1.4rem 0 0; font-size:.95rem; line-height:1.7; color:#1c1a17;
+  max-width:50rem;
+}
+.nessun-risultato{
+  display:none; text-align:center; padding:5rem 1.5rem;
+  font-style:italic; color:#6b4a1f;
+}
+
+/* ---------- CONTENUTO ---------- */
+main{max-width:var(--max); margin:0 auto; padding:0 1.2rem 3rem;}
+
+/* separatore forte tra le grandi parti della collezione */
+.separatore{
+  height:16px; margin:4.5rem 0 0;
+  background-image:repeating-linear-gradient(90deg,var(--inchiostro) 0 2px,transparent 2px 14px);
+  opacity:.55;
+}
+.separatore + .blocco-titolo{margin-top:2.4rem;}
+
+/* titolo di blocco: informativo, non cliccabile */
+.blocco-titolo{
+  margin:4.2rem 0 0; padding-bottom:.8rem;
+  border-bottom:2px solid var(--inchiostro);
+}
+.blocco-titolo .sovratitolo{
+  font-family:'Courier New',monospace; font-size:.82rem; font-weight:bold;
+  letter-spacing:.26em; text-transform:uppercase; color:var(--rosso);
+  margin-bottom:.6rem;
+}
+.blocco-titolo h2{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:clamp(1.5rem,3.6vw,2.1rem); margin:0; line-height:1.15;
+  color:#2b2822;
+}
+.blocco-sub{
+  margin-top:.5rem; font-family:'Courier New',monospace; font-size:.74rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--tenue);
+}
+
+/* ---------- AUTORE ---------- */
+section.autore{margin-top:3.2rem;}
+.autore-head{
+  border-bottom:1px solid var(--linea); padding-bottom:.85rem; margin-bottom:.4rem;
+}
+.autore-etichetta{
+  font-family:'Courier New',monospace; font-size:.72rem; font-weight:bold;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--rosso);
+  margin-bottom:.32rem;
+}
+.autore-nome{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:clamp(1.45rem,3.6vw,2rem); margin:0; line-height:1.12; color:#1c1a17;
+}
+.conteggio{
+  font-family:'Courier New',monospace; font-size:.74rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--tenue); margin-top:.45rem;
+}
+.autore-nota{
+  margin:.8rem 0 0; font-size:.94rem; line-height:1.72; max-width:50rem;
+}
+
+/* ---------- STORIA ---------- */
+.storia{margin-top:2.4rem;}
+.storia-head{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  gap:2rem; flex-wrap:wrap; padding-bottom:.5rem;
+}
+.storia-tipo{
+  font-family:'Courier New',monospace; font-size:.64rem; letter-spacing:.18em;
+  text-transform:uppercase; color:#6b2318; margin-bottom:.4rem;
+}
+.storia-titolo{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:clamp(1.3rem,3.2vw,1.75rem); margin:0; line-height:1.15;
+}
+.storia-meta{
+  font-family:'Courier New',monospace; font-size:.78rem; line-height:1.85;
+  color:#1c1a17; text-align:right;
+}
+.storia-meta strong{
+  display:block; color:var(--rosso); letter-spacing:.14em; text-transform:uppercase;
+  font-size:.68rem; font-weight:bold;
+}
+.storia-intro{
+  margin:1rem 0 0; max-width:52rem; line-height:1.75; font-size:.98rem;
+}
+
+.capitolo{margin-top:2.4rem;}
+.capitolo-head{
+  border-left:3px solid var(--linea); padding-left:.9rem; margin-bottom:1.2rem;
+}
+.cap-num{
+  font-family:'Courier New',monospace; font-size:.74rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--tenue); display:block; margin-bottom:.32rem;
+}
+.cap-titolo{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:1.2rem; margin:0;
+}
+.cap-nota-finale{
+  margin-top:1.5rem; padding:1.1rem 1.25rem; background:var(--carta-scura);
+  border-left:3px solid var(--oro); font-size:.92rem; line-height:1.72;
+}
+
+/* ---------- GRIGLIA ---------- */
+.grid{
+  display:grid; gap:1.5rem; margin-top:1.2rem;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+}
+.tavola-card{cursor:zoom-in;}
+.tavola-card .cornice{
+  position:relative;
+  background:var(--bianco-tavola); padding:.55rem;
+  border:1px solid var(--linea);
+  box-shadow:0 2px 10px rgba(28,26,23,.16);
+  transition:transform .18s, box-shadow .18s;
+}
+.tavola-card:hover .cornice{
+  transform:translateY(-3px); box-shadow:0 8px 20px rgba(28,26,23,.26);
+}
+.tavola-card img{width:100%; height:auto;}
+/* segnale discreto: questa immagine si ingrandisce */
+.cornice::after{
+  content:"⤢"; position:absolute; right:.5rem; bottom:.5rem;
+  font-size:.75rem; line-height:1; color:#1c1a17;
+  background:rgba(250,248,242,.88); border:1px solid var(--linea);
+  padding:.18rem .3rem; border-radius:2px; opacity:.55;
+}
+.tavola-label{
+  display:flex; justify-content:space-between; align-items:baseline; gap:.6rem;
+  margin-top:.6rem; font-family:'Courier New',monospace; font-size:.72rem;
+  letter-spacing:.04em; text-transform:uppercase; color:#1c1a17; font-weight:bold;
+}
+.tavola-label .pag{color:#6b2318; font-weight:bold; white-space:nowrap;}
+.tag-riga{
+  margin-top:.32rem; font-family:'Courier New',monospace; font-size:.68rem;
+  letter-spacing:.06em; color:var(--tenue);
+}
+
+/* ---------- FUMETTI ---------- */
+.collana{margin-top:3rem; padding-bottom:2.2rem; border-bottom:1px solid var(--linea);}
+.collana-head{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  gap:1.5rem; flex-wrap:wrap; border-bottom:1px solid var(--linea);
+  padding-bottom:.8rem;
+}
+.collana-head h3{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:clamp(1.35rem,3.4vw,1.85rem); margin:0;
+}
+.collana-head .range{
+  font-family:'Courier New',monospace; font-size:.76rem; font-weight:bold;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--rosso);
+  margin-bottom:.32rem;
+}
+/* scheda dati: righe di testo, niente forme da pulsante */
+.scheda{margin-top:1.1rem; border-left:3px solid var(--linea); padding-left:1rem;}
+.scheda-riga{
+  font-family:'Courier New',monospace; font-size:.78rem; line-height:2;
+  color:#1c1a17;
+}
+.scheda-riga .voce{
+  color:var(--rosso); font-weight:bold; letter-spacing:.1em;
+  text-transform:uppercase; font-size:.7rem; margin-right:.5rem;
+}
+.collana-crediti{
+  font-family:'Courier New',monospace; font-size:.78rem; line-height:1.8;
+  color:#1c1a17; margin-top:.85rem;
+}
+.collana-nota{
+  margin-top:1.1rem; padding:1rem 1.2rem; background:var(--carta-scura);
+  border-left:3px solid var(--oro); font-size:.91rem; line-height:1.7;
+}
+.foto-collana{
+  display:grid; gap:1.1rem; margin-top:1.5rem;
+  grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+}
+.foto-wrap{position:relative; cursor:zoom-in;}
+.foto-wrap img{
+  width:100%; height:190px; object-fit:contain;
+  border:1px solid var(--linea); background:var(--bianco-tavola);
+  padding:.3rem;
+  box-shadow:0 2px 8px rgba(28,26,23,.16); transition:transform .18s;
+}
+.foto-wrap:hover img{transform:translateY(-3px);}
+.foto-wrap{position:relative;}
+.foto-wrap .cornice-foto{position:relative; display:block;}
+.foto-wrap .cornice-foto::after{
+  content:"⤢"; position:absolute; right:.4rem; bottom:.4rem;
+  font-size:.72rem; line-height:1; color:#1c1a17;
+  background:rgba(250,248,242,.88); border:1px solid var(--linea);
+  padding:.16rem .28rem; border-radius:2px; opacity:.55;
+}
+.elenco-titoli{margin-top:1.6rem;}
+.elenco-titoli summary{
+  cursor:pointer; font-family:'Courier New',monospace; font-size:.68rem;
+  letter-spacing:.14em; text-transform:uppercase; color:#6b2318;
+  padding:.6rem 0; border-top:1px solid var(--linea);
+}
+.elenco-titoli ol{
+  columns:2; column-gap:2.5rem; margin:.9rem 0 0; padding-left:1.3rem;
+  font-size:.92rem; line-height:1.9;
+}
+@media (max-width:640px){.elenco-titoli ol, .elenco-titoli ul{columns:1;}}
+
+/* ---------- RACCOGLITORI ---------- */
+section.raccoglitori{
+  background:#1c1a17 !important; color:#ede6d6 !important;
+  padding:4rem 1.2rem; margin-top:3.5rem;
+}
+section.raccoglitori .inner{max-width:var(--max); margin:0 auto;}
+section.raccoglitori .sovratitolo{
+  font-family:'Courier New',monospace; font-size:.64rem; letter-spacing:.24em;
+  text-transform:uppercase; color:#a89372; margin-bottom:.6rem;
+}
+section.raccoglitori h2{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:clamp(1.5rem,3.6vw,2.1rem); margin:0 0 1.1rem;
+  color:#ede6d6 !important;
+}
+section.raccoglitori p{
+  max-width:48rem; line-height:1.78; color:#c9bfa8 !important; font-size:.98rem;
+}
+.racc-grid{
+  display:grid; gap:1.2rem; margin-top:2rem;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+}
+.racc-wrap{position:relative; cursor:zoom-in;}
+.racc-wrap img{
+  width:100%; height:200px; object-fit:cover;
+  border:1px solid #4a453c; transition:transform .18s;
+}
+.racc-wrap:hover img{transform:translateY(-3px);}
+.racc-note{
+  margin-top:1.8rem; font-family:'Courier New',monospace; font-size:.72rem;
+  line-height:1.9; color:#c9bfa8 !important; border-left:3px solid #6b4a1f;
+  padding-left:1rem;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center; padding:3rem 1.5rem 3.5rem;
+  font-family:'Courier New',monospace; font-size:.72rem; letter-spacing:.1em;
+  color:#2b2822; border-top:1px solid var(--linea);
+}
+.contatti-btn{
+  appearance:none; border:1px solid var(--inchiostro); background:transparent;
+  font-family:'Courier New',monospace; font-size:.7rem; letter-spacing:.18em;
+  text-transform:uppercase; padding:.65rem 1.6rem; cursor:pointer;
+  border-radius:2px; color:#1c1a17;
+}
+.contatti-btn:hover{background:#1c1a17; color:#ede6d6;}
+
+/* ---------- POPUP / LIGHTBOX ---------- */
+.contatti-popup,.lightbox{
+  position:fixed; inset:0; z-index:200;
+  background:rgba(12,11,10,.94); display:none;
+  align-items:center; justify-content:center;
+}
+.contatti-popup.open,.lightbox.open{display:flex;}
+.contatti-popup-inner{
+  background:var(--carta); padding:2.6rem 2.2rem; max-width:24rem; width:88%;
+  text-align:center; position:relative; border:2px solid var(--inchiostro);
+}
+.contatti-close{
+  position:absolute; top:.5rem; right:.7rem; appearance:none; border:0;
+  background:transparent; font-size:1.2rem; cursor:pointer; color:#1c1a17;
+}
+.contatti-wa{
+  display:inline-block; margin-top:1rem; padding:.8rem 1.4rem;
+  background:#1c1a17; color:#ede6d6 !important; text-decoration:none;
+  font-family:'Courier New',monospace; font-size:.78rem; letter-spacing:.1em;
+}
+.lightbox img{
+  max-width:94vw; max-height:82vh; object-fit:contain;
+  box-shadow:0 10px 50px rgba(0,0,0,.7); cursor:zoom-in;
+  transition:transform .2s;
+}
+.lightbox img.zoom{
+  cursor:zoom-out; max-width:none; max-height:none;
+  transform:scale(1); width:auto; height:auto;
+}
+.lb-scroll{
+  position:absolute; inset:0; overflow:auto; display:flex;
+  align-items:center; justify-content:center; padding:1rem;
+}
+.lb-caption{
+  position:absolute; bottom:1.1rem; left:0; right:0; text-align:center;
+  color:#ede6d6; font-family:'Courier New',monospace; font-size:.72rem;
+  letter-spacing:.08em; padding:0 4rem; pointer-events:none;
+}
+.lb-close,.lb-prev,.lb-next,.lb-zoom{
+  position:absolute; appearance:none; border:1px solid rgba(237,230,214,.4);
+  background:rgba(12,11,10,.6); color:#ede6d6; cursor:pointer;
+  font-family:'Courier New',monospace; z-index:5;
+}
+.lb-close{top:1rem; right:1rem; padding:.5rem .9rem; font-size:.7rem; letter-spacing:.14em;}
+.lb-zoom{top:1rem; left:1rem; padding:.5rem .9rem; font-size:.7rem; letter-spacing:.14em;}
+.lb-prev,.lb-next{
+  top:50%; transform:translateY(-50%); font-size:1.9rem;
+  width:2.9rem; height:3.6rem; line-height:1;
+}
+.lb-prev{left:.7rem;} .lb-next{right:.7rem;}
+/* --- TELEFONO: due colonne, non una --- */
+@media (max-width:700px){
+  main{padding:0 .7rem 3rem;}
+  .barra-alta{padding:.45rem .6rem; flex-wrap:nowrap;}
+  .barra-destra{gap:.45rem;}
+  .icona{padding:.28rem;}
+  .icona svg{width:1.1rem; height:1.1rem;}
+  .lingue button{font-size:.6rem; padding:.3rem .3rem; letter-spacing:.04em;}
+  /* su telefono resta la casina, che fa da home: senza il nome
+     il divisore non separerebbe più nulla, quindi sparisce anche lui */
+  .barra-alta .marchio{display:none;}
+  .barra-alta .divisore-barra{display:none;}
+  .barra-destra{display:flex; align-items:center; gap:.8rem;}
+.lingue{display:flex; gap:.2rem;}
+.lingue button{
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:var(--su-nero-soft, #c9bfa8); font-family:'Courier New',monospace;
+  font-size:.68rem; font-weight:bold; letter-spacing:.1em;
+  padding:.35rem .45rem; cursor:pointer; border-radius:2px;
+}
+.lingue button:hover{color:var(--carta);}
+.lingue button.attiva{
+  color:var(--carta); border-color:rgba(237,230,214,.5);
+  background:rgba(237,230,214,.12);
+}
+.btn-indice{font-size:.62rem; padding:.4rem .7rem;}
+  .filtri-bar{
+    flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
+    gap:1rem; -webkit-overflow-scrolling:touch;
+  }
+  .filtro-gruppo{flex:0 0 auto;}
+  .filtro-gruppo select{max-width:none;}
+  .filtro-reset{flex:0 0 auto;}
+  .grid{grid-template-columns:repeat(2,1fr); gap:.7rem;}
+  .tavola-card .cornice{padding:.3rem;}
+  .tavola-label{font-size:.6rem; margin-top:.4rem; letter-spacing:0;}
+  .tag-riga{font-size:.56rem; margin-top:.2rem;}
+  .cornice::after{font-size:.6rem; padding:.12rem .22rem; right:.3rem; bottom:.3rem;}
+  .foto-collana{grid-template-columns:repeat(2,1fr); gap:.7rem;}
+  .foto-wrap img{height:150px;}
+  .racc-grid{grid-template-columns:repeat(2,1fr); gap:.7rem;}
+  .racc-wrap img{height:130px;}
+  .storia-head{gap:.8rem;}
+  .storia-meta{text-align:left;}
+}
+@media (max-width:640px){
+  .lb-prev,.lb-next{width:2.4rem; height:3rem; font-size:1.5rem;}
+  .lb-caption{font-size:.62rem; padding:0 1rem; bottom:.6rem;}
+  .filtri-bar{gap:.8rem; padding:.7rem .8rem;}
+  .filtro-gruppo select{font-size:.85rem; max-width:11rem;}
+}
+
+/* ---------- BARRA FISSA: home + indice ---------- */
+.barra-alta{
+  position:sticky; top:0; z-index:60;
+  background:var(--inchiostro); color:var(--carta);
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding:.6rem 1.2rem;
+}
+.barra-sinistra{display:flex; align-items:center; gap:.2rem;}
+.divisore-barra{
+  display:inline-block; width:1px; height:1.35rem;
+  background:rgba(237,230,214,.28); margin:0 .7rem;
+}
+.icona{
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:var(--su-nero-soft, #c9bfa8); cursor:pointer; padding:.35rem;
+  border-radius:2px; line-height:0;
+}
+.icona svg{
+  width:1.2rem; height:1.2rem; display:block; fill:none;
+  stroke:currentColor; stroke-width:1.7;
+  stroke-linejoin:round; stroke-linecap:round;
+}
+.icona:hover{color:var(--carta); background:rgba(237,230,214,.14); border-color:rgba(237,230,214,.4);}
+.marchio{
+  appearance:none; border:0; background:transparent; color:var(--carta);
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:1rem; cursor:pointer; padding:.2rem 0; letter-spacing:.01em;
+}
+
+.marchio:hover{opacity:.75;}
+.barra-destra{display:flex; align-items:center; gap:.8rem;}
+.lingue{display:flex; gap:.2rem;}
+.lingue button{
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:var(--su-nero-soft, #c9bfa8); font-family:'Courier New',monospace;
+  font-size:.68rem; font-weight:bold; letter-spacing:.1em;
+  padding:.35rem .45rem; cursor:pointer; border-radius:2px;
+}
+.lingue button:hover{color:var(--carta);}
+.lingue button.attiva{
+  color:var(--carta); border-color:rgba(237,230,214,.5);
+  background:rgba(237,230,214,.12);
+}
+.btn-indice{
+  appearance:none; border:1px solid rgba(237,230,214,.45); background:transparent;
+  color:var(--carta); font-family:'Courier New',monospace; font-size:.7rem;
+  font-weight:bold; letter-spacing:.16em; text-transform:uppercase;
+  padding:.45rem .9rem; border-radius:2px; cursor:pointer; white-space:nowrap;
+}
+.btn-indice:hover{background:rgba(237,230,214,.14);}
+.filtri-bar{top:0;}
+
+/* ---------- PANNELLO INDICE ---------- */
+.indice{
+  position:fixed; inset:0; z-index:150; display:none;
+  background:rgba(12,11,10,.6);
+}
+.indice.open{display:block;}
+.indice-inner{
+  position:absolute; top:0; right:0; bottom:0; width:min(30rem,92vw);
+  background:var(--carta); border-left:3px solid var(--inchiostro);
+  overflow-y:auto; padding:1.4rem 1.5rem 3rem;
+}
+.indice-testa{
+  display:flex; justify-content:space-between; align-items:center;
+  border-bottom:2px solid var(--inchiostro); padding-bottom:.7rem; margin-bottom:1.2rem;
+}
+.indice-testa h2{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:1.3rem; margin:0;
+}
+.indice-chiudi{
+  appearance:none; border:1px solid var(--linea); background:transparent;
+  font-size:.95rem; cursor:pointer; color:var(--inchiostro);
+  padding:.25rem .6rem; border-radius:2px;
+}
+.indice-lingua{
+  font-family:'Courier New',monospace; font-size:.66rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--tenue); margin:-.6rem 0 1.1rem;
+}
+.ind-sez{
+  font-family:'Courier New',monospace; font-size:.7rem; font-weight:bold;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--rosso);
+  margin:1.6rem 0 .5rem; padding-bottom:.35rem;
+  border-bottom:1px solid var(--linea);
+}
+.ind-sez:first-of-type{margin-top:0;}
+.indice button[data-va]{
+  display:block; width:100%; text-align:left; appearance:none;
+  border:0; border-bottom:1px solid rgba(201,189,159,.35);
+  background:transparent; cursor:pointer;
+  font-family:Georgia,serif; color:var(--inchiostro);
+  padding:.45rem 0; font-size:.98rem; line-height:1.35;
+}
+.indice button[data-va]:hover{color:var(--rosso);}
+.indice button.liv2{padding-left:1rem; font-size:.92rem;}
+.indice button.liv3{padding-left:2rem; font-size:.86rem; color:#4a4234;}
+.foto-did{
+  margin-top:.35rem; font-family:'Courier New',monospace; font-size:.64rem;
+  line-height:1.4; color:var(--tenue);
+}
+.elenco-conta{
+  float:right; font-family:'Courier New',monospace; font-size:.68rem;
+  color:var(--tenue); font-weight:normal; letter-spacing:0;
+}
+.elenco-titoli + .elenco-titoli{margin-top:1.4rem;}
+.elenco-coda{
+  margin-top:.9rem; font-size:.93rem; line-height:1.6; color:var(--tenue);
+}
+.ind-conta{
+  float:right; font-family:'Courier New',monospace; font-size:.7rem;
+  color:var(--tenue); font-weight:normal; letter-spacing:0;
+}
+.ind-sez .ind-conta{color:var(--rosso);}
+
+/* ---------- TORNA SU ---------- */
+.su{
+  position:fixed; right:1rem; bottom:1rem; z-index:55;
+  appearance:none; border:1px solid var(--inchiostro);
+  background:var(--carta); color:var(--inchiostro);
+  font-family:'Courier New',monospace; font-size:.8rem;
+  width:2.7rem; height:2.7rem; border-radius:2px; cursor:pointer;
+  box-shadow:0 3px 12px rgba(28,26,23,.28);
+  opacity:0; pointer-events:none; transition:opacity .2s;
+}
+.su.vedi{opacity:.92; pointer-events:auto;}
+
+/* ---------- FUMETTI: personaggio > serie > gruppo ---------- */
+section.personaggio{margin-top:3.4rem;}
+.pers-head{
+  border-bottom:2px solid var(--inchiostro); padding-bottom:.8rem; margin-bottom:.5rem;
+}
+.pers-etichetta{
+  font-family:'Courier New',monospace; font-size:.72rem; font-weight:bold;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--rosso);
+  margin-bottom:.3rem;
+}
+.pers-nome{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:clamp(1.5rem,3.8vw,2.1rem); margin:0; line-height:1.1;
+}
+.serie{margin-top:2.2rem;}
+.serie-etichetta{
+  font-family:'Courier New',monospace; font-size:.7rem; font-weight:bold;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--tenue);
+  border-left:3px solid var(--rosso); padding-left:.7rem; margin-bottom:1.2rem;
+}
+.gruppo.gruppo-unico{margin-top:0; border-bottom:0;}
+.gruppo{margin-top:2rem; padding-bottom:1.8rem; border-bottom:1px solid var(--linea);}
+.gruppo h4{
+  font-family:Georgia,serif; font-style:italic; font-weight:700;
+  font-size:1.2rem; margin:0 0 .2rem;
+}
+
+/* ---------- FILTRI: in linea su schermi larghi ---------- */
+.filtri-corpo{
+  display:flex; justify-content:center; gap:1.6rem; flex-wrap:wrap;
+  width:100%;
+}
+.btn-filtri{display:none;}
+
+@media (max-width:700px){
+  /* su telefono le tendine si aprono e chiudono, invece di scorrere */
+  .filtri-bar{
+    display:block; padding:0; overflow:visible;
+  }
+  .btn-filtri{
+    display:flex; align-items:center; gap:.5rem; width:100%;
+    appearance:none; border:0; background:transparent; cursor:pointer;
+    font-family:'Courier New',monospace; font-size:.72rem; font-weight:bold;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--rosso);
+    padding:.7rem .9rem; text-align:left;
+  }
+  .btn-filtri::after{
+    content:"▾"; margin-left:auto; font-size:.9rem; transition:transform .2s;
+  }
+  .btn-filtri[aria-expanded="true"]::after{transform:rotate(180deg);}
+  .filtri-attivi{
+    font-weight:normal; letter-spacing:.04em; text-transform:none;
+    color:var(--tenue); font-size:.7rem;
+  }
+  .filtri-corpo{
+    display:none; flex-direction:column; align-items:stretch;
+    gap:.7rem; padding:0 .9rem .9rem;
+  }
+  .filtri-corpo.aperto{display:flex;}
+  .filtro-gruppo{
+    display:flex; justify-content:space-between; align-items:center; gap:.7rem;
+  }
+  .filtro-gruppo select{flex:1 1 auto; max-width:none; font-size:.95rem; padding:.5rem;}
+  .filtro-reset{align-self:flex-end; padding:.5rem 1rem;}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "I Fumetti del Massi",
+  "url": "https://massicomics.github.io/fumetti/",
+  "inLanguage": ["it","en","hr"],
+  "description": "Collezione privata di tavole originali a china di Zagor e di albi a fumetti in prima edizione.",
+  "about": [
+    {"@type":"Thing","name":"Zagor"},
+    {"@type":"Thing","name":"Tex Willer"},
+    {"@type":"Thing","name":"Tavole originali a fumetti"},
+    {"@type":"Person","name":"Franco Donatelli"},
+    {"@type":"Person","name":"Gallieno Ferri"},
+    {"@type":"Person","name":"Raffaele Della Monica"},
+    {"@type":"Person","name":"Mauro Laurenti"},
+    {"@type":"Person","name":"Giovanni Romanini"},
+    {"@type":"Person","name":"Marco Verni"},
+    {"@type":"Person","name":"Magnus"}
+  ],
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<div class="barra-alta">
+  <div class="barra-sinistra">
+    <button class="icona" id="btnHome" title="Home" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4.2l8 6.3V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>
+    </button>
+    <button class="icona" id="btnContattiBarra" title="Contatti" aria-label="Contatti">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.2c-4.5 0-8 3-8 6.8 0 2 1 3.8 2.5 5L5.6 19.8l3.9-1.8c.8.2 1.6.3 2.5.3 4.5 0 8-3 8-6.8s-3.5-6.8-8-6.8z"/></svg>
+    </button>
+    <span class="divisore-barra" aria-hidden="true"></span>
+    <button class="marchio" id="btnHome2">I Fumetti del Massi</button>
+  </div>
+  <div class="barra-destra">
+    <div class="lingue" id="sceltaLingua">
+      <button type="button" data-l="it" class="attiva" title="Italiano" aria-label="Italiano">IT</button>
+      <button type="button" data-l="en" title="English" aria-label="English">EN</button>
+      <button type="button" data-l="hr" title="Bosanski / Hrvatski / Srpski" aria-label="Bosanski, Hrvatski, Srpski">B/H/S</button>
+    </div>
+    <button class="btn-indice" id="btnIndice">☰ <span data-t="indice">Indice</span></button>
+  </div>
+</div>
+
+<header class="hero">
+  <h1 class="wordmark">
+    <span>I Fumetti</span>
+    <span class="del-massi">del Massi</span>
+  </h1>
+  <p class="hero-sub" data-t="sottotitolo">Esposizione privata della mia collezione di fumetti e tavole originali.</p>
+  <div class="hero-tag" data-t="disclaimer">Collezione privata, mostrata solo a titolo espositivo, senza fini commerciali</div>
+</header>
+
+<div class="filtri-bar" id="filtriBar">
+  <button class="btn-filtri" id="btnFiltri" aria-expanded="false">
+    <span data-t="filtri">Filtri</span><span class="filtri-attivi" id="filtriAttivi"></span>
+  </button>
+  <div class="filtri-corpo" id="filtriCorpo">
+  <div class="filtro-gruppo">
+    <label for="filtroCollezione" data-t="fCollezione">Collezione</label>
+    <select id="filtroCollezione">
+      <option value="" data-t="tutto">Tutto</option>
+      <option value="tavole" data-t="optTavoleTutte">Tavole originali — tutte</option>
+      <option value="storia" data-t="optStorie">Tavole originali — storie complete</option>
+      <option value="singola" data-t="optSingole">Tavole originali — tavole singole</option>
+      <option value="fumetti" data-t="optFumetti">Fumetti</option>
+    </select>
+  </div>
+  <div class="filtro-gruppo">
+    <label for="filtroPersonaggio" data-t="fPersonaggio">Personaggio</label>
+    <select id="filtroPersonaggio"><option value="">Tutti</option></select>
+  </div>
+  <div class="filtro-gruppo">
+    <label for="filtroAutore" data-t="fAutore">Autore</label>
+    <select id="filtroAutore"><option value="">Tutti</option></select>
+  </div>
+  <button class="filtro-reset" id="filtroReset" data-t="azzera">Azzera</button>
+  </div>
+</div>
+
+<main>
+  <div id="bloccoStorie">
+    <div class="blocco-titolo">
+      <div class="sovratitolo" data-t="blkCollezione">Collezione</div>
+      <h2 data-t="blkStorie">Tavole originali: storie complete</h2>
+      <div class="blocco-sub" data-t="subPerAutore">Raccolte per autore</div>
+    </div>
+    <div id="storieWrap"></div>
+  </div>
+
+  <div id="bloccoSingole">
+    <div class="separatore"></div>
+    <div class="blocco-titolo">
+      <div class="sovratitolo" data-t="blkCollezione">Collezione</div>
+      <h2 data-t="blkSingole">Tavole originali: tavole singole</h2>
+      <div class="blocco-sub" data-t="subPerAutore">Raccolte per autore</div>
+    </div>
+    <div id="singoleWrap"></div>
+  </div>
+
+  <div id="bloccoFumetti">
+    <div class="separatore"></div>
+    <div class="blocco-titolo">
+      <div class="sovratitolo" data-t="blkCollezione">Collezione</div>
+      <h2 data-t="blkFumetti">Fumetti</h2>
+      <div class="blocco-sub" data-t="subFumetti">Raccolti per personaggio e serie</div>
+    </div>
+    <p class="nota-blocco" data-t="notaFumetti">Tutti gli albi sono sempre stati conservati in apposite buste sigillate.</p>
+    <div id="fumettiWrap"></div>
+  </div>
+
+  <div class="nessun-risultato" id="nessunRisultato">
+    <span data-t="nessunRisultato">Nessun pezzo corrisponde ai filtri selezionati.</span>
+  </div>
+</main>
+
+<section class="raccoglitori" id="raccSection">
+  <div class="inner">
+    <div class="sovratitolo" data-t="raccoglitoriOcchiello">Dietro le quinte</div>
+    <h2 data-t="raccoglitoriTitolo">I raccoglitori</h2>
+    <p data-t="raccoglitoriTesto"></p>
+    <div class="racc-grid" id="raccGrid"></div>
+    <div class="racc-note" data-t="raccoglitoriNota"></div>
+  </div>
+</section>
+
+<footer>
+  <strong>I Fumetti del Massi</strong> — <span data-t="piede">collezione privata</span>
+  <div style="margin-top:1.6rem;">
+    <button id="contattiBtn" class="contatti-btn" data-t="contatti">Contatti</button>
+  </div>
+</footer>
+
+<div class="contatti-popup" id="contattiPopup">
+  <div class="contatti-popup-inner">
+    <button class="contatti-close" id="contattiClose">✕</button>
+    <p data-t="contattiTesto">Per informazioni sulla collezione:</p>
+    <a href="https://wa.me/393245645064" target="_blank" rel="noopener" class="contatti-wa">WhatsApp +39 324 5645064</a>
+  </div>
+</div>
+
+<div class="indice" id="indice">
+  <div class="indice-inner">
+    <div class="indice-testa">
+      <h2 data-t="indiceTitolo">Indice della collezione</h2>
+      <button class="indice-chiudi" id="indiceChiudi">✕</button>
+    </div>
+    <div class="indice-lingua" id="indiceLingua"></div>
+    <div id="indiceCorpo"></div>
+  </div>
+</div>
+
+<button class="su" id="btnSu" title="Torna su">▲</button>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">✕ <span data-t="chiudi">Chiudi</span></button>
+  <button class="lb-zoom" id="lbZoom">⤢ <span data-t="zoom">Zoom</span></button>
+  <button class="lb-prev" id="lbPrev">‹</button>
+  <button class="lb-next" id="lbNext">›</button>
+  <div class="lb-scroll" id="lbScroll"><img id="lbImg" src="" alt=""></div>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script src="lingue.js"></script>
+<script src="dati.js"></script>
+<script>
+/* Percorso immagine: online legge da assets/, nell'anteprima da INLINE. */
+function urlOf(rel, full){
+  if (window.INLINE && INLINE[rel]) return INLINE[rel];
+  return full ? "assets/" + rel : "assets/thumbs/" + rel;
+}
+
+/* Se la miniatura non esiste, usa l'immagine grande.
+   Così per aggiungere materiale basta mettere UN file in assets/. */
+function imgTag(rel, alt){
+  return `<img src="${urlOf(rel,false)}" loading="lazy" alt="${alt}"
+    onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/${rel}';}">`;
+}
+
+/* ---- LINGUE ---- */
+let LANG = "it";
+/* T: etichetta d'interfaccia. Se manca la traduzione, resta l'italiano. */
+function T(k){
+  const L = LINGUE[LANG] || LINGUE.it;
+  return (L && L[k] != null) ? L[k] : (LINGUE.it[k] != null ? LINGUE.it[k] : k);
+}
+/* X: testo lungo o valore di scheda. Chiave = quella di TESTI.
+   In italiano restituisce sempre il testo originale di dati.js. */
+function X(chiave, originale){
+  if(LANG === "it") return originale;
+  const v = TESTI[chiave];
+  return (v && v[LANG]) ? v[LANG] : originale;
+}
+function val(v){ return X("val:" + v, v); }
+
+let flatImages = [];
+const personaggiSet = new Set();
+const autoriSet = new Set();
+
+function cardTavola({rel, titolo, pag, note, personaggio, autore, tipo}){
+  const card = document.createElement("div");
+  card.className = "tavola-card";
+  card.dataset.personaggio = personaggio || "";
+  card.dataset.autore = autore || "";
+  card.dataset.tipo = tipo || "";
+  card.innerHTML = `
+    <div class="cornice">
+      ${imgTag(rel, titolo)}
+    </div>
+    <div class="tavola-label">
+      <span>${note ? X("cap:"+note, note) : titolo}</span>
+      ${pag ? `<span class="pag">${T("pagina")}${pag}</span>` : ""}
+    </div>
+    <div class="tag-riga">${[personaggio, autore].filter(Boolean).join(" · ")}</div>
+  `;
+  const idx = flatImages.length;
+  flatImages.push({rel, caption: titolo + (pag ? " — pagina " + pag : "")});
+  card.onclick = ()=> openLightbox(idx);
+  if(personaggio) personaggiSet.add(personaggio);
+  if(autore) autoriSet.add(autore);
+  return card;
+}
+
+function intestazioneAutore(aut, testoConteggio){
+  return `
+    <div class="autore-head">
+      <div class="autore-etichetta">${T("autore")}</div>
+      <div class="autore-nome">${aut.nome}</div>
+      <div class="conteggio">${testoConteggio}</div>
+      ${aut.nota ? `<p class="autore-nota">${X("nota:"+aut.id, aut.nota)}</p>` : ""}
+    </div>`;
+}
+
+/* ---- BLOCCO 1: STORIE COMPLETE, per autore ---- */
+const storieWrap = document.getElementById("storieWrap");
+function costruisciStorie(){
+storieWrap.innerHTML = "";
+AUTORI.filter(a=>(a.storie||[]).length).forEach(aut=>{
+  const n = aut.storie.length;
+  const sec = document.createElement("section");
+  sec.className = "autore";
+  sec.id = "sec-storie-" + aut.id;
+  /* il conteggio è automatico: aggiungendo una storia diventa "3 storie complete" */
+  sec.innerHTML = intestazioneAutore(aut, n + " " + (n===1 ? T("storiaCompleta") : T("storieCompleteN")));
+
+  aut.storie.forEach(storia=>{
+    const blocco = document.createElement("div");
+    blocco.className = "storia";
+    blocco.id = "sec-" + storia.id;
+    blocco.innerHTML = `
+      <div class="storia-head">
+        <div>
+          <div class="storia-tipo">${storia.sottotitolo}</div>
+          <h3 class="storia-titolo">${storia.titolo}</h3>
+        </div>
+        <div class="storia-meta">
+          <strong>${T("testi")}</strong> ${storia.testi}
+          <strong style="margin-top:.4em">${T("disegni")}</strong> ${storia.disegni}
+        </div>
+      </div>
+      <p class="storia-intro">${X("intro:"+storia.id, storia.intro)}</p>
+    `;
+    storia.capitoli.forEach(cap=>{
+      const capBlock = document.createElement("div");
+      capBlock.className = "capitolo";
+      capBlock.innerHTML = `
+        <div class="capitolo-head">
+          <span class="cap-num">${cap.numero}</span>
+          <div class="cap-titolo">${cap.titolo}</div>
+        </div>
+        <div class="grid"></div>
+        ${cap.notaFinale ? `<div class="cap-nota-finale">${X("nota:odio-p21", cap.notaFinale)}</div>` : ""}
+      `;
+      const grid = capBlock.querySelector(".grid");
+      cap.tavole.forEach(t=>{
+        grid.appendChild(cardTavola({
+          rel: t.f, titolo: cap.navLabel || cap.titolo, pag: t.p, note: t.note,
+          personaggio: t.personaggio || cap.personaggio,
+          autore: t.autore || aut.nome, tipo: "storia"
+        }));
+      });
+      blocco.appendChild(capBlock);
+    });
+    sec.appendChild(blocco);
+  });
+  storieWrap.appendChild(sec);
+});
+}
+costruisciStorie();
+
+/* ---- BLOCCO 2: TAVOLE SINGOLE, per autore ---- */
+const singoleWrap = document.getElementById("singoleWrap");
+function costruisciSingole(){
+singoleWrap.innerHTML = "";
+AUTORI.filter(a=>(a.singole||[]).length).forEach(aut=>{
+  const n = aut.singole.length;
+  const sec = document.createElement("section");
+  sec.className = "autore";
+  sec.id = "sec-singole-" + aut.id;
+  sec.innerHTML = intestazioneAutore(aut, n + " " + (n===1 ? T("tavolaSingola") : T("tavoleSingoleN")));
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  aut.singole.forEach(p=>{
+    grid.appendChild(cardTavola({
+      rel: p.f, titolo: p.titolo, pag: null,
+      note: p.note ? p.titolo + " (" + p.note + ")" : p.titolo,
+      personaggio: p.personaggio, autore: aut.nome, tipo: "singola"
+    }));
+  });
+  sec.appendChild(grid);
+  singoleWrap.appendChild(sec);
+});
+}
+costruisciSingole();
+
+/* ---- BLOCCO 3: FUMETTI (personaggio > serie > gruppo) ---- */
+const fumettiWrap = document.getElementById("fumettiWrap");
+
+function schedaGruppo(g){
+  const righe = [
+    g.edizione ? `<div class="scheda-riga"><span class="voce">${T("edizione")}</span>${val(g.edizione)}</div>` : "",
+    g.conservazione ? `<div class="scheda-riga"><span class="voce">${T("conservazione")}</span>${val(g.conservazione)}</div>` : "",
+    g.range ? `<div class="scheda-riga"><span class="voce">${T("serie")}</span>${T("completa")}, ${g.range}</div>` : "",
+    g.volumi ? `<div class="scheda-riga"><span class="voce">${T("volumi")}</span>${val(g.volumi)}</div>` : ""
+  ].join("");
+  return `<div class="scheda">${righe}</div>`;
+}
+
+function corpoGruppo(g, personaggio){
+  const box = document.createElement("div");
+  box.className = "gruppo";
+  box.id = "sec-" + g.id;
+  if(!g.titolo) box.classList.add("gruppo-unico");
+  box.innerHTML = `
+    ${g.titolo ? `<h4>${X("ser:"+g.titolo, g.titolo)}</h4>` : ""}
+    ${g.crediti ? `<div class="collana-crediti">${g.crediti}</div>` : ""}
+    ${schedaGruppo(g)}
+    ${g.nota ? `<div class="collana-nota">${X("nota:"+g.id, g.nota)}</div>` : ""}
+    <div class="foto-collana"></div>
+    <div class="elenchi"></div>
+  `;
+
+  /* le foto possono essere una stringa oppure {f, didascalia} */
+  const fg = box.querySelector(".foto-collana");
+  (g.foto || []).forEach(voce=>{
+    const rel = (typeof voce === "string") ? voce : voce.f;
+    const did = (typeof voce === "string") ? null : voce.didascalia;
+    const w = document.createElement("div");
+    w.className = "foto-wrap";
+    const didT = did ? X("cap:"+did, did) : null;
+    w.innerHTML = `<span class="cornice-foto">${imgTag(rel, personaggio)}</span>` + (didT ? `<div class="foto-did">${didT}</div>` : "");
+    const idx = flatImages.length;
+    flatImages.push({rel, caption: didT || (personaggio + (g.titolo ? " — " + g.titolo : ""))});
+    w.onclick = ()=> openLightbox(idx);
+    fg.appendChild(w);
+  });
+
+  /* un gruppo può avere più elenchi, oppure il vecchio campo titoli */
+  const el = box.querySelector(".elenchi");
+  const liste = (g.elenchi && g.elenchi.length)
+    ? g.elenchi
+    : ((g.titoli && g.titoli.length)
+        ? [{cap: (g.titoli.length === 1 ? T("elencoVolume") : T("elencoVolumi").replace("{n}", g.titoli.length)), voci: g.titoli}]
+        : []);
+  liste.forEach(l=>{
+    const d = document.createElement("div");
+    d.className = "elenco-titoli";
+    /* numerazione SOLO per le serie complete in ordine (1..N):
+       negli elenchi alfabetici o parziali i numeri verrebbero letti
+       come numeri d'albo, e sarebbero falsi */
+    const numerato = !!g.range;
+    const tag = numerato ? "ol" : "ul";
+    /* il conteggio a lato si mostra solo se l'intestazione non contiene
+       già un numero, altrimenti si leggerebbero due cifre appaiate */
+    const cap = X("cap:"+l.cap, l.cap);
+    const conta = /\d/.test(cap) ? "" : `<span class="elenco-conta">${l.voci.length}</span>`;
+    d.innerHTML = `<div class="elenco-cap">${cap}${conta}</div>
+      <${tag}>${l.voci.map(t=>`<li>${t}</li>`).join("")}</${tag}>`
+      + (l.coda ? `<div class="elenco-coda">${X("coda:"+l.coda, l.coda)}</div>` : "");
+    el.appendChild(d);
+  });
+  return box;
+}
+
+function costruisciFumetti(){
+fumettiWrap.innerHTML = "";
+FUMETTI.forEach(pers=>{
+  const sec = document.createElement("section");
+  sec.className = "personaggio";
+  sec.id = "sec-pers-" + pers.id;
+  sec.dataset.personaggio = pers.personaggio;
+  sec.innerHTML = `
+    <div class="pers-head">
+      <div class="pers-etichetta">${T("personaggio")}</div>
+      <div class="pers-nome">${pers.personaggio}</div>
+      ${pers.nota ? `<p class="autore-nota">${pers.nota}</p>` : ""}
+    </div>
+  `;
+  (pers.serie || []).forEach(serie=>{
+    const bs = document.createElement("div");
+    bs.className = "serie";
+    bs.id = "sec-serie-" + serie.id;
+    bs.innerHTML = `<div class="serie-etichetta">${X("ser:"+serie.titolo, serie.titolo)}</div>`;
+    /* se la serie ha gruppi li mostro, altrimenti tratto la serie stessa come gruppo */
+    const gruppi = (serie.gruppi && serie.gruppi.length) ? serie.gruppi : [serie];
+    gruppi.forEach(g=> bs.appendChild(corpoGruppo(g, pers.personaggio)));
+    sec.appendChild(bs);
+  });
+  personaggiSet.add(pers.personaggio);
+  fumettiWrap.appendChild(sec);
+});
+}
+costruisciFumetti();
+
+/* ---- RACCOGLITORI ---- */
+const rGrid = document.getElementById("raccGrid");
+function costruisciRaccoglitori(){
+rGrid.innerHTML = "";
+RACCOGLITORI.forEach(rel=>{
+  const w = document.createElement("div");
+  w.className = "racc-wrap";
+  w.innerHTML = `<span class="cornice-foto">${imgTag(rel, "Raccoglitore in pelle")}</span>`;
+  const idx = flatImages.length;
+  flatImages.push({rel, caption:X("cap:Raccoglitori in pelle su misura, 45×35 cm","Raccoglitori in pelle su misura, 45×35 cm")});
+  w.onclick = ()=> openLightbox(idx);
+  rGrid.appendChild(w);
+});
+}
+costruisciRaccoglitori();
+
+/* ---- TENDINE ---- */
+const selC = document.getElementById("filtroCollezione");
+const selP = document.getElementById("filtroPersonaggio");
+const selA = document.getElementById("filtroAutore");
+
+[...personaggiSet].filter(Boolean).sort().forEach(p=>{
+  const o = document.createElement("option"); o.value = p; o.textContent = p; selP.appendChild(o);
+});
+[...autoriSet].filter(Boolean).sort().forEach(a=>{
+  const o = document.createElement("option"); o.value = a; o.textContent = a; selA.appendChild(o);
+});
+
+/* ---- FILTRI ----
+   collezione -> cosa si vede (tavole/storie/singole/fumetti)
+   personaggio -> trasversale: vale su tavole E fumetti
+   autore -> solo tavole originali, non tocca i fumetti          */
+function applyFiltri(){
+  const fc = selC.value, fp = selP.value, fa = selA.value;
+  const vuoleStorie  = (fc === "" || fc === "tavole" || fc === "storia");
+  const vuoleSingole = (fc === "" || fc === "tavole" || fc === "singola");
+  const vuoleFumetti = (fc === "" || fc === "fumetti");
+
+  document.querySelectorAll(".tavola-card").forEach(card=>{
+    const tipoOk = card.dataset.tipo === "storia" ? vuoleStorie : vuoleSingole;
+    const ok = tipoOk
+            && (!fp || card.dataset.personaggio === fp)
+            && (!fa || card.dataset.autore === fa);
+    card.style.display = ok ? "" : "none";
+  });
+
+  const haCarte = el => [...el.querySelectorAll(".tavola-card")].some(c=>c.style.display !== "none");
+  document.querySelectorAll(".capitolo").forEach(c=>{ c.style.display = haCarte(c) ? "" : "none"; });
+  document.querySelectorAll(".storia").forEach(s=>{ s.style.display = haCarte(s) ? "" : "none"; });
+  document.querySelectorAll("section.autore").forEach(s=>{ s.style.display = haCarte(s) ? "" : "none"; });
+
+  /* i fumetti rispondono solo a Collezione e Personaggio.
+     Il filtro Autore riguarda i disegnatori delle tavole originali. */
+  document.querySelectorAll("section.personaggio").forEach(sec=>{
+    const ok = vuoleFumetti && (!fp || sec.dataset.personaggio === fp);
+    sec.style.display = ok ? "" : "none";
+  });
+
+  const vis = wrap => [...wrap.children].some(s=>s.style.display !== "none");
+  const vStorie  = vis(storieWrap);
+  const vSingole = vis(singoleWrap);
+  const vFumetti = vis(fumettiWrap);
+
+  document.getElementById("bloccoStorie").style.display  = vStorie ? "" : "none";
+  document.getElementById("bloccoSingole").style.display = vSingole ? "" : "none";
+  document.getElementById("bloccoFumetti").style.display = vFumetti ? "" : "none";
+  document.getElementById("raccSection").style.display   = (vStorie || vSingole) ? "" : "none";
+  document.getElementById("nessunRisultato").style.display =
+    (vStorie || vSingole || vFumetti) ? "none" : "block";
+  if(typeof riassuntoFiltri === "function") riassuntoFiltri();
+}
+
+selC.addEventListener("change", applyFiltri);
+selP.addEventListener("change", applyFiltri);
+selA.addEventListener("change", applyFiltri);
+document.getElementById("filtroReset").onclick = ()=>{
+  selC.value = ""; selP.value = ""; selA.value = ""; applyFiltri();
+  window.scrollTo({top:0, behavior:"smooth"});
+};
+
+/* ---- LIGHTBOX ---- */
+const lb = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const lbCaption = document.getElementById("lbCaption");
+const lbScroll = document.getElementById("lbScroll");
+let currentIdx = 0;
+
+function openLightbox(idx){
+  currentIdx = idx; updateLightbox(); lb.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox(){
+  lb.classList.remove("open"); document.body.style.overflow = "";
+  lbImg.classList.remove("zoom");
+}
+function updateLightbox(){
+  const item = flatImages[currentIdx];
+  lbImg.classList.remove("zoom");
+  lbImg.src = urlOf(item.rel, true);   /* alta definizione */
+  lbCaption.textContent = item.caption;
+  lbScroll.scrollTop = 0; lbScroll.scrollLeft = 0;
+}
+function step(d){
+  currentIdx = (currentIdx + d + flatImages.length) % flatImages.length;
+  updateLightbox();
+}
+document.getElementById("lbClose").onclick = closeLightbox;
+document.getElementById("lbPrev").onclick = (e)=>{e.stopPropagation(); step(-1);};
+document.getElementById("lbNext").onclick = (e)=>{e.stopPropagation(); step(1);};
+document.getElementById("lbZoom").onclick = (e)=>{e.stopPropagation(); lbImg.classList.toggle("zoom");};
+lbImg.onclick = (e)=>{e.stopPropagation(); lbImg.classList.toggle("zoom");};
+lbScroll.addEventListener("click",(e)=>{ if(e.target === lbScroll) closeLightbox(); });
+document.addEventListener("keydown",(e)=>{
+  if(lb.classList.contains("open")){
+    if(e.key === "Escape") closeLightbox();
+    if(e.key === "ArrowLeft") step(-1);
+    if(e.key === "ArrowRight") step(1);
+  }
+  if(e.key === "Escape") contattiPopup.classList.remove("open");
+});
+
+/* ---- CONTATTI ---- */
+const contattiPopup = document.getElementById("contattiPopup");
+document.getElementById("contattiBtn").onclick = ()=> contattiPopup.classList.add("open");
+document.getElementById("contattiClose").onclick = ()=> contattiPopup.classList.remove("open");
+contattiPopup.addEventListener("click",(e)=>{ if(e.target === contattiPopup) contattiPopup.classList.remove("open"); });
+
+
+/* ---- INDICE DELLA COLLEZIONE ---- */
+const indice = document.getElementById("indice");
+const indiceCorpo = document.getElementById("indiceCorpo");
+
+/* conteggi: tavole per le originali, albi per i fumetti */
+/* quante tavole possiede la collezione: nTavole se indicato,
+   altrimenti si contano quelle presenti sul sito */
+function nTavoleStoria(st){
+  if(st.nTavole) return st.nTavole;
+  return (st.capitoli||[]).reduce((t,c)=> t + (c.tavole||[]).length, 0);
+}
+function nStorieAutore(a){
+  return (a.storie||[]).reduce((t,st)=> t + nTavoleStoria(st), 0);
+}
+function nGruppo(g){ return g.n || 0; }
+function nSerie(se){
+  return ((se.gruppi && se.gruppi.length) ? se.gruppi : [se]).reduce((t,g)=> t + nGruppo(g), 0);
+}
+function nPersonaggio(p){
+  return (p.serie||[]).reduce((t,se)=> t + nSerie(se), 0);
+}
+function cnt(n){ return n ? `<span class="ind-conta">${n}</span>` : ""; }
+
+function vociIndice(){
+  const h = [];
+
+  const conStorie  = AUTORI.filter(a=>(a.storie||[]).length);
+  const conSingole = AUTORI.filter(a=>(a.singole||[]).length);
+  const totStorie  = conStorie.reduce((t,a)=> t + nStorieAutore(a), 0);
+  const totSingole = conSingole.reduce((t,a)=> t + a.singole.length, 0);
+
+  h.push(`<div class="ind-sez">${T("tavoleOriginali")}${cnt(totStorie + totSingole)}</div>`);
+
+  if(conStorie.length){
+    h.push(`<button type="button" data-va="bloccoStorie">${T("storieComplete")}${cnt(totStorie)}</button>`);
+    conStorie.forEach(a=>{
+      h.push(`<button type="button" class="liv2" data-va="sec-storie-${a.id}">${a.nome}${cnt(nStorieAutore(a))}</button>`);
+      (a.storie||[]).forEach(st=>{
+        h.push(`<button type="button" class="liv3" data-va="sec-${st.id}">${st.titolo}${cnt(nTavoleStoria(st))}</button>`);
+      });
+    });
+  }
+
+  if(conSingole.length){
+    h.push(`<button type="button" data-va="bloccoSingole">${T("tavoleSingole")}${cnt(totSingole)}</button>`);
+    conSingole.forEach(a=>{
+      h.push(`<button type="button" class="liv2" data-va="sec-singole-${a.id}">${a.nome}${cnt(a.singole.length)}</button>`);
+    });
+  }
+
+  const totFumetti = FUMETTI.reduce((t,p)=> t + nPersonaggio(p), 0);
+  h.push(`<div class="ind-sez">${T("fumetti")}${cnt(totFumetti)}</div>`);
+  FUMETTI.forEach(p=>{
+    h.push(`<button type="button" data-va="sec-pers-${p.id}">${p.personaggio}${cnt(nPersonaggio(p))}</button>`);
+    (p.serie||[]).forEach(se=>{
+      h.push(`<button type="button" class="liv2" data-va="sec-serie-${se.id}">${X("ser:"+se.titolo, se.titolo)}${cnt(nSerie(se))}</button>`);
+      if(se.gruppi && se.gruppi.length > 1){
+        se.gruppi.forEach(g=>{
+          h.push(`<button type="button" class="liv3" data-va="sec-${g.id}">${X("ser:"+g.titolo, g.titolo)}${cnt(nGruppo(g))}</button>`);
+        });
+      }
+    });
+  });
+
+  h.push(`<div class="ind-sez">${T("altro")}</div>`);
+  h.push(`<button type="button" data-va="raccSection">${T("raccoglitoriTitolo")}</button>`);
+  h.push(`<button type="button" data-contatti="1">${T("contatti")}</button>`);
+  return h.join("");
+}
+indiceCorpo.innerHTML = vociIndice();
+
+function apriIndice(){ indice.classList.add("open"); document.body.style.overflow="hidden"; }
+function chiudiIndice(){ indice.classList.remove("open"); document.body.style.overflow=""; }
+document.getElementById("btnIndice").onclick = apriIndice;
+document.getElementById("indiceChiudi").onclick = chiudiIndice;
+indice.addEventListener("click", e=>{ if(e.target === indice) chiudiIndice(); });
+
+/* Porta alla sezione tenendo conto delle barre fisse, e si ricorregge
+   finché le immagini che si caricano smettono di spostare il contenuto. */
+/* la barra dei filtri si aggancia sotto quella nera:
+   l'altezza va misurata, non indovinata */
+function allineaBarre(){
+  const b = document.querySelector(".barra-alta");
+  const f = document.getElementById("filtriBar");
+  if(b && f) f.style.top = b.offsetHeight + "px";
+}
+window.addEventListener("resize", allineaBarre);
+window.addEventListener("load", allineaBarre);
+
+function altezzaBarre(){
+  const b = document.querySelector(".barra-alta");
+  const f = document.getElementById("filtriBar");
+  return (b ? b.offsetHeight : 0) + (f ? f.offsetHeight : 0) + 10;
+}
+
+let inseguimento = null;
+function fermaInseguimento(){
+  if(inseguimento){ clearTimeout(inseguimento); inseguimento = null; }
+}
+["wheel","touchstart","keydown"].forEach(ev=>
+  window.addEventListener(ev, fermaInseguimento, {passive:true}));
+
+function vaiA(el){
+  if(!el) return;
+  fermaInseguimento();
+  /* Salto secco invece di scorrimento animato: durante l'animazione
+     le immagini si caricano e spostano il contenuto, e si arrivava
+     sempre altrove. Dopo il salto si continua a correggere finché
+     la pagina non smette di muoversi. */
+  let giri = 0, fermi = 0;
+  const passo = ()=>{
+    const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY - altezzaBarre());
+    if(Math.abs(window.scrollY - y) > 2){
+      window.scrollTo({top:y, behavior:"auto"});
+      fermi = 0;
+    } else {
+      fermi++;
+    }
+    giri++;
+    if(fermi < 4 && giri < 90) inseguimento = setTimeout(passo, 90);
+    else inseguimento = null;
+  };
+  passo();
+}
+
+indiceCorpo.addEventListener("click", e=>{
+  if(e.target.closest("[data-contatti]")){
+    chiudiIndice();
+    contattiPopup.classList.add("open");
+    return;
+  }
+  const a = e.target.closest("[data-va]");
+  if(!a) return;
+  chiudiIndice();
+  const el = document.getElementById(a.dataset.va);
+  if(!el) return;
+  /* se il filtro attivo nasconde quella parte, lo azzero prima di andarci */
+  if(el.offsetParent === null){
+    selC.value = ""; selP.value = ""; selA.value = ""; applyFiltri();
+  }
+  setTimeout(()=> vaiA(el), 60);
+});
+
+/* ---- HOME E TORNA SU ---- */
+const suSu = ()=> window.scrollTo({top:0, behavior:"smooth"});
+document.getElementById("btnHome").onclick = suSu;
+document.getElementById("btnHome2").onclick = suSu;
+document.getElementById("btnContattiBarra").onclick = ()=> contattiPopup.classList.add("open");
+const btnSu = document.getElementById("btnSu");
+btnSu.onclick = ()=> window.scrollTo({top:0, behavior:"smooth"});
+window.addEventListener("scroll", ()=>{
+  btnSu.classList.toggle("vedi", window.scrollY > 700);
+}, {passive:true});
+
+document.addEventListener("keydown", e=>{
+  if(e.key === "Escape") chiudiIndice();
+});
+
+
+/* ---- CAMBIO LINGUA ---- */
+function applicaEtichette(){
+  document.documentElement.lang = (LANG === "hr") ? "hr" : LANG;
+  document.querySelectorAll("[data-t]").forEach(el=>{
+    el.innerHTML = T(el.dataset.t);
+  });
+  const bc = document.getElementById("btnContattiBarra");
+  if(bc){ bc.title = T("contatti"); bc.setAttribute("aria-label", T("contatti")); }
+  /* le tendine Personaggio e Autore: solo la voce "tutti" */
+  const p0 = selP.querySelector('option[value=""]');
+  const a0 = selA.querySelector('option[value=""]');
+  if(p0) p0.textContent = T("tutti");
+  if(a0) a0.textContent = T("tutti");
+}
+
+function ricostruisci(){
+  /* svuoto e ridisegno i tre blocchi con la lingua nuova */
+  flatImages = [];
+  storieWrap.innerHTML = "";
+  singoleWrap.innerHTML = "";
+  fumettiWrap.innerHTML = "";
+  rGrid.innerHTML = "";
+  costruisciStorie();
+  costruisciSingole();
+  costruisciFumetti();
+  costruisciRaccoglitori();
+  indiceCorpo.innerHTML = vociIndice();
+  document.getElementById("indiceLingua").textContent = LINGUE[LANG]._nome;
+  applicaEtichette();
+  applyFiltri();
+}
+
+function cambiaLingua(l){
+  if(!LINGUE[l]) return;
+  LANG = l;
+  document.querySelectorAll("#sceltaLingua button").forEach(b=>
+    b.classList.toggle("attiva", b.dataset.l === l));
+  ricostruisci();
+}
+/* ---- FILTRI A SCOMPARSA (solo telefono) ---- */
+const btnFiltri = document.getElementById("btnFiltri");
+const filtriCorpo = document.getElementById("filtriCorpo");
+btnFiltri.addEventListener("click", ()=>{
+  const aperto = filtriCorpo.classList.toggle("aperto");
+  btnFiltri.setAttribute("aria-expanded", aperto ? "true" : "false");
+  allineaBarre();
+});
+
+/* riassume in una riga cosa è selezionato */
+function riassuntoFiltri(){
+  const parti = [];
+  if(selC.value) parti.push(selC.options[selC.selectedIndex].textContent);
+  if(selP.value) parti.push(selP.value);
+  if(selA.value) parti.push(selA.value);
+  document.getElementById("filtriAttivi").textContent =
+    parti.length ? "· " + parti.join(" · ") : "";
+}
+
+document.getElementById("sceltaLingua").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-l]");
+  if(b) cambiaLingua(b.dataset.l);
+});
+
+document.getElementById("indiceLingua").textContent = LINGUE[LANG]._nome;
+applicaEtichette();
+allineaBarre();
+applyFiltri();
+</script>
+
+</body>
+</html>

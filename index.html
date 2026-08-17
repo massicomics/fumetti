@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
-<title>I Fumetti del Massi — Tavole Originali e Collezione</title>
-<meta name="description" content="Collezione privata di tavole originali a china di Zagor — Franco Donatelli, il Maestro Gallieno Ferri e altri autori — e di albi storici a fumetti in prima edizione. Esposizione a titolo espositivo, senza fini commerciali.">
+<title>I Fumetti del Massi — Tavole originali di Zagor e Tex, collezione privata</title>
+<meta name="description" content="Collezione privata di tavole originali a china: le storie complete di Zagor «Odio!» e «la dea nera» disegnate da Franco Donatelli, tavole di Gallieno Ferri, Raffaele Della Monica, Mauro Laurenti, Giovanni Romanini e Marco Verni. E albi in prima edizione: Tex cartonati e Texoni, Alan Ford, Dylan Dog, Maxmagnus, La Compagnia della Forca. Esposizione senza fini commerciali.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://massicomics.github.io/fumetti/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="I Fumetti del Massi — Tavole Originali e Collezione">
-<meta property="og:description" content="Tavole originali di Zagor e albi storici a fumetti in prima edizione. Collezione privata.">
+<meta property="og:description" content="Tavole originali a china di Zagor — Donatelli, Ferri, Della Monica, Laurenti, Romanini — e albi in prima edizione: Tex, Alan Ford, Dylan Dog, Maxmagnus, La Compagnia della Forca.">
 <meta property="og:url" content="https://massicomics.github.io/fumetti/">
 <meta property="og:locale" content="it_IT">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="I Fumetti del Massi">
-<meta name="twitter:description" content="Tavole originali di Zagor e albi storici a fumetti in prima edizione.">
+<meta name="twitter:description" content="Tavole originali a china di Zagor e albi a fumetti in prima edizione. Collezione privata.">
 
 <style>
 :root{
@@ -33,7 +33,10 @@
   --max:1180px;
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth; background:#ede6d6 !important; color-scheme:light only;}
+/* niente scorrimento animato globale: le voci dell'indice devono
+   SALTARE al punto. Il "torna su" resta animato perché lo chiede
+   esplicitamente nel codice. */
+html{background:#ede6d6 !important; color-scheme:light only;}
 body{
   margin:0;
   background:#ede6d6 !important;
@@ -283,8 +286,9 @@ section.autore{margin-top:3.2rem;}
 }
 .foto-wrap{position:relative; cursor:zoom-in;}
 .foto-wrap img{
-  width:100%; height:190px; object-fit:cover;
+  width:100%; height:190px; object-fit:contain;
   border:1px solid var(--linea); background:var(--bianco-tavola);
+  padding:.3rem;
   box-shadow:0 2px 8px rgba(28,26,23,.16); transition:transform .18s;
 }
 .foto-wrap:hover img{transform:translateY(-3px);}
@@ -306,7 +310,7 @@ section.autore{margin-top:3.2rem;}
   columns:2; column-gap:2.5rem; margin:.9rem 0 0; padding-left:1.3rem;
   font-size:.92rem; line-height:1.9;
 }
-@media (max-width:640px){.elenco-titoli ol{columns:1;}}
+@media (max-width:640px){.elenco-titoli ol, .elenco-titoli ul{columns:1;}}
 
 /* ---------- RACCOGLITORI ---------- */
 section.raccoglitori{
@@ -409,11 +413,31 @@ footer{
 /* --- TELEFONO: due colonne, non una --- */
 @media (max-width:700px){
   main{padding:0 .7rem 3rem;}
-  .barra-alta{padding:.5rem .8rem;}
-  .marchio{font-size:.9rem;}
-  .btn-indice{font-size:.62rem; padding:.4rem .7rem;}
+  .barra-alta{padding:.45rem .6rem; flex-wrap:nowrap;}
+  .barra-destra{gap:.45rem;}
+  .icona{padding:.28rem;}
+  .icona svg{width:1.1rem; height:1.1rem;}
+  .lingue button{font-size:.6rem; padding:.3rem .3rem; letter-spacing:.04em;}
+  /* su telefono resta la casina, che fa da home: senza il nome
+     il divisore non separerebbe più nulla, quindi sparisce anche lui */
+  .barra-alta .marchio{display:none;}
+  .barra-alta .divisore-barra{display:none;}
+  .barra-destra{display:flex; align-items:center; gap:.8rem;}
+.lingue{display:flex; gap:.2rem;}
+.lingue button{
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:var(--su-nero-soft, #c9bfa8); font-family:'Courier New',monospace;
+  font-size:.68rem; font-weight:bold; letter-spacing:.1em;
+  padding:.35rem .45rem; cursor:pointer; border-radius:2px;
+}
+.lingue button:hover{color:var(--carta);}
+.lingue button.attiva{
+  color:var(--carta); border-color:rgba(237,230,214,.5);
+  background:rgba(237,230,214,.12);
+}
+.btn-indice{font-size:.62rem; padding:.4rem .7rem;}
   .filtri-bar{
-    top:2.4rem; flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
+    flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start;
     gap:1rem; -webkit-overflow-scrolling:touch;
   }
   .filtro-gruppo{flex:0 0 auto;}
@@ -425,7 +449,7 @@ footer{
   .tag-riga{font-size:.56rem; margin-top:.2rem;}
   .cornice::after{font-size:.6rem; padding:.12rem .22rem; right:.3rem; bottom:.3rem;}
   .foto-collana{grid-template-columns:repeat(2,1fr); gap:.7rem;}
-  .foto-wrap img{height:130px;}
+  .foto-wrap img{height:150px;}
   .racc-grid{grid-template-columns:repeat(2,1fr); gap:.7rem;}
   .racc-wrap img{height:130px;}
   .storia-head{gap:.8rem;}
@@ -445,12 +469,42 @@ footer{
   display:flex; align-items:center; justify-content:space-between;
   gap:1rem; padding:.6rem 1.2rem;
 }
+.barra-sinistra{display:flex; align-items:center; gap:.2rem;}
+.divisore-barra{
+  display:inline-block; width:1px; height:1.35rem;
+  background:rgba(237,230,214,.28); margin:0 .7rem;
+}
+.icona{
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:var(--su-nero-soft, #c9bfa8); cursor:pointer; padding:.35rem;
+  border-radius:2px; line-height:0;
+}
+.icona svg{
+  width:1.2rem; height:1.2rem; display:block; fill:none;
+  stroke:currentColor; stroke-width:1.7;
+  stroke-linejoin:round; stroke-linecap:round;
+}
+.icona:hover{color:var(--carta); background:rgba(237,230,214,.14); border-color:rgba(237,230,214,.4);}
 .marchio{
   appearance:none; border:0; background:transparent; color:var(--carta);
   font-family:Georgia,serif; font-style:italic; font-weight:700;
   font-size:1rem; cursor:pointer; padding:.2rem 0; letter-spacing:.01em;
 }
+
 .marchio:hover{opacity:.75;}
+.barra-destra{display:flex; align-items:center; gap:.8rem;}
+.lingue{display:flex; gap:.2rem;}
+.lingue button{
+  appearance:none; border:1px solid transparent; background:transparent;
+  color:var(--su-nero-soft, #c9bfa8); font-family:'Courier New',monospace;
+  font-size:.68rem; font-weight:bold; letter-spacing:.1em;
+  padding:.35rem .45rem; cursor:pointer; border-radius:2px;
+}
+.lingue button:hover{color:var(--carta);}
+.lingue button.attiva{
+  color:var(--carta); border-color:rgba(237,230,214,.5);
+  background:rgba(237,230,214,.12);
+}
 .btn-indice{
   appearance:none; border:1px solid rgba(237,230,214,.45); background:transparent;
   color:var(--carta); font-family:'Courier New',monospace; font-size:.7rem;
@@ -458,7 +512,7 @@ footer{
   padding:.45rem .9rem; border-radius:2px; cursor:pointer; white-space:nowrap;
 }
 .btn-indice:hover{background:rgba(237,230,214,.14);}
-.filtri-bar{top:2.6rem;}
+.filtri-bar{top:0;}
 
 /* ---------- PANNELLO INDICE ---------- */
 .indice{
@@ -483,6 +537,10 @@ footer{
   appearance:none; border:1px solid var(--linea); background:transparent;
   font-size:.95rem; cursor:pointer; color:var(--inchiostro);
   padding:.25rem .6rem; border-radius:2px;
+}
+.indice-lingua{
+  font-family:'Courier New',monospace; font-size:.66rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--tenue); margin:-.6rem 0 1.1rem;
 }
 .ind-sez{
   font-family:'Courier New',monospace; font-size:.7rem; font-weight:bold;
@@ -510,6 +568,9 @@ footer{
   color:var(--tenue); font-weight:normal; letter-spacing:0;
 }
 .elenco-titoli + .elenco-titoli{margin-top:1.4rem;}
+.elenco-coda{
+  margin-top:.9rem; font-size:.93rem; line-height:1.6; color:var(--tenue);
+}
 .ind-conta{
   float:right; font-family:'Courier New',monospace; font-size:.7rem;
   color:var(--tenue); font-weight:normal; letter-spacing:0;
@@ -554,108 +615,991 @@ section.personaggio{margin-top:3.4rem;}
   font-family:Georgia,serif; font-style:italic; font-weight:700;
   font-size:1.2rem; margin:0 0 .2rem;
 }
+
+/* ---------- FILTRI: in linea su schermi larghi ---------- */
+.filtri-corpo{
+  display:flex; justify-content:center; gap:1.6rem; flex-wrap:wrap;
+  width:100%;
+}
+.btn-filtri{display:none;}
+
+@media (max-width:700px){
+  /* su telefono le tendine si aprono e chiudono, invece di scorrere */
+  .filtri-bar{
+    display:block; padding:0; overflow:visible;
+  }
+  .btn-filtri{
+    display:flex; align-items:center; gap:.5rem; width:100%;
+    appearance:none; border:0; background:transparent; cursor:pointer;
+    font-family:'Courier New',monospace; font-size:.72rem; font-weight:bold;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--rosso);
+    padding:.7rem .9rem; text-align:left;
+  }
+  .btn-filtri::after{
+    content:"▾"; margin-left:auto; font-size:.9rem; transition:transform .2s;
+  }
+  .btn-filtri[aria-expanded="true"]::after{transform:rotate(180deg);}
+  .filtri-attivi{
+    font-weight:normal; letter-spacing:.04em; text-transform:none;
+    color:var(--tenue); font-size:.7rem;
+  }
+  .filtri-corpo{
+    display:none; flex-direction:column; align-items:stretch;
+    gap:.7rem; padding:0 .9rem .9rem;
+  }
+  .filtri-corpo.aperto{display:flex;}
+  .filtro-gruppo{
+    display:flex; justify-content:space-between; align-items:center; gap:.7rem;
+  }
+  .filtro-gruppo select{flex:1 1 auto; max-width:none; font-size:.95rem; padding:.5rem;}
+  .filtro-reset{align-self:flex-end; padding:.5rem 1rem;}
+}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "I Fumetti del Massi",
+  "url": "https://massicomics.github.io/fumetti/",
+  "inLanguage": ["it","en","hr"],
+  "description": "Collezione privata di tavole originali a china di Zagor e di albi a fumetti in prima edizione.",
+  "about": [
+    {"@type":"Thing","name":"Zagor"},
+    {"@type":"Thing","name":"Tex Willer"},
+    {"@type":"Thing","name":"Tavole originali a fumetti"},
+    {"@type":"Person","name":"Franco Donatelli"},
+    {"@type":"Person","name":"Gallieno Ferri"},
+    {"@type":"Person","name":"Raffaele Della Monica"},
+    {"@type":"Person","name":"Mauro Laurenti"},
+    {"@type":"Person","name":"Giovanni Romanini"},
+    {"@type":"Person","name":"Marco Verni"},
+    {"@type":"Person","name":"Magnus"}
+  ],
+  "isAccessibleForFree": true
+}
+</script>
 </head>
 <body>
+
+<div class="barra-alta">
+  <div class="barra-sinistra">
+    <button class="icona" id="btnHome" title="Home" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4.2l8 6.3V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg>
+    </button>
+    <button class="icona" id="btnContattiBarra" title="Contatti" aria-label="Contatti">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.2c-4.5 0-8 3-8 6.8 0 2 1 3.8 2.5 5L5.6 19.8l3.9-1.8c.8.2 1.6.3 2.5.3 4.5 0 8-3 8-6.8s-3.5-6.8-8-6.8z"/></svg>
+    </button>
+    <span class="divisore-barra" aria-hidden="true"></span>
+    <button class="marchio" id="btnHome2">I Fumetti del Massi</button>
+  </div>
+  <div class="barra-destra">
+    <div class="lingue" id="sceltaLingua">
+      <button type="button" data-l="it" class="attiva" title="Italiano" aria-label="Italiano">IT</button>
+      <button type="button" data-l="en" title="English" aria-label="English">EN</button>
+      <button type="button" data-l="hr" title="Bosanski / Hrvatski / Srpski" aria-label="Bosanski, Hrvatski, Srpski">B/H/S</button>
+    </div>
+    <button class="btn-indice" id="btnIndice">☰ <span data-t="indice">Indice</span></button>
+  </div>
+</div>
 
 <header class="hero">
   <h1 class="wordmark">
     <span>I Fumetti</span>
     <span class="del-massi">del Massi</span>
   </h1>
-  <p class="hero-sub">Esposizione privata della mia collezione di fumetti e tavole originali.</p>
-  <div class="hero-tag">Collezione privata, mostrata solo a titolo espositivo, senza fini commerciali</div>
+  <p class="hero-sub" data-t="sottotitolo">Esposizione privata della mia collezione di fumetti e tavole originali.</p>
+  <div class="hero-tag" data-t="disclaimer">Collezione privata, mostrata solo a titolo espositivo, senza fini commerciali</div>
 </header>
 
-<div class="barra-alta">
-  <button class="marchio" id="btnHome">I Fumetti del Massi</button>
-  <button class="btn-indice" id="btnIndice">☰ Indice</button>
-</div>
-
 <div class="filtri-bar" id="filtriBar">
+  <button class="btn-filtri" id="btnFiltri" aria-expanded="false">
+    <span data-t="filtri">Filtri</span><span class="filtri-attivi" id="filtriAttivi"></span>
+  </button>
+  <div class="filtri-corpo" id="filtriCorpo">
   <div class="filtro-gruppo">
-    <label for="filtroCollezione">Collezione</label>
+    <label for="filtroCollezione" data-t="fCollezione">Collezione</label>
     <select id="filtroCollezione">
-      <option value="">Tutto</option>
-      <option value="tavole">Tavole originali — tutte</option>
-      <option value="storia">Tavole originali — storie complete</option>
-      <option value="singola">Tavole originali — tavole singole</option>
-      <option value="fumetti">Fumetti</option>
+      <option value="" data-t="tutto">Tutto</option>
+      <option value="tavole" data-t="optTavoleTutte">Tavole originali — tutte</option>
+      <option value="storia" data-t="optStorie">Tavole originali — storie complete</option>
+      <option value="singola" data-t="optSingole">Tavole originali — tavole singole</option>
+      <option value="fumetti" data-t="optFumetti">Fumetti</option>
     </select>
   </div>
   <div class="filtro-gruppo">
-    <label for="filtroPersonaggio">Personaggio</label>
+    <label for="filtroPersonaggio" data-t="fPersonaggio">Personaggio</label>
     <select id="filtroPersonaggio"><option value="">Tutti</option></select>
   </div>
   <div class="filtro-gruppo">
-    <label for="filtroAutore">Autore</label>
+    <label for="filtroAutore" data-t="fAutore">Autore</label>
     <select id="filtroAutore"><option value="">Tutti</option></select>
   </div>
-  <button class="filtro-reset" id="filtroReset">Azzera</button>
+  <button class="filtro-reset" id="filtroReset" data-t="azzera">Azzera</button>
+  </div>
 </div>
 
 <main>
   <div id="bloccoStorie">
     <div class="blocco-titolo">
-      <div class="sovratitolo">Collezione</div>
-      <h2>Tavole originali: storie complete</h2>
-      <div class="blocco-sub">Raccolte per autore</div>
+      <div class="sovratitolo" data-t="blkCollezione">Collezione</div>
+      <h2 data-t="blkStorie">Tavole originali: storie complete</h2>
+      <div class="blocco-sub" data-t="subPerAutore">Raccolte per autore</div>
     </div>
-    <div id="storieWrap"></div>
+    <div id="storieWrap"><section class="autore" id="sec-storie-donatelli">
+    <div class="autore-head">
+      <div class="autore-etichetta">Autore</div>
+      <div class="autore-nome">Franco Donatelli</div>
+      <div class="conteggio">2 storie complete</div>
+      
+    </div><div class="storia" id="sec-odio">
+      <div class="storia-head">
+        <div>
+          <div class="storia-tipo">Storia completa in tre albi</div>
+          <h3 class="storia-titolo">Zagor — Odio!</h3>
+        </div>
+        <div class="storia-meta">
+          <strong>Testi</strong> Guido Nolitta
+          <strong style="margin-top:.4em">Disegni</strong> Franco Donatelli
+        </div>
+      </div>
+      <p class="storia-intro">Seconda storia di Zagor disegnata dall'immenso Franco Donatelli, che qui consolida il tratto zagoriano amato per decine di anni a venire. La storia completa consiste di 212 tavole originali, tutte facenti parte di questa collezione e in perfetto stato di conservazione, fatta eccezione per la sola pagina 21 — rimpiazzata da un'opera, pure originale, di pari valore (vedi nota a chiusura della saga "Odio!"). Le tavole mostrate qui sotto sono una selezione, non l'intera storia.</p>
+    <div class="capitolo">
+        <div class="capitolo-head">
+          <span class="cap-num">Zenith Gigante n.90 — settembre 1968 (Zagor n.39)</span>
+          <div class="cap-titolo">Zagor — Odio!</div>
+        </div>
+        <div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/01_p003.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/01_p003.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Tavola titolo</span>
+      <span class="pag">p.3</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/02_p005.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/02_p005.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.5</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/03_p010.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/03_p010.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.10</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/04_p014.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/04_p014.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.14</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Marco Verni" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/05_p021.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/05_p021.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Tavola ricostruita da Marco Verni — vedi nota sotto</span>
+      <span class="pag">p.21</span>
+    </div>
+    <div class="tag-riga">Zagor · Marco Verni</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/06_p027.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/06_p027.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.27</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/07_p036.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/07_p036.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.36</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/08_p043.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/08_p043.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.43</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/09_p055.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/09_p055.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.55</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/10_p059.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/10_p059.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.59</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/11_p081.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/11_p081.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.81</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/12_p094.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/12_p094.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.94</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/odio/13_p095.jpg" loading="lazy" alt="Odio!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/odio/13_p095.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Odio!</span>
+      <span class="pag">p.95</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div></div>
+        <div class="cap-nota-finale"><strong>Su pagina 21:</strong> l'unica tavola non originale della collezione. La tavola di Franco Donatelli è mancante; a completare la storia è una ricostruzione fedele realizzata dall'amico <strong>Marco Verni</strong> — tra i disegnatori di Zagor più apprezzati per la vicinanza al tratto del Maestro Gallieno Ferri — che ha voluto farmi questo dono personale per chiudere l'albo senza lacune.</div>
+      </div><div class="capitolo">
+        <div class="capitolo-head">
+          <span class="cap-num">Zenith Gigante n.91 — ottobre 1968 (Zagor n.40)</span>
+          <div class="cap-titolo">Zagor — Lo Spettro del Passato</div>
+        </div>
+        <div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/01_p003.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/01_p003.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Tavola titolo</span>
+      <span class="pag">p.3</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/02_p017.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/02_p017.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.17</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/03_p022.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/03_p022.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.22</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/04_p032.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/04_p032.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.32</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/05_p038.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/05_p038.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.38</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/06_p042.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/06_p042.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.42</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/07_p044.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/07_p044.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.44</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/08_p056.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/08_p056.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.56</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/09_p059.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/09_p059.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.59</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/10_p062.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/10_p062.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.62</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/11_p072.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/11_p072.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.72</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/12_p078.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/12_p078.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.78</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/13_p083.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/13_p083.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.83</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/spettro/14_p089.jpg" loading="lazy" alt="Lo Spettro del Passato" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/spettro/14_p089.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Lo Spettro del Passato</span>
+      <span class="pag">p.89</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div></div>
+        
+      </div><div class="capitolo">
+        <div class="capitolo-head">
+          <span class="cap-num">20 pagine di Zenith Gigante n.92 — novembre 1968 (Zagor n.41)</span>
+          <div class="cap-titolo">Zagor — Vittoria!</div>
+        </div>
+        <div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/vittoria/01_p003.jpg" loading="lazy" alt="Vittoria!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/vittoria/01_p003.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Tavola titolo</span>
+      <span class="pag">p.3</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/vittoria/02_p009.jpg" loading="lazy" alt="Vittoria!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/vittoria/02_p009.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Vittoria!</span>
+      <span class="pag">p.9</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/vittoria/03_p010.jpg" loading="lazy" alt="Vittoria!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/vittoria/03_p010.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Vittoria!</span>
+      <span class="pag">p.10</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/vittoria/04_p011.jpg" loading="lazy" alt="Vittoria!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/vittoria/04_p011.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Vittoria!</span>
+      <span class="pag">p.11</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/vittoria/05_p022.jpg" loading="lazy" alt="Vittoria!" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/vittoria/05_p022.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Fine dell'episodio</span>
+      <span class="pag">p.22</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div></div>
+        
+      </div></div><div class="storia" id="sec-deanera">
+      <div class="storia-head">
+        <div>
+          <div class="storia-tipo">Storia completa in due albi</div>
+          <h3 class="storia-titolo">Zagor — la dea nera</h3>
+        </div>
+        <div class="storia-meta">
+          <strong>Testi</strong> Guido Nolitta
+          <strong style="margin-top:.4em">Disegni</strong> Franco Donatelli
+        </div>
+      </div>
+      <p class="storia-intro">La storia completa consiste di 120 tavole originali, tutte facenti parte di questa collezione e in perfetto stato di conservazione. Le tavole mostrate qui sotto sono una selezione, non l'intera storia.</p>
+    <div class="capitolo">
+        <div class="capitolo-head">
+          <span class="cap-num">Zenith Gigante n.104 — novembre 1969 (Zagor n.53)</span>
+          <div class="cap-titolo">Zagor — la dea nera</div>
+        </div>
+        <div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/01_p025.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/01_p025.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Tavola titolo</span>
+      <span class="pag">p.25</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/02_p034.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/02_p034.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.34</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/03_p039.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/03_p039.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.39</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/04_p044.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/04_p044.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.44</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/05_p049.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/05_p049.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.49</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/06_p054.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/06_p054.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.54</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/07_p063.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/07_p063.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.63</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/08_p066.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/08_p066.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.66</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/09_p071.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/09_p071.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.71</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/10_p075.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/10_p075.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.75</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/11_p090.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/11_p090.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.90</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/12_p094.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/12_p094.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.94</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/13_p095.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/13_p095.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.95</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/deanera/14_p098.jpg" loading="lazy" alt="la dea nera" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/deanera/14_p098.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>la dea nera</span>
+      <span class="pag">p.98</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div></div>
+        
+      </div><div class="capitolo">
+        <div class="capitolo-head">
+          <span class="cap-num">44 pagine di Zenith Gigante n.105 — dicembre 1969 (Zagor n.54)</span>
+          <div class="cap-titolo">Zagor (44 pag di Natale Calibro .45)</div>
+        </div>
+        <div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/01_p005.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/01_p005.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.5</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/02_p010.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/02_p010.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.10</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/03_p013.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/03_p013.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.13</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/04_p017.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/04_p017.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.17</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/05_p019.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/05_p019.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.19</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/06_p025.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/06_p025.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.25</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/07_p030.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/07_p030.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.30</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/08_p036.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/08_p036.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Natale Calibro .45</span>
+      <span class="pag">p.36</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Franco Donatelli" data-tipo="storia">
+    <div class="cornice">
+      <img src="assets/thumbs/tavole/natale/09_p038.jpg" loading="lazy" alt="Natale Calibro .45" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/tavole/natale/09_p038.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Chiusura de la dea nera</span>
+      <span class="pag">p.38</span>
+    </div>
+    <div class="tag-riga">Zagor · Franco Donatelli</div>
+  </div></div>
+        
+      </div></div></section></div>
   </div>
 
   <div id="bloccoSingole">
     <div class="separatore"></div>
     <div class="blocco-titolo">
-      <div class="sovratitolo">Collezione</div>
-      <h2>Tavole originali: tavole singole</h2>
-      <div class="blocco-sub">Raccolte per autore</div>
+      <div class="sovratitolo" data-t="blkCollezione">Collezione</div>
+      <h2 data-t="blkSingole">Tavole originali: tavole singole</h2>
+      <div class="blocco-sub" data-t="subPerAutore">Raccolte per autore</div>
     </div>
-    <div id="singoleWrap"></div>
+    <div id="singoleWrap"><section class="autore" id="sec-singole-ferri">
+    <div class="autore-head">
+      <div class="autore-etichetta">Autore</div>
+      <div class="autore-nome">Gallieno Ferri</div>
+      <div class="conteggio">9 tavole singole</div>
+      <p class="autore-nota">Creatore grafico di Zagor insieme a Guido Nolitta (Sergio Bonelli) e autore di tutte le copertine della serie regolare fino al n.665; dopo la sua scomparsa, nell'aprile 2016, gli subentra Alessandro Piccinelli a partire dal n.666.</p>
+    </div><div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/z001_p18.jpg" loading="lazy" alt="Zagor n.1 — pagina 18" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/z001_p18.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor n.1 — pagina 18</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/z005_p62.jpg" loading="lazy" alt="Zagor n.5 — I due sosia — pagina 62" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/z005_p62.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor n.5 — I due sosia — pagina 62</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/z016_p99.jpg" loading="lazy" alt="Zagor n.16 — I padroni del fuoco — pagina 99" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/z016_p99.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor n.16 — I padroni del fuoco — pagina 99</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/z020_p12.jpg" loading="lazy" alt="Zagor n.20 — L'inferno dei vivi — pagina 12" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/z020_p12.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor n.20 — L'inferno dei vivi — pagina 12</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/z063_p99.jpg" loading="lazy" alt="Zagor n.63 — Sfida all'ignoto — pagina 99" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/z063_p99.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor n.63 — Sfida all'ignoto — pagina 99</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/z097_p82.jpg" loading="lazy" alt="Zagor n.97 — Oceano — pagina 82" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/z097_p82.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor n.97 — Oceano — pagina 82</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/z124_p81.jpg" loading="lazy" alt="Zagor n.124 — Zagor contro Supermike — pagina 81" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/z124_p81.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor n.124 — Zagor contro Supermike — pagina 81</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/recco_poster.jpg" loading="lazy" alt="Originale per il poster della fiera di Recco" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/recco_poster.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Originale per il poster della fiera di Recco (2001, data da confermare)</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Gallieno Ferri" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/ferri/recco_cartolina.jpg" loading="lazy" alt="Originale per la cartolina della fiera di Recco" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/ferri/recco_cartolina.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Originale per la cartolina della fiera di Recco (1995, data da confermare)</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Gallieno Ferri</div>
+  </div></div></section><section class="autore" id="sec-singole-dellamonica">
+    <div class="autore-head">
+      <div class="autore-etichetta">Autore</div>
+      <div class="autore-nome">Raffaele Della Monica</div>
+      <div class="conteggio">2 tavole singole</div>
+      
+    </div><div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Raffaele Della Monica" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/dellamonica/zagor_vampiro.jpg" loading="lazy" alt="Zagor e il vampiro" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/dellamonica/zagor_vampiro.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor e il vampiro (2007)</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Raffaele Della Monica</div>
+  </div><div class="tavola-card" data-personaggio="Tex" data-autore="Raffaele Della Monica" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/dellamonica/tex_toroseduto.jpg" loading="lazy" alt="Tex e Toro Seduto" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/dellamonica/tex_toroseduto.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Tex e Toro Seduto (2007)</span>
+      
+    </div>
+    <div class="tag-riga">Tex · Raffaele Della Monica</div>
+  </div></div></section><section class="autore" id="sec-singole-laurenti">
+    <div class="autore-head">
+      <div class="autore-etichetta">Autore</div>
+      <div class="autore-nome">Mauro Laurenti</div>
+      <div class="conteggio">2 tavole singole</div>
+      
+    </div><div class="grid"><div class="tavola-card" data-personaggio="Zagor" data-autore="Mauro Laurenti" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/laurenti/zagor_roma.jpg" loading="lazy" alt="Zagor per Roma" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/laurenti/zagor_roma.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor per Roma (1998)</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Mauro Laurenti</div>
+  </div><div class="tavola-card" data-personaggio="Zagor" data-autore="Mauro Laurenti" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/laurenti/zagor_cartoomix.jpg" loading="lazy" alt="Zagor per Milano Cartoomix" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/laurenti/zagor_cartoomix.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Zagor per Milano Cartoomix (2007)</span>
+      
+    </div>
+    <div class="tag-riga">Zagor · Mauro Laurenti</div>
+  </div></div></section><section class="autore" id="sec-singole-romanini">
+    <div class="autore-head">
+      <div class="autore-etichetta">Autore</div>
+      <div class="autore-nome">Giovanni Romanini</div>
+      <div class="conteggio">1 tavola singola</div>
+      
+    </div><div class="grid"><div class="tavola-card" data-personaggio="Kriminal" data-autore="Giovanni Romanini" data-tipo="singola">
+    <div class="cornice">
+      <img src="assets/thumbs/altre/romanini/kriminal.jpg" loading="lazy" alt="Kriminal" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/altre/romanini/kriminal.jpg';}">
+    </div>
+    <div class="tavola-label">
+      <span>Kriminal</span>
+      
+    </div>
+    <div class="tag-riga">Kriminal · Giovanni Romanini</div>
+  </div></div></section></div>
   </div>
 
   <div id="bloccoFumetti">
     <div class="separatore"></div>
     <div class="blocco-titolo">
-      <div class="sovratitolo">Collezione</div>
-      <h2>Fumetti</h2>
-      <div class="blocco-sub">Raccolti per personaggio e serie</div>
+      <div class="sovratitolo" data-t="blkCollezione">Collezione</div>
+      <h2 data-t="blkFumetti">Fumetti</h2>
+      <div class="blocco-sub" data-t="subFumetti">Raccolti per personaggio e serie</div>
     </div>
-    <p class="nota-blocco">Tutti gli albi sono sempre stati conservati in apposite buste sigillate.</p>
-    <div id="fumettiWrap"></div>
+    <p class="nota-blocco" data-t="notaFumetti">Tutti gli albi sono sempre stati conservati in apposite buste sigillate.</p>
+    <div id="fumettiWrap"><section class="personaggio" id="sec-pers-tex" data-personaggio="Tex">
+    <div class="pers-head">
+      <div class="pers-etichetta">Personaggio</div>
+      <div class="pers-nome">Tex</div>
+      
+    </div>
+  <div class="serie" id="sec-serie-tex-texoni"><div class="serie-etichetta">Texoni</div><div class="gruppo" id="sec-tex-texoni-serie">
+    <h4>Albi Speciali</h4>
+    <div class="collana-crediti">Sergio Bonelli Editore</div>
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>100% tra magazzino, edicola e ottimo</div><div class="scheda-riga"><span class="voce">Volumi</span>126 albi, 33 titoli diversi</div></div>
+    <div class="collana-nota">Sequenza ininterrotta dal n.1 al n.25, in gran parte in più copie; dal 25 in poi, qualche volume sfuso. Gli albi sono conservati in busta protettiva e in armadio chiuso. Alcuni titoli sono presenti in più copie. Tutte le copie del Texone n.9 presenti nella collezione sono complete della stampa originale della «Serata Magnus» — 25 maggio 1996, Libreria RCS Rizzoli, Bologna.</div>
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/texoni/armadio.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/texoni/armadio.jpg';}"></span><div class="foto-did">Gli Albi Speciali nell'armadio</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/texoni/albo09_valledelterrore.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/texoni/albo09_valledelterrore.jpg';}"></span><div class="foto-did">Albo Speciale n.9 — La valle del terrore, disegni di Magnus</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/texoni/serata_magnus.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/texoni/serata_magnus.jpg';}"></span><div class="foto-did">«Serata Magnus», 25 maggio 1996 — stampa omaggio della Libreria RCS Rizzoli Libri di via dei Mille, Bologna</div></div></div>
+    <div class="elenchi"><div class="elenco-titoli"><div class="elenco-cap">Dal n.1 al n.25</div>
+      <ul><li>n.1 — Tex il grande!</li><li>n.2 — Terra senza legge</li><li>n.3 — Il segno del serpente</li><li>n.4 — Piombo rovente</li><li>n.5 — Fiamme sull'Arizona</li><li>n.6 — La grande rapina</li><li>n.7 — Il pueblo perduto</li><li>n.8 — Il soldato comanche</li><li>n.9 — La valle del terrore</li><li>n.10 — L'uomo di Atlanta</li><li>n.11 — L'ultima frontiera</li><li>n.12 — Gli assassini</li><li>n.13 — Sangue sul Colorado</li><li>n.14 — L'ultimo ribelle</li><li>n.15 — Il cavaliere solitario</li><li>n.16 — I predatori del deserto</li><li>n.17 — Mercanti di schiavi</li><li>n.18 — Ombre nella notte</li><li>n.19 — Il prezzo della vendetta</li><li>n.20 — Canyon Dorado</li><li>n.21 — Il profeta hualpai</li><li>n.22 — Seminoles</li><li>n.23 — Patagonia</li><li>n.24 — I ribelli di Cuba</li><li>n.25 — Verso l'Oregon</li></ul><div class="elenco-coda">Dal 25 in poi, qualche volume sfuso.</div></div></div>
+  </div></div><div class="serie" id="sec-serie-tex-cartonati"><div class="serie-etichetta">Cartonati</div><div class="gruppo" id="sec-tex-cart-mondadori">
+    <h4>Cartonati rossi</h4>
+    <div class="collana-crediti">Mondadori · edizioni CEPIM · Daim Press / Sergio Bonelli Editore</div>
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>90% tra magazzino, edicola e ottimo · 10% buono</div><div class="scheda-riga"><span class="voce">Volumi</span>39</div></div>
+    <div class="collana-nota">Serie unica, iniziata nel 1975 con «Il mio nome è Tex», strenna natalizia pubblicata da Mondadori su licenza di Sergio Bonelli — la cui casa editrice allora si chiamava CEPIM. Il cambio di marchio sui dorsi segue le denominazioni successive della casa editrice, non un cambio di serie: pur essendocene uno blu e uno giallo, per i texani restano i «cartonati rossi». Alcuni titoli sono presenti in più copie. I volumi sono conservati in busta protettiva e in armadio chiuso. Le foto di fronte, dorso e taglio documentano lo stato di alcuni singoli pezzi.</div>
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/scaffale.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/scaffale.jpg';}"></span><div class="foto-did">I 39 volumi della collezione</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/insieme.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/insieme.jpg';}"></span><div class="foto-did">I 7 volumi fotografati singolarmente</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/ilmionomeetex.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/ilmionomeetex.jpg';}"></span><div class="foto-did">Il mio nome è Tex — copertina</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/dorso_ilmionomeetex.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/dorso_ilmionomeetex.jpg';}"></span><div class="foto-did">Il mio nome è Tex — dorso e taglio</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/avventuranelnord.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/avventuranelnord.jpg';}"></span><div class="foto-did">Un'avventura nel nord — copertina</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/dorso_avventuranelnord.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/dorso_avventuranelnord.jpg';}"></span><div class="foto-did">Un'avventura nel nord — dorso e taglio</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/mefisto.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/mefisto.jpg';}"></span><div class="foto-did">Tex contro Mefisto — copertina</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/dorso_mefisto.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/dorso_mefisto.jpg';}"></span><div class="foto-did">Tex contro Mefisto — dorso e taglio</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/piramide.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/piramide.jpg';}"></span><div class="foto-did">Tex e la piramide misteriosa — copertina</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/dorso_piramide.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/dorso_piramide.jpg';}"></span><div class="foto-did">Tex e la piramide misteriosa — dorso e taglio</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/mondadori/conquistadelwest.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/mondadori/conquistadelwest.jpg';}"></span><div class="foto-did">La conquista del west — copertina</div></div></div>
+    <div class="elenchi"><div class="elenco-titoli"><div class="elenco-cap">I 7 volumi fotografati</div>
+      <ul><li>Il mio nome è Tex</li><li>Un'avventura nel nord</li><li>Tex e i fuorilegge</li><li>Tex e gli indiani</li><li>La conquista del west</li><li>Tex contro Mefisto</li><li>Tex e la piramide misteriosa</li></ul></div><div class="elenco-titoli"><div class="elenco-cap">Gli altri volumi presenti nella collezione<span class="elenco-conta">18</span></div>
+      <ul><li>Apache Kid</li><li>Fiamme di guerra</li><li>Grido di guerra</li><li>I dominatori della valle</li><li>I giustizieri di Vegas</li><li>Il fiore della morte</li><li>Tex e il segno di Cruzado</li><li>Il segreto degli Anasazi</li><li>La legge di Tex</li><li>La pattuglia sperduta</li><li>L'uomo senza passato</li><li>Lotta sul mare</li><li>Nell'Inferno Verde</li><li>Sasquatch</li><li>Sentieri di sangue</li><li>Sfida nella città fantasma</li><li>Tex e i soldati</li><li>Wanted!</li></ul></div></div>
+  </div><div class="gruppo" id="sec-tex-cart-magnus">
+    <h4>Il Tex di Magnus</h4>
+    
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>da magazzino, sempre custodito nel cofanetto originale</div></div>
+    <div class="collana-nota">Il volume cartonato gigante de «La valle del terrore» (Il Tex di Magnus), pubblicato da Alessandro Editore nel 1998, fu stampato in tiratura limitata a 825 copie, numerate e in formato gigante (35×50 cm), lo stesso dei disegni originali di Magnus. Volume di grande pregio, bellissimo.</div>
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/magnus/volume.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/magnus/volume.jpg';}"></span><div class="foto-did">Copertina</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/magnus/stampa.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/magnus/stampa.jpg';}"></span><div class="foto-did">Quarta di copertina, con la fotografia di Magnus</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/magnus/imballo_aperto.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/magnus/imballo_aperto.jpg';}"></span><div class="foto-did">Il volume nel cofanetto originale</div></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/magnus/imballo.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/magnus/imballo.jpg';}"></span><div class="foto-did">Il cofanetto chiuso</div></div></div>
+    <div class="elenchi"></div>
+  </div><div class="gruppo" id="sec-tex-cart-vari">
+    <h4>Cartonati vari</h4>
+    <div class="collana-crediti">Sergio Bonelli Editore · Federico Motta Editore</div>
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>ottimo</div></div>
+    
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/tex/cartonati/vari/insieme.jpg" loading="lazy" alt="Tex" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/tex/cartonati/vari/insieme.jpg';}"></span></div></div>
+    <div class="elenchi"><div class="elenco-titoli"><div class="elenco-cap">I 4 volumi</div>
+      <ul><li>Tex — L'inesorabile (Mauro Boselli, Claudio Villa)</li><li>La mano rossa</li><li>I cinquant'anni di Tex — omaggio ad Aurelio Galleppini</li><li>Tex — Un eroe per amico (Gianni Bono, Leonardo Gori)</li></ul></div></div>
+  </div></div></section><section class="personaggio" id="sec-pers-alanford" data-personaggio="Alan Ford">
+    <div class="pers-head">
+      <div class="pers-etichetta">Personaggio</div>
+      <div class="pers-nome">Alan Ford</div>
+      
+    </div>
+  <div class="serie" id="sec-serie-af-corno"><div class="serie-etichetta">Serie regolare</div><div class="gruppo" id="sec-af-corno">
+    <h4>Serie regolare</h4>
+    <div class="collana-crediti">Testi di Max Bunker, disegni di Magnus · Editoriale Corno</div>
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione, originali</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>da magazzino</div><div class="scheda-riga"><span class="voce">Serie</span>completa, 1 – 10</div></div>
+    
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/alanford/alanford_01.jpg" loading="lazy" alt="Alan Ford" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/alanford/alanford_01.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/alanford/alanford_02.jpg" loading="lazy" alt="Alan Ford" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/alanford/alanford_02.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/alanford/alanford_03.jpg" loading="lazy" alt="Alan Ford" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/alanford/alanford_03.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/alanford/alanford_04.jpg" loading="lazy" alt="Alan Ford" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/alanford/alanford_04.jpg';}"></span></div></div>
+    <div class="elenchi"><div class="elenco-titoli"><div class="elenco-cap">I 10 volumi</div>
+      <ol><li>Il Gruppo T.N.T.</li><li>Il dente cariato</li><li>Operazione Frankenstein</li><li>La casa dei fantasmi</li><li>Date! Date! Date!</li><li>Alex Berry non c'è più</li><li>Una gita a San Guerreta</li><li>L'albero di Natale</li><li>Zoo Symphony</li><li>Formule</li></ol></div></div>
+  </div></div></section><section class="personaggio" id="sec-pers-dylandog" data-personaggio="Dylan Dog">
+    <div class="pers-head">
+      <div class="pers-etichetta">Personaggio</div>
+      <div class="pers-nome">Dylan Dog</div>
+      
+    </div>
+  <div class="serie" id="sec-serie-dd-regolare"><div class="serie-etichetta">Serie regolare</div><div class="gruppo" id="sec-dd-regolare">
+    <h4>Serie regolare</h4>
+    <div class="collana-crediti">Testi di Tiziano Sclavi, disegni di vari autori · Daim Press / Sergio Bonelli Editore</div>
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione, originali</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>da edicola</div><div class="scheda-riga"><span class="voce">Serie</span>completa, 1 – 20</div></div>
+    
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/dylandog/dylandog_01.jpg" loading="lazy" alt="Dylan Dog" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/dylandog/dylandog_01.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/dylandog/dylandog_02.jpg" loading="lazy" alt="Dylan Dog" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/dylandog/dylandog_02.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/dylandog/dylandog_03.jpg" loading="lazy" alt="Dylan Dog" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/dylandog/dylandog_03.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/dylandog/dylandog_04.jpg" loading="lazy" alt="Dylan Dog" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/dylandog/dylandog_04.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/dylandog/dylandog_05.jpg" loading="lazy" alt="Dylan Dog" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/dylandog/dylandog_05.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/dylandog/dylandog_06.jpg" loading="lazy" alt="Dylan Dog" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/dylandog/dylandog_06.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/dylandog/dylandog_07.jpg" loading="lazy" alt="Dylan Dog" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/dylandog/dylandog_07.jpg';}"></span></div></div>
+    <div class="elenchi"><div class="elenco-titoli"><div class="elenco-cap">I 20 volumi</div>
+      <ol><li>L'Alba dei Morti Viventi</li><li>Jack lo Squartatore</li><li>Le Notti della Luna Piena</li><li>Il Fantasma di Anna Never</li><li>Gli Uccisori</li><li>La Bellezza del Demonio</li><li>La Zona del Crepuscolo</li><li>Il Ritorno del Mostro</li><li>Alfa e Omega</li><li>Attraverso lo Specchio</li><li>Diabolo il Grande</li><li>Killer!</li><li>Vivono tra Noi</li><li>Fra la Vita e la Morte</li><li>Canale 666</li><li>Il Castello della Paura</li><li>La Dama in Nero</li><li>Cagliostro!</li><li>Memorie dall'Invisibile</li><li>Dal Profondo</li></ol></div></div>
+  </div></div></section><section class="personaggio" id="sec-pers-forca" data-personaggio="La Compagnia della Forca">
+    <div class="pers-head">
+      <div class="pers-etichetta">Personaggio</div>
+      <div class="pers-nome">La Compagnia della Forca</div>
+      
+    </div>
+  <div class="serie" id="sec-serie-forca-regolare"><div class="serie-etichetta">Serie regolare</div><div class="gruppo" id="sec-forca-regolare">
+    <h4>Serie regolare</h4>
+    <div class="collana-crediti">Magnus &amp; Romanini</div>
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione, originali</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>ottimo</div><div class="scheda-riga"><span class="voce">Serie</span>completa, 1 – 19</div></div>
+    <div class="collana-nota">Serie completa del 1979. La collezione comprende gli adesivi, la cartolina e due adesivi inediti extra rari, mai usciti nella serie regolare.</div>
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/forca/forca_01.jpg" loading="lazy" alt="La Compagnia della Forca" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/forca/forca_01.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/forca/forca_02.jpg" loading="lazy" alt="La Compagnia della Forca" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/forca/forca_02.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/forca/forca_03.jpg" loading="lazy" alt="La Compagnia della Forca" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/forca/forca_03.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/forca/forca_04.jpg" loading="lazy" alt="La Compagnia della Forca" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/forca/forca_04.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/forca/forca_05.jpg" loading="lazy" alt="La Compagnia della Forca" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/forca/forca_05.jpg';}"></span></div></div>
+    <div class="elenchi"><div class="elenco-titoli"><div class="elenco-cap">I 19 volumi</div>
+      <ol><li>La Compagnia della Forca</li><li>Il Castellano Sparviero</li><li>Il Rapimento di Annalisa</li><li>Il Reame di Bellorizzonte</li><li>Il Grande Torneo</li><li>Il Ritorno di Gerardo</li><li>Il Trullo dei Sette Savi</li><li>La Pantera del Mare</li><li>L'Abate Nero</li><li>L'Impero dell'Albero Secco</li><li>Il Pasticciere del Re</li><li>La Traversata Maledetta</li><li>Gli Schiavi di Punis</li><li>Il Tappeto Volante</li><li>Un Certo Dottor Nadir</li><li>La Rosa della Discordia</li><li>I Due Genii Siamesi</li><li>La Bella Fiammeggiante</li><li>La Resa dei Conti</li></ol></div></div>
+  </div></div></section><section class="personaggio" id="sec-pers-maxmagnus" data-personaggio="Maxmagnus">
+    <div class="pers-head">
+      <div class="pers-etichetta">Personaggio</div>
+      <div class="pers-nome">Maxmagnus</div>
+      
+    </div>
+  <div class="serie" id="sec-serie-mm-regolare"><div class="serie-etichetta">Serie regolare</div><div class="gruppo" id="sec-mm-regolare">
+    <h4>Serie regolare</h4>
+    <div class="collana-crediti">Testi di Max Bunker, disegni di Magnus</div>
+    <div class="scheda"><div class="scheda-riga"><span class="voce">Edizione</span>Prima edizione, originali</div><div class="scheda-riga"><span class="voce">Stato di conservazione</span>ottimo</div><div class="scheda-riga"><span class="voce">Serie</span>completa, 1 – 16</div></div>
+    <div class="collana-nota">Serie completa e originale, con tutti gli adesivi.</div>
+    <div class="foto-collana"><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/maxmagnus/maxmagnus_01.jpg" loading="lazy" alt="Maxmagnus" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/maxmagnus/maxmagnus_01.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/maxmagnus/maxmagnus_02.jpg" loading="lazy" alt="Maxmagnus" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/maxmagnus/maxmagnus_02.jpg';}"></span></div><div class="foto-wrap"><span class="cornice-foto"><img src="assets/thumbs/fumetti/maxmagnus/maxmagnus_03.jpg" loading="lazy" alt="Maxmagnus" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/fumetti/maxmagnus/maxmagnus_03.jpg';}"></span></div></div>
+    <div class="elenchi"><div class="elenco-titoli"><div class="elenco-cap">I 16 volumi</div>
+      <ol><li>C'era una Volta un Re</li><li>Il Giorno del Giudizio Salomonico</li><li>Il Lago dei Miracoli</li><li>Il Rapimento del Principe</li><li>La Catena della Fraternità</li><li>E il Gran Giorno Venne</li><li>Sponsali Decretati</li><li>La Festa dei Bagordi</li><li>Il Principe è Impazzito</li><li>Complotto Fatale</li><li>Natale di Pace</li><li>Minaccia nell'Ombra</li><li>La Cattura di Sante</li><li>Operazione Immagine</li><li>La Magna Tenzone</li><li>L'Ora della Rivolta</li></ol></div></div>
+  </div></div></section></div>
   </div>
 
   <div class="nessun-risultato" id="nessunRisultato">
-    Nessun pezzo corrisponde ai filtri selezionati.
+    <span data-t="nessunRisultato">Nessun pezzo corrisponde ai filtri selezionati.</span>
   </div>
 </main>
 
 <section class="raccoglitori" id="raccSection">
   <div class="inner">
-    <div class="sovratitolo">Dietro le quinte</div>
-    <h2>I raccoglitori</h2>
-    <p>
-      Le tavole sono custodite in speciali raccoglitori di pelle che ho fatto
-      personalmente realizzare su misura, formato 45×35&nbsp;cm, con carta interna
-      di massima qualità e grammatura pesante, priva di velina per una
-      consultazione più immediata e piacevole.
-    </p>
-    <div class="racc-grid" id="raccGrid"></div>
-    <div class="racc-note">È presente, e visibile, anche il materiale originale — film e nastro originale Bonelli — in cui le tavole erano originariamente custodite.</div>
+    <div class="sovratitolo" data-t="raccoglitoriOcchiello">Dietro le quinte</div>
+    <h2 data-t="raccoglitoriTitolo">I raccoglitori</h2>
+    <p data-t="raccoglitoriTesto"></p>
+    <div class="racc-grid" id="raccGrid"><div class="racc-wrap"><span class="cornice-foto"><img src="assets/thumbs/raccoglitori/img_8432.jpg" loading="lazy" alt="Raccoglitore in pelle" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/raccoglitori/img_8432.jpg';}"></span></div><div class="racc-wrap"><span class="cornice-foto"><img src="assets/thumbs/raccoglitori/img_8433.jpg" loading="lazy" alt="Raccoglitore in pelle" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/raccoglitori/img_8433.jpg';}"></span></div><div class="racc-wrap"><span class="cornice-foto"><img src="assets/thumbs/raccoglitori/raccoglitori_insieme.jpg" loading="lazy" alt="Raccoglitore in pelle" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/raccoglitori/raccoglitori_insieme.jpg';}"></span></div><div class="racc-wrap"><span class="cornice-foto"><img src="assets/thumbs/raccoglitori/img_8435.jpg" loading="lazy" alt="Raccoglitore in pelle" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/raccoglitori/img_8435.jpg';}"></span></div><div class="racc-wrap"><span class="cornice-foto"><img src="assets/thumbs/raccoglitori/img_8469.jpg" loading="lazy" alt="Raccoglitore in pelle" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/raccoglitori/img_8469.jpg';}"></span></div><div class="racc-wrap"><span class="cornice-foto"><img src="assets/thumbs/raccoglitori/img_8468.jpg" loading="lazy" alt="Raccoglitore in pelle" onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/raccoglitori/img_8468.jpg';}"></span></div></div>
+    <div class="racc-note" data-t="raccoglitoriNota"></div>
   </div>
 </section>
 
 <footer>
-  <strong>I Fumetti del Massi</strong> — collezione privata
+  <strong>I Fumetti del Massi</strong> — <span data-t="piede">collezione privata</span>
   <div style="margin-top:1.6rem;">
-    <button id="contattiBtn" class="contatti-btn">Contatti</button>
+    <button id="contattiBtn" class="contatti-btn" data-t="contatti">Contatti</button>
   </div>
 </footer>
 
 <div class="contatti-popup" id="contattiPopup">
   <div class="contatti-popup-inner">
     <button class="contatti-close" id="contattiClose">✕</button>
-    <p>Per informazioni sulla collezione:</p>
+    <p data-t="contattiTesto">Per informazioni sulla collezione:</p>
     <a href="https://wa.me/393245645064" target="_blank" rel="noopener" class="contatti-wa">WhatsApp +39 324 5645064</a>
   </div>
 </div>
@@ -663,24 +1607,26 @@ section.personaggio{margin-top:3.4rem;}
 <div class="indice" id="indice">
   <div class="indice-inner">
     <div class="indice-testa">
-      <h2>Indice della collezione</h2>
+      <h2 data-t="indiceTitolo">Indice della collezione</h2>
       <button class="indice-chiudi" id="indiceChiudi">✕</button>
     </div>
-    <div id="indiceCorpo"></div>
+    <div class="indice-lingua" id="indiceLingua"></div>
+    <div id="indiceCorpo"><div class="ind-sez">Tavole originali<span class="ind-conta">346</span></div><button type="button" data-va="bloccoStorie">Storie complete<span class="ind-conta">332</span></button><button type="button" class="liv2" data-va="sec-storie-donatelli">Franco Donatelli<span class="ind-conta">332</span></button><button type="button" class="liv3" data-va="sec-odio">Zagor — Odio!<span class="ind-conta">212</span></button><button type="button" class="liv3" data-va="sec-deanera">Zagor — la dea nera<span class="ind-conta">120</span></button><button type="button" data-va="bloccoSingole">Tavole singole<span class="ind-conta">14</span></button><button type="button" class="liv2" data-va="sec-singole-ferri">Gallieno Ferri<span class="ind-conta">9</span></button><button type="button" class="liv2" data-va="sec-singole-dellamonica">Raffaele Della Monica<span class="ind-conta">2</span></button><button type="button" class="liv2" data-va="sec-singole-laurenti">Mauro Laurenti<span class="ind-conta">2</span></button><button type="button" class="liv2" data-va="sec-singole-romanini">Giovanni Romanini<span class="ind-conta">1</span></button><div class="ind-sez">Fumetti<span class="ind-conta">235</span></div><button type="button" data-va="sec-pers-tex">Tex<span class="ind-conta">170</span></button><button type="button" class="liv2" data-va="sec-serie-tex-texoni">Texoni<span class="ind-conta">126</span></button><button type="button" class="liv2" data-va="sec-serie-tex-cartonati">Cartonati<span class="ind-conta">44</span></button><button type="button" class="liv3" data-va="sec-tex-cart-mondadori">Cartonati rossi<span class="ind-conta">39</span></button><button type="button" class="liv3" data-va="sec-tex-cart-magnus">Il Tex di Magnus<span class="ind-conta">1</span></button><button type="button" class="liv3" data-va="sec-tex-cart-vari">Cartonati vari<span class="ind-conta">4</span></button><button type="button" data-va="sec-pers-alanford">Alan Ford<span class="ind-conta">10</span></button><button type="button" class="liv2" data-va="sec-serie-af-corno">Serie regolare<span class="ind-conta">10</span></button><button type="button" data-va="sec-pers-dylandog">Dylan Dog<span class="ind-conta">20</span></button><button type="button" class="liv2" data-va="sec-serie-dd-regolare">Serie regolare<span class="ind-conta">20</span></button><button type="button" data-va="sec-pers-forca">La Compagnia della Forca<span class="ind-conta">19</span></button><button type="button" class="liv2" data-va="sec-serie-forca-regolare">Serie regolare<span class="ind-conta">19</span></button><button type="button" data-va="sec-pers-maxmagnus">Maxmagnus<span class="ind-conta">16</span></button><button type="button" class="liv2" data-va="sec-serie-mm-regolare">Serie regolare<span class="ind-conta">16</span></button><div class="ind-sez">Altro</div><button type="button" data-va="raccSection">I raccoglitori</button><button type="button" data-contatti="1">Contatti</button></div>
   </div>
 </div>
 
 <button class="su" id="btnSu" title="Torna su">▲</button>
 
 <div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose">✕ Chiudi</button>
-  <button class="lb-zoom" id="lbZoom">⤢ Zoom</button>
+  <button class="lb-close" id="lbClose">✕ <span data-t="chiudi">Chiudi</span></button>
+  <button class="lb-zoom" id="lbZoom">⤢ <span data-t="zoom">Zoom</span></button>
   <button class="lb-prev" id="lbPrev">‹</button>
   <button class="lb-next" id="lbNext">›</button>
   <div class="lb-scroll" id="lbScroll"><img id="lbImg" src="" alt=""></div>
   <div class="lb-caption" id="lbCaption"></div>
 </div>
 
+<script src="lingue.js"></script>
 <script src="dati.js"></script>
 <script>
 /* Percorso immagine: online legge da assets/, nell'anteprima da INLINE. */
@@ -695,6 +1641,22 @@ function imgTag(rel, alt){
   return `<img src="${urlOf(rel,false)}" loading="lazy" alt="${alt}"
     onerror="if(!this.dataset.ok){this.dataset.ok=1;this.src='assets/${rel}';}">`;
 }
+
+/* ---- LINGUE ---- */
+let LANG = "it";
+/* T: etichetta d'interfaccia. Se manca la traduzione, resta l'italiano. */
+function T(k){
+  const L = LINGUE[LANG] || LINGUE.it;
+  return (L && L[k] != null) ? L[k] : (LINGUE.it[k] != null ? LINGUE.it[k] : k);
+}
+/* X: testo lungo o valore di scheda. Chiave = quella di TESTI.
+   In italiano restituisce sempre il testo originale di dati.js. */
+function X(chiave, originale){
+  if(LANG === "it") return originale;
+  const v = TESTI[chiave];
+  return (v && v[LANG]) ? v[LANG] : originale;
+}
+function val(v){ return X("val:" + v, v); }
 
 let flatImages = [];
 const personaggiSet = new Set();
@@ -711,8 +1673,8 @@ function cardTavola({rel, titolo, pag, note, personaggio, autore, tipo}){
       ${imgTag(rel, titolo)}
     </div>
     <div class="tavola-label">
-      <span>${note || titolo}</span>
-      ${pag ? `<span class="pag">p.${pag}</span>` : ""}
+      <span>${note ? X("cap:"+note, note) : titolo}</span>
+      ${pag ? `<span class="pag">${T("pagina")}${pag}</span>` : ""}
     </div>
     <div class="tag-riga">${[personaggio, autore].filter(Boolean).join(" · ")}</div>
   `;
@@ -727,22 +1689,24 @@ function cardTavola({rel, titolo, pag, note, personaggio, autore, tipo}){
 function intestazioneAutore(aut, testoConteggio){
   return `
     <div class="autore-head">
-      <div class="autore-etichetta">Autore</div>
+      <div class="autore-etichetta">${T("autore")}</div>
       <div class="autore-nome">${aut.nome}</div>
       <div class="conteggio">${testoConteggio}</div>
-      ${aut.nota ? `<p class="autore-nota">${aut.nota}</p>` : ""}
+      ${aut.nota ? `<p class="autore-nota">${X("nota:"+aut.id, aut.nota)}</p>` : ""}
     </div>`;
 }
 
 /* ---- BLOCCO 1: STORIE COMPLETE, per autore ---- */
 const storieWrap = document.getElementById("storieWrap");
+function costruisciStorie(){
+storieWrap.innerHTML = "";
 AUTORI.filter(a=>(a.storie||[]).length).forEach(aut=>{
   const n = aut.storie.length;
   const sec = document.createElement("section");
   sec.className = "autore";
   sec.id = "sec-storie-" + aut.id;
   /* il conteggio è automatico: aggiungendo una storia diventa "3 storie complete" */
-  sec.innerHTML = intestazioneAutore(aut, n + (n===1 ? " storia completa" : " storie complete"));
+  sec.innerHTML = intestazioneAutore(aut, n + " " + (n===1 ? T("storiaCompleta") : T("storieCompleteN")));
 
   aut.storie.forEach(storia=>{
     const blocco = document.createElement("div");
@@ -755,11 +1719,11 @@ AUTORI.filter(a=>(a.storie||[]).length).forEach(aut=>{
           <h3 class="storia-titolo">${storia.titolo}</h3>
         </div>
         <div class="storia-meta">
-          <strong>Testi</strong> ${storia.testi}
-          <strong style="margin-top:.4em">Disegni</strong> ${storia.disegni}
+          <strong>${T("testi")}</strong> ${storia.testi}
+          <strong style="margin-top:.4em">${T("disegni")}</strong> ${storia.disegni}
         </div>
       </div>
-      <p class="storia-intro">${storia.intro}</p>
+      <p class="storia-intro">${X("intro:"+storia.id, storia.intro)}</p>
     `;
     storia.capitoli.forEach(cap=>{
       const capBlock = document.createElement("div");
@@ -770,7 +1734,7 @@ AUTORI.filter(a=>(a.storie||[]).length).forEach(aut=>{
           <div class="cap-titolo">${cap.titolo}</div>
         </div>
         <div class="grid"></div>
-        ${cap.notaFinale ? `<div class="cap-nota-finale">${cap.notaFinale}</div>` : ""}
+        ${cap.notaFinale ? `<div class="cap-nota-finale">${X("nota:odio-p21", cap.notaFinale)}</div>` : ""}
       `;
       const grid = capBlock.querySelector(".grid");
       cap.tavole.forEach(t=>{
@@ -786,15 +1750,19 @@ AUTORI.filter(a=>(a.storie||[]).length).forEach(aut=>{
   });
   storieWrap.appendChild(sec);
 });
+}
+costruisciStorie();
 
 /* ---- BLOCCO 2: TAVOLE SINGOLE, per autore ---- */
 const singoleWrap = document.getElementById("singoleWrap");
+function costruisciSingole(){
+singoleWrap.innerHTML = "";
 AUTORI.filter(a=>(a.singole||[]).length).forEach(aut=>{
   const n = aut.singole.length;
   const sec = document.createElement("section");
   sec.className = "autore";
   sec.id = "sec-singole-" + aut.id;
-  sec.innerHTML = intestazioneAutore(aut, n + (n===1 ? " tavola singola" : " tavole singole"));
+  sec.innerHTML = intestazioneAutore(aut, n + " " + (n===1 ? T("tavolaSingola") : T("tavoleSingoleN")));
   const grid = document.createElement("div");
   grid.className = "grid";
   aut.singole.forEach(p=>{
@@ -807,16 +1775,18 @@ AUTORI.filter(a=>(a.singole||[]).length).forEach(aut=>{
   sec.appendChild(grid);
   singoleWrap.appendChild(sec);
 });
+}
+costruisciSingole();
 
 /* ---- BLOCCO 3: FUMETTI (personaggio > serie > gruppo) ---- */
 const fumettiWrap = document.getElementById("fumettiWrap");
 
 function schedaGruppo(g){
   const righe = [
-    g.edizione ? `<div class="scheda-riga"><span class="voce">Edizione</span>${g.edizione}</div>` : "",
-    g.conservazione ? `<div class="scheda-riga"><span class="voce">Stato di conservazione</span>${g.conservazione}</div>` : "",
-    g.range ? `<div class="scheda-riga"><span class="voce">Serie</span>completa, ${g.range}</div>` : "",
-    g.volumi ? `<div class="scheda-riga"><span class="voce">Volumi</span>${g.volumi}</div>` : ""
+    g.edizione ? `<div class="scheda-riga"><span class="voce">${T("edizione")}</span>${val(g.edizione)}</div>` : "",
+    g.conservazione ? `<div class="scheda-riga"><span class="voce">${T("conservazione")}</span>${val(g.conservazione)}</div>` : "",
+    g.range ? `<div class="scheda-riga"><span class="voce">${T("serie")}</span>${T("completa")}, ${g.range}</div>` : "",
+    g.volumi ? `<div class="scheda-riga"><span class="voce">${T("volumi")}</span>${val(g.volumi)}</div>` : ""
   ].join("");
   return `<div class="scheda">${righe}</div>`;
 }
@@ -827,10 +1797,10 @@ function corpoGruppo(g, personaggio){
   box.id = "sec-" + g.id;
   if(!g.titolo) box.classList.add("gruppo-unico");
   box.innerHTML = `
-    ${g.titolo ? `<h4>${g.titolo}</h4>` : ""}
+    ${g.titolo ? `<h4>${X("ser:"+g.titolo, g.titolo)}</h4>` : ""}
     ${g.crediti ? `<div class="collana-crediti">${g.crediti}</div>` : ""}
     ${schedaGruppo(g)}
-    ${g.nota ? `<div class="collana-nota">${g.nota}</div>` : ""}
+    ${g.nota ? `<div class="collana-nota">${X("nota:"+g.id, g.nota)}</div>` : ""}
     <div class="foto-collana"></div>
     <div class="elenchi"></div>
   `;
@@ -842,9 +1812,10 @@ function corpoGruppo(g, personaggio){
     const did = (typeof voce === "string") ? null : voce.didascalia;
     const w = document.createElement("div");
     w.className = "foto-wrap";
-    w.innerHTML = `<span class="cornice-foto">${imgTag(rel, personaggio)}</span>` + (did ? `<div class="foto-did">${did}</div>` : "");
+    const didT = did ? X("cap:"+did, did) : null;
+    w.innerHTML = `<span class="cornice-foto">${imgTag(rel, personaggio)}</span>` + (didT ? `<div class="foto-did">${didT}</div>` : "");
     const idx = flatImages.length;
-    flatImages.push({rel, caption: did || (personaggio + (g.titolo ? " — " + g.titolo : ""))});
+    flatImages.push({rel, caption: didT || (personaggio + (g.titolo ? " — " + g.titolo : ""))});
     w.onclick = ()=> openLightbox(idx);
     fg.appendChild(w);
   });
@@ -854,18 +1825,30 @@ function corpoGruppo(g, personaggio){
   const liste = (g.elenchi && g.elenchi.length)
     ? g.elenchi
     : ((g.titoli && g.titoli.length)
-        ? [{cap: (g.titoli.length === 1 ? "Il volume" : "I " + g.titoli.length + " volumi"), voci: g.titoli}]
+        ? [{cap: (g.titoli.length === 1 ? T("elencoVolume") : T("elencoVolumi").replace("{n}", g.titoli.length)), voci: g.titoli}]
         : []);
   liste.forEach(l=>{
     const d = document.createElement("div");
     d.className = "elenco-titoli";
-    d.innerHTML = `<div class="elenco-cap">${l.cap}<span class="elenco-conta">${l.voci.length}</span></div>
-      <ol>${l.voci.map(t=>`<li>${t}</li>`).join("")}</ol>`;
+    /* numerazione SOLO per le serie complete in ordine (1..N):
+       negli elenchi alfabetici o parziali i numeri verrebbero letti
+       come numeri d'albo, e sarebbero falsi */
+    const numerato = !!g.range;
+    const tag = numerato ? "ol" : "ul";
+    /* il conteggio a lato si mostra solo se l'intestazione non contiene
+       già un numero, altrimenti si leggerebbero due cifre appaiate */
+    const cap = X("cap:"+l.cap, l.cap);
+    const conta = /\d/.test(cap) ? "" : `<span class="elenco-conta">${l.voci.length}</span>`;
+    d.innerHTML = `<div class="elenco-cap">${cap}${conta}</div>
+      <${tag}>${l.voci.map(t=>`<li>${t}</li>`).join("")}</${tag}>`
+      + (l.coda ? `<div class="elenco-coda">${X("coda:"+l.coda, l.coda)}</div>` : "");
     el.appendChild(d);
   });
   return box;
 }
 
+function costruisciFumetti(){
+fumettiWrap.innerHTML = "";
 FUMETTI.forEach(pers=>{
   const sec = document.createElement("section");
   sec.className = "personaggio";
@@ -873,7 +1856,7 @@ FUMETTI.forEach(pers=>{
   sec.dataset.personaggio = pers.personaggio;
   sec.innerHTML = `
     <div class="pers-head">
-      <div class="pers-etichetta">Personaggio</div>
+      <div class="pers-etichetta">${T("personaggio")}</div>
       <div class="pers-nome">${pers.personaggio}</div>
       ${pers.nota ? `<p class="autore-nota">${pers.nota}</p>` : ""}
     </div>
@@ -882,7 +1865,7 @@ FUMETTI.forEach(pers=>{
     const bs = document.createElement("div");
     bs.className = "serie";
     bs.id = "sec-serie-" + serie.id;
-    bs.innerHTML = `<div class="serie-etichetta">${serie.titolo}</div>`;
+    bs.innerHTML = `<div class="serie-etichetta">${X("ser:"+serie.titolo, serie.titolo)}</div>`;
     /* se la serie ha gruppi li mostro, altrimenti tratto la serie stessa come gruppo */
     const gruppi = (serie.gruppi && serie.gruppi.length) ? serie.gruppi : [serie];
     gruppi.forEach(g=> bs.appendChild(corpoGruppo(g, pers.personaggio)));
@@ -891,18 +1874,24 @@ FUMETTI.forEach(pers=>{
   personaggiSet.add(pers.personaggio);
   fumettiWrap.appendChild(sec);
 });
+}
+costruisciFumetti();
 
 /* ---- RACCOGLITORI ---- */
 const rGrid = document.getElementById("raccGrid");
+function costruisciRaccoglitori(){
+rGrid.innerHTML = "";
 RACCOGLITORI.forEach(rel=>{
   const w = document.createElement("div");
   w.className = "racc-wrap";
   w.innerHTML = `<span class="cornice-foto">${imgTag(rel, "Raccoglitore in pelle")}</span>`;
   const idx = flatImages.length;
-  flatImages.push({rel, caption:"Raccoglitori in pelle su misura, 45×35 cm"});
+  flatImages.push({rel, caption:X("cap:Raccoglitori in pelle su misura, 45×35 cm","Raccoglitori in pelle su misura, 45×35 cm")});
   w.onclick = ()=> openLightbox(idx);
   rGrid.appendChild(w);
 });
+}
+costruisciRaccoglitori();
 
 /* ---- TENDINE ---- */
 const selC = document.getElementById("filtroCollezione");
@@ -957,6 +1946,7 @@ function applyFiltri(){
   document.getElementById("raccSection").style.display   = (vStorie || vSingole) ? "" : "none";
   document.getElementById("nessunRisultato").style.display =
     (vStorie || vSingole || vFumetti) ? "none" : "block";
+  if(typeof riassuntoFiltri === "function") riassuntoFiltri();
 }
 
 selC.addEventListener("change", applyFiltri);
@@ -1046,10 +2036,10 @@ function vociIndice(){
   const totStorie  = conStorie.reduce((t,a)=> t + nStorieAutore(a), 0);
   const totSingole = conSingole.reduce((t,a)=> t + a.singole.length, 0);
 
-  h.push(`<div class="ind-sez">Tavole originali${cnt(totStorie + totSingole)}</div>`);
+  h.push(`<div class="ind-sez">${T("tavoleOriginali")}${cnt(totStorie + totSingole)}</div>`);
 
   if(conStorie.length){
-    h.push(`<button type="button" data-va="bloccoStorie">Storie complete${cnt(totStorie)}</button>`);
+    h.push(`<button type="button" data-va="bloccoStorie">${T("storieComplete")}${cnt(totStorie)}</button>`);
     conStorie.forEach(a=>{
       h.push(`<button type="button" class="liv2" data-va="sec-storie-${a.id}">${a.nome}${cnt(nStorieAutore(a))}</button>`);
       (a.storie||[]).forEach(st=>{
@@ -1059,28 +2049,29 @@ function vociIndice(){
   }
 
   if(conSingole.length){
-    h.push(`<button type="button" data-va="bloccoSingole">Tavole singole${cnt(totSingole)}</button>`);
+    h.push(`<button type="button" data-va="bloccoSingole">${T("tavoleSingole")}${cnt(totSingole)}</button>`);
     conSingole.forEach(a=>{
       h.push(`<button type="button" class="liv2" data-va="sec-singole-${a.id}">${a.nome}${cnt(a.singole.length)}</button>`);
     });
   }
 
   const totFumetti = FUMETTI.reduce((t,p)=> t + nPersonaggio(p), 0);
-  h.push(`<div class="ind-sez">Fumetti${cnt(totFumetti)}</div>`);
+  h.push(`<div class="ind-sez">${T("fumetti")}${cnt(totFumetti)}</div>`);
   FUMETTI.forEach(p=>{
     h.push(`<button type="button" data-va="sec-pers-${p.id}">${p.personaggio}${cnt(nPersonaggio(p))}</button>`);
     (p.serie||[]).forEach(se=>{
-      h.push(`<button type="button" class="liv2" data-va="sec-serie-${se.id}">${se.titolo}${cnt(nSerie(se))}</button>`);
+      h.push(`<button type="button" class="liv2" data-va="sec-serie-${se.id}">${X("ser:"+se.titolo, se.titolo)}${cnt(nSerie(se))}</button>`);
       if(se.gruppi && se.gruppi.length > 1){
         se.gruppi.forEach(g=>{
-          h.push(`<button type="button" class="liv3" data-va="sec-${g.id}">${g.titolo}${cnt(nGruppo(g))}</button>`);
+          h.push(`<button type="button" class="liv3" data-va="sec-${g.id}">${X("ser:"+g.titolo, g.titolo)}${cnt(nGruppo(g))}</button>`);
         });
       }
     });
   });
 
-  h.push('<div class="ind-sez">Altro</div>');
-  h.push('<button type="button" data-va="raccSection">I raccoglitori</button>');
+  h.push(`<div class="ind-sez">${T("altro")}</div>`);
+  h.push(`<button type="button" data-va="raccSection">${T("raccoglitoriTitolo")}</button>`);
+  h.push(`<button type="button" data-contatti="1">${T("contatti")}</button>`);
   return h.join("");
 }
 indiceCorpo.innerHTML = vociIndice();
@@ -1093,6 +2084,16 @@ indice.addEventListener("click", e=>{ if(e.target === indice) chiudiIndice(); })
 
 /* Porta alla sezione tenendo conto delle barre fisse, e si ricorregge
    finché le immagini che si caricano smettono di spostare il contenuto. */
+/* la barra dei filtri si aggancia sotto quella nera:
+   l'altezza va misurata, non indovinata */
+function allineaBarre(){
+  const b = document.querySelector(".barra-alta");
+  const f = document.getElementById("filtriBar");
+  if(b && f) f.style.top = b.offsetHeight + "px";
+}
+window.addEventListener("resize", allineaBarre);
+window.addEventListener("load", allineaBarre);
+
 function altezzaBarre(){
   const b = document.querySelector(".barra-alta");
   const f = document.getElementById("filtriBar");
@@ -1109,23 +2110,32 @@ function fermaInseguimento(){
 function vaiA(el){
   if(!el) return;
   fermaInseguimento();
+  /* Salto secco invece di scorrimento animato: durante l'animazione
+     le immagini si caricano e spostano il contenuto, e si arrivava
+     sempre altrove. Dopo il salto si continua a correggere finché
+     la pagina non smette di muoversi. */
   let giri = 0, fermi = 0;
   const passo = ()=>{
     const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY - altezzaBarre());
     if(Math.abs(window.scrollY - y) > 2){
-      window.scrollTo({top:y, behavior: giri === 0 ? "smooth" : "auto"});
+      window.scrollTo({top:y, behavior:"auto"});
       fermi = 0;
     } else {
       fermi++;
     }
     giri++;
-    if(fermi < 3 && giri < 25) inseguimento = setTimeout(passo, 130);
+    if(fermi < 4 && giri < 90) inseguimento = setTimeout(passo, 90);
     else inseguimento = null;
   };
   passo();
 }
 
 indiceCorpo.addEventListener("click", e=>{
+  if(e.target.closest("[data-contatti]")){
+    chiudiIndice();
+    contattiPopup.classList.add("open");
+    return;
+  }
   const a = e.target.closest("[data-va]");
   if(!a) return;
   chiudiIndice();
@@ -1139,7 +2149,10 @@ indiceCorpo.addEventListener("click", e=>{
 });
 
 /* ---- HOME E TORNA SU ---- */
-document.getElementById("btnHome").onclick = ()=> window.scrollTo({top:0, behavior:"smooth"});
+const suSu = ()=> window.scrollTo({top:0, behavior:"smooth"});
+document.getElementById("btnHome").onclick = suSu;
+document.getElementById("btnHome2").onclick = suSu;
+document.getElementById("btnContattiBarra").onclick = ()=> contattiPopup.classList.add("open");
 const btnSu = document.getElementById("btnSu");
 btnSu.onclick = ()=> window.scrollTo({top:0, behavior:"smooth"});
 window.addEventListener("scroll", ()=>{
@@ -1150,6 +2163,73 @@ document.addEventListener("keydown", e=>{
   if(e.key === "Escape") chiudiIndice();
 });
 
+
+/* ---- CAMBIO LINGUA ---- */
+function applicaEtichette(){
+  document.documentElement.lang = (LANG === "hr") ? "hr" : LANG;
+  document.querySelectorAll("[data-t]").forEach(el=>{
+    el.innerHTML = T(el.dataset.t);
+  });
+  const bc = document.getElementById("btnContattiBarra");
+  if(bc){ bc.title = T("contatti"); bc.setAttribute("aria-label", T("contatti")); }
+  /* le tendine Personaggio e Autore: solo la voce "tutti" */
+  const p0 = selP.querySelector('option[value=""]');
+  const a0 = selA.querySelector('option[value=""]');
+  if(p0) p0.textContent = T("tutti");
+  if(a0) a0.textContent = T("tutti");
+}
+
+function ricostruisci(){
+  /* svuoto e ridisegno i tre blocchi con la lingua nuova */
+  flatImages = [];
+  storieWrap.innerHTML = "";
+  singoleWrap.innerHTML = "";
+  fumettiWrap.innerHTML = "";
+  rGrid.innerHTML = "";
+  costruisciStorie();
+  costruisciSingole();
+  costruisciFumetti();
+  costruisciRaccoglitori();
+  indiceCorpo.innerHTML = vociIndice();
+  document.getElementById("indiceLingua").textContent = LINGUE[LANG]._nome;
+  applicaEtichette();
+  applyFiltri();
+}
+
+function cambiaLingua(l){
+  if(!LINGUE[l]) return;
+  LANG = l;
+  document.querySelectorAll("#sceltaLingua button").forEach(b=>
+    b.classList.toggle("attiva", b.dataset.l === l));
+  ricostruisci();
+}
+/* ---- FILTRI A SCOMPARSA (solo telefono) ---- */
+const btnFiltri = document.getElementById("btnFiltri");
+const filtriCorpo = document.getElementById("filtriCorpo");
+btnFiltri.addEventListener("click", ()=>{
+  const aperto = filtriCorpo.classList.toggle("aperto");
+  btnFiltri.setAttribute("aria-expanded", aperto ? "true" : "false");
+  allineaBarre();
+});
+
+/* riassume in una riga cosa è selezionato */
+function riassuntoFiltri(){
+  const parti = [];
+  if(selC.value) parti.push(selC.options[selC.selectedIndex].textContent);
+  if(selP.value) parti.push(selP.value);
+  if(selA.value) parti.push(selA.value);
+  document.getElementById("filtriAttivi").textContent =
+    parti.length ? "· " + parti.join(" · ") : "";
+}
+
+document.getElementById("sceltaLingua").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-l]");
+  if(b) cambiaLingua(b.dataset.l);
+});
+
+document.getElementById("indiceLingua").textContent = LINGUE[LANG]._nome;
+applicaEtichette();
+allineaBarre();
 applyFiltri();
 </script>
 
