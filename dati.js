@@ -56,7 +56,7 @@ const AUTORI = [
         sottotitolo: "Storia completa in tre albi",
         testi: "Guido Nolitta",
         disegni: "Franco Donatelli",
-        intro: "Seconda storia di Zagor disegnata dall'immenso Franco Donatelli, che qui consolida il tratto zagoriano amato per decine di anni a venire. La storia completa consiste di 212 tavole originali, tutte facenti parte di questa collezione e in perfetto stato di conservazione, fatta eccezione per la sola pagina 21 — rimpiazzata da un'opera, pure originale, di pari valore (vedi nota a chiusura della saga \"Odio!\"). Le tavole mostrate qui sotto sono una selezione, non l'intera storia.",
+        intro: "Seconda storia di Zagor disegnata dall'immenso Franco Donatelli, che qui consolida il suo tratto zagoriano che abbiamo amato per decine di anni a venire. La storia completa consiste di 212 tavole originali, tutte facenti parte di questa collezione e in perfetto stato di conservazione, fatta eccezione per la sola pagina 21 — unica mancante, comunque rimpiazzata da un'opera pure originale, unica e molto interessante (vedi nota a chiusura della saga \"Odio!\"). Le tavole mostrate qui sotto sono una selezione, non l'intera storia.",
         capitoli: [
           {
             numero: "Zenith Gigante n.90 — settembre 1968 (Zagor n.39)",
@@ -68,7 +68,7 @@ const AUTORI = [
               {f:"tavole/odio/02_p005.jpg", p:"5"},
               {f:"tavole/odio/03_p010.jpg", p:"10"},
               {f:"tavole/odio/04_p014.jpg", p:"14"},
-              {f:"tavole/odio/05_p021.jpg", p:"21", note:"Tavola ricostruita da Marco Verni — vedi nota sotto", autore:"Marco Verni"},
+              {f:"tavole/odio/05_p021.jpg", p:"21", note:"Tavola reinterpretata da Marco Verni — v. nota sotto", autore:"Marco Verni"},
               {f:"tavole/odio/06_p027.jpg", p:"27"},
               {f:"tavole/odio/07_p036.jpg", p:"36"},
               {f:"tavole/odio/08_p043.jpg", p:"43"},
@@ -189,6 +189,107 @@ const AUTORI = [
       {f:"altre/ferri/z124_p81.jpg", titolo:"Zagor n.124 — Zagor contro Supermike — pagina 81", personaggio:"Zagor"},
       {f:"altre/ferri/recco_poster.jpg", titolo:"Originale per il poster della fiera di Recco", personaggio:"Zagor", note:"2001, data da confermare"},
       {f:"altre/ferri/recco_cartolina.jpg", titolo:"Originale per la cartolina della fiera di Recco", personaggio:"Zagor", note:"1995, data da confermare"}
+    ]
+  },
+
+  /* ---------------- MARCO VERNI ---------------- */
+  {
+    id: "verni",
+    nome: "Marco Verni",
+    nota: "Fra i disegnatori di Zagor più apprezzati per talento e per la vicinanza al tratto del Maestro Gallieno Ferri.",
+
+    storie: [
+      {
+        id: "supermike",
+        titolo: "Zagor — Supermike!",
+        nTavole: 518,
+        navLabel: "Supermike!",
+        sottotitolo: "Storia completa in sei albi",
+        testi: "Moreno Burattini",
+        disegni: "Marco Verni",
+        intro: "La storia completa di Zagor più lunga mai pubblicata: 518 tavole in sei albi, dallo Zenith n.754 al n.759. Tutte le tavole originali della storia completa fanno parte di questa collezione. Sono tavole non letterate, prive cioè dei balloon con il testo: per questo verranno esposte su raccoglitore insieme alla corrispondente pagina letterata, così da rendere più piacevole l'osservazione dei disegni, mantenendo la possibilità di vedere, insieme, sia i disegni sia i testi.",
+        capitoli: [
+          {
+            numero: "Zenith Gigante dal n.754 al n.759 (Zagor dal n.703 al n.708)",
+            titolo: "Zagor — Supermike!",
+            navLabel: "Supermike!",
+            personaggio: "Zagor",
+            tavole: [
+              {f:"storie/supermike/supermike_01.jpg", note:"Il \"pacco\" delle 518 tavole originali che compongono la storia completa"},
+              {f:"storie/supermike/supermike_02.jpg", note:"I sei albi della storia completa, in tavole originali, in attesa di essere esposte negli appositi raccoglitori"}
+            ]
+          }
+        ]
+      },
+      {
+        id: "mortimer",
+        titolo: "Zagor contro Mortimer",
+        nTavole: 338,
+        navLabel: "Mortimer",
+        sottotitolo: "Storia completa in quattro albi",
+        testi: "Moreno Burattini",
+        disegni: "Marco Verni",
+        intro: "Storia completa in 338 tavole, dallo Zenith n.572 al n.575, ambientata ai Caraibi. La sottile, intrigante trama è ordita da Mortimer, il geniale e pericolosissimo arci-nemico di Zagor. Grande ritorno di Hammad l'egiziano e, con lui, immancabili, gli squali. Rivediamo con piacere anche il simpatico e risolutivo Guede Danceur. Tutte le tavole originali della storia completa fanno parte di questa collezione.",
+        capitoli: [
+          {
+            numero: "Zenith Gigante dal n.572 al n.575",
+            titolo: "Zagor contro Mortimer",
+            navLabel: "Mortimer",
+            personaggio: "Zagor",
+            tavole: [
+              {f:"storie/mortimer/mortimer_01.jpg", note:"Il \"pacco\" delle 338 tavole originali che compongono la storia completa"},
+              {f:"storie/mortimer/mortimer_02.jpg", note:"I 4 albi della storia completa, in tavole originali, in attesa di essere esposte negli appositi raccoglitori"}
+            ]
+          }
+        ]
+      },
+      {
+        id: "hellingen",
+        titolo: "Zagor — I discepoli (Hellingen)",
+        nTavole: 282,
+        navLabel: "I discepoli (Hellingen)",
+        sottotitolo: "Storia completa in tre albi",
+        testi: "Moreno Burattini",
+        disegni: "Sedioli alle matite, Marco Verni alle chine",
+        intro: "Storia completa in 282 tavole, dallo Zenith n.699 al n.701, di pura e travolgente azione, con Sedioli alle matite e Verni alle chine. Il risultato è massimamente spettacolare e godibile, con il tratto di Marco che, come sempre, ci ricorda più di ogni altro quello del Maestro Gallieno Ferri. Sono tavole non letterate, prive cioè dei balloon con il testo: per questo verranno esposte su raccoglitore insieme alla corrispondente pagina letterata, così da rendere più piacevole l'osservazione dei disegni, mantenendo la possibilità di vedere, insieme, sia i disegni sia i testi.",
+        capitoli: [
+          {
+            numero: "Zenith Gigante dal n.699 al n.701 (Zagor dal n.648 al n.650)",
+            titolo: "Zagor — I discepoli (Hellingen)",
+            navLabel: "Hellingen",
+            personaggio: "Zagor",
+            tavole: [
+              {f:"storie/hellingen/hellingen_02.jpg", note:"Il \"pacco\" delle 282 tavole originali che compongono la storia completa"},
+              {f:"storie/hellingen/hellingen_01.jpg", note:"I 3 albi della storia completa, in tavole originali, in attesa di essere esposte negli appositi raccoglitori"}
+            ]
+          },
+          {
+            numero: "Zenith Gigante n.699 (Zagor n.648) — Mistero sul monte Naatani",
+            sottotitolo: "Selezione di alcune tavole della storia, durante la fase di applicazione sugli appositi raccoglitori, insieme alle corrispondenti pagine letterate",
+            titolo: "Zagor — Mistero sul monte Naatani",
+            navLabel: "Zagor — Mistero sul monte Naatani",
+            personaggio: "Zagor",
+            tavole: [
+              {f:"storie/naatani/naatani_09.jpg", p:"6",  note:"", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_01.jpg", p:"15", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_02.jpg", p:"23", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_06.jpg", p:"35", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_03.jpg", p:"40", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_07.jpg", p:"43", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_04.jpg", p:"49", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_08.jpg", p:"69", autore:"Sedioli — Verni"},
+              {f:"storie/naatani/naatani_05.jpg", p:"78", autore:"Sedioli — Verni"}
+            ],
+            notaId: "naatani-conservazione",
+            notaFinale: `<strong>Interessante:</strong> a pagina 15 Sedioli e Verni ricordano una serie di avventure di Cico e Trampy. Ebbene, due di queste avventure sono presenti, in tavole originali di Franco Donatelli, proprio in questa collezione: le prime pagine di <em>Odio!</em>, dove Cico prende una scarpata in faccia fingendosi un gatto; e de <em>La dea nera</em>, con Trampy e Cico "rubacuori".<br><br><strong>Come sono esposte:</strong> i raccoglitori sono in film senza acidi. Le tavole originali restano libere, sempre applicate <em>sopra</em> la busta di film con angoli fotografici o biadesivo reversibile, che si possa cioè staccare senza rovinare in alcun modo neanche la superficie del retro della tavola. Le pagine letterate — che sono semplici copie — sono invece dentro la busta.`
+          }
+        ]
+      }
+    ],
+
+    singole: [
+      {f:"altre/verni/verni_uomolupo.jpg", titolo:"L'uomo lupo", personaggio:"Zagor", note:"Reinterpretazione di una copertina storica del Maestro Gallieno Ferri"},
+      {f:"altre/verni/verni_ultimosangue.jpg", titolo:"All'ultimo sangue", personaggio:"Zagor", note:"Reinterpretazione di una copertina storica del Maestro Gallieno Ferri"}
     ]
   },
 

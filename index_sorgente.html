@@ -218,6 +218,10 @@ section.autore{margin-top:3.2rem;}
   font-family:Georgia,serif; font-style:italic; font-weight:700;
   font-size:1.2rem; margin:0;
 }
+.cap-sottotitolo{
+  font-family:'Courier New',monospace; font-size:.74rem; color:var(--tenue);
+  margin-top:.3rem; line-height:1.4;
+}
 .cap-nota-finale{
   margin-top:1.5rem; padding:1.1rem 1.25rem; background:var(--carta-scura);
   border-left:3px solid var(--oro); font-size:.92rem; line-height:1.72;
@@ -253,6 +257,7 @@ section.autore{margin-top:3.2rem;}
   letter-spacing:.04em; text-transform:uppercase; color:#1c1a17; font-weight:bold;
 }
 .tavola-label .pag{color:#6b2318; font-weight:bold; white-space:nowrap;}
+.tavola-nota-singola{display:block; font-size:.72em; opacity:.68; margin-top:.15em; font-style:italic;}
 .tag-riga{
   margin-top:.32rem; font-family:'Courier New',monospace; font-size:.68rem;
   letter-spacing:.06em; color:var(--tenue);
@@ -883,6 +888,7 @@ function cardTavola({rel, titolo, pag, note, personaggio, autore, tipo}){
     </div>
     <div class="tavola-label">
       <span>${note ? X("cap:"+note, note) : titolo}</span>
+      ${note ? `<span class="tavola-nota-singola">${titolo}</span>` : ""}
       ${pag ? `<span class="pag">${T("pagina")}${pag}</span>` : ""}
     </div>
     <div class="tag-riga">${[personaggio, autore].filter(Boolean).join(" · ")}</div>
@@ -941,9 +947,10 @@ AUTORI.filter(a=>(a.storie||[]).length).forEach(aut=>{
         <div class="capitolo-head">
           <span class="cap-num">${cap.numero}</span>
           <div class="cap-titolo">${cap.titolo}</div>
+          ${cap.sottotitolo ? `<div class="cap-sottotitolo">${cap.sottotitolo}</div>` : ""}
         </div>
         <div class="grid"></div>
-        ${cap.notaFinale ? `<div class="cap-nota-finale">${X("nota:odio-p21", cap.notaFinale)}</div>` : ""}
+        ${cap.notaFinale ? `<div class="cap-nota-finale">${X("nota:" + (cap.notaId || "odio-p21"), cap.notaFinale)}</div>` : ""}
       `;
       const grid = capBlock.querySelector(".grid");
       cap.tavole.forEach(t=>{
@@ -977,7 +984,7 @@ AUTORI.filter(a=>(a.singole||[]).length).forEach(aut=>{
   aut.singole.forEach(p=>{
     grid.appendChild(cardTavola({
       rel: p.f, titolo: p.titolo, pag: null,
-      note: p.note ? p.titolo + " (" + p.note + ")" : p.titolo,
+      note: p.note || "",
       personaggio: p.personaggio, autore: aut.nome, tipo: "singola"
     }));
   });

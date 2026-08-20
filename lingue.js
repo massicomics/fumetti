@@ -292,8 +292,8 @@ const TESTI = {
 
   /* ---- introduzioni delle storie ---- */
   "intro:odio": {
-    en: "The second Zagor story drawn by the great Franco Donatelli, who here settles into the Zagor line that readers would love for decades to come. The complete story runs to 212 original plates, all of them in this collection and in perfect condition, with the sole exception of page 21 — replaced by another original work of equal standing (see the note at the end of the \"Odio!\" story). The plates shown below are a selection, not the whole story.",
-    hr: "Druga Zagorova priča koju je nacrtao veliki Franco Donatelli, koji ovdje učvršćuje onaj zagorovski crtež kakav će čitatelji voljeti desetljećima. Kompletna priča broji 212 originalnih tabli, sve su u ovoj zbirci i u savršenom stanju, uz jedinu iznimku stranice 21 — zamijenjene drugim originalnim radom jednake vrijednosti (vidi bilješku na kraju priče \"Odio!\"). Dolje prikazane table su izbor, a ne cijela priča."
+    en: "The second Zagor story drawn by the great Franco Donatelli, who here establishes his Zagor line that we have loved for decades to come. The complete story runs to 212 original plates, all of them in this collection and in perfect condition, with the sole exception of page 21 — the only missing plate, nevertheless replaced by another original work — unique and very interesting (see the note at the end of the \"Odio!\" story). The plates shown below are a selection, not the whole story.",
+    hr: "Druga Zagorova priča koju je nacrtao veliki Franco Donatelli, koji ovdje utvrđuje svoj zagorovski crtež koji smo voljeli desetljećima. Kompletna priča broji 212 originalnih tabli, sve su u ovoj zbirci i u savršenom stanju, uz jedinu iznimku stranice 21 — jedine nedostajuće, ipak zamijenjene drugim originalnim radom — jedinstvenim i vrlo zanimljivim (vidi bilješku na kraju priče \"Odio!\"). Dolje prikazane table su izbor, a ne cijela priča."
   },
   "intro:deanera": {
     en: "The complete story runs to 120 original plates, all of them in this collection and in perfect condition. The plates shown below are a selection, not the whole story.",
@@ -312,7 +312,61 @@ const TESTI = {
     hr: "Suautor Zagorova likovnog identiteta zajedno s Guidom Nolittom (Sergio Bonelli) i crtač svih naslovnica redovne serije do broja 665; nakon njegove smrti u travnju 2016. naslijedio ga je Alessandro Piccinelli počevši od broja 666."
   },
 
-  /* ---- Tex: cartonati rossi ---- */
+  /* ---- Marco Verni: storie complete ---- */
+  "intro:supermike": {
+    en: "The longest complete Zagor story ever published: 518 plates across six albums, from Zenith no. 754 to no. 759. All the original plates of the complete story are part of this collection. They are unlettered plates — without the text balloons — and will therefore be displayed in binders alongside the corresponding lettered page, making the observation of the drawings more enjoyable while allowing both the drawings and the texts to be seen together.",
+    hr: "Najduža kompletna Zagorova priča ikad objavljena: 518 tabli u šest albuma, od Zenitha br. 754 do br. 759. Sve originalne table kompletne priče su dio ove zbirke. Table su bez teksta — bez balona s tekstom — pa će se izlagati u registratorima zajedno s odgovarajućom tiskanom stranicom, čineći promatranje crteža ugodnijim uz mogućnost istovremenog gledanja i crteža i tekstova."
+  },
+  "intro:mortimer": {
+    en: "A complete story in 338 plates, from Zenith no. 572 to no. 575, set in the Caribbean. The subtle, intriguing plot is woven by Mortimer, Zagor's brilliant and most dangerous arch-enemy. The return of Hammad the Egyptian, and with him, inevitably, the sharks. We also see again the likeable and resourceful Guede Danceur. All the original plates of the complete story are part of this collection.",
+    hr: "Kompletna priča u 338 tabli, od Zenitha br. 572 do br. 575, smještena na Karibima. Suptilnu, intrigantnu priču kuje Mortimer, Zagorov briljantni i najopasniji arhineprijatelj. Veliki povratak Hammada Egipćanina i, s njim, neizbježno, morski psi. S radošću ponovo vidimo i simpatičnog i odlučnog Guedea Danceura. Sve originalne table kompletne priče su dio ove zbirke."
+  },
+  "intro:hellingen": {
+    en: "A complete story in 282 plates, from Zenith no. 699 to no. 701, of pure and sweeping action, with Sedioli on pencils and Verni on inks. The result is as spectacular and enjoyable as it gets, with Marco's line that — as always — comes closer than any other to that of Maestro Gallieno Ferri. They are unlettered plates — without the text balloons — and will therefore be displayed in binders alongside the corresponding lettered page, making the observation of the drawings more enjoyable while allowing both the drawings and the texts to be seen together.",
+    hr: "Kompletna priča u 282 table, od Zenitha br. 699 do br. 701, čiste i uzbudljive akcije, sa Sediajem na skicama i Vernijem na tushu. Rezultat je maksimalno spektakularan i ugodan, a Marcov crtež — kao uvijek — više od svih drugih podsjeća na onaj Maestra Galliena Ferrija. Table su bez teksta — bez balona s tekstom — pa će se izlagati u registratorima zajedno s odgovarajućom tiskanom stranicom, čineći promatranje crteža ugodnijim uz mogućnost istovremenog gledanja i crteža i tekstova."
+  },
+  "nota:naatani-conservazione": {
+    en: "<strong>Worth noting:</strong> on page 15, Sedioli and Verni recall a series of adventures featuring Cico and Trampy. Two of those very adventures are present, in original plates by Franco Donatelli, in this collection: the opening pages of <em>Odio!</em>, where Cico takes a kick to the face pretending to be a cat; and of <em>La dea nera</em>, featuring Trampy and Cico as \"ladykiller\" romantics.<br><br><strong>How they are displayed:</strong> the binders use acid-free film sleeves. The original plates are kept loose, always placed <em>on top of</em> the film sleeve using photo corners or reversible double-sided tape, which can be removed without any damage to the back of the plate. The lettered pages — which are simple copies — are kept inside the sleeve.",
+    hr: "<strong>Zanimljivo:</strong> na stranici 15 Sedioli i Verni prisjećaju se niza avantura s Cicom i Trampyjem. Dvije od tih avantura nalaze se, u originalnim tablama Franca Donatellija, upravo u ovoj zbirci: prve stranice <em>Odio!</em>, gdje Cico dobiva udarac nogom u lice glume mačku; i <em>La dea nera</em>, s Trampyjem i Cicom kao \"osvajačima srca\".<br><br><strong>Kako se izlažu:</strong> registratori koriste kiselinski neutralne folije. Originalne table su slobodne, uvijek postavljene <em>iznad</em> folije pomoću fotografskih kutova ili reverzibilne dvostrane ljepljive trake, koja se može skinuti bez ikakvog oštećenja stražnje strane table. Tiskane stranice — koje su jednostavne kopije — nalaze se unutar folije."
+  },
+  "nota:verni": {
+    en: "Among the Zagor artists most admired for his talent and for how close he comes to the line of Maestro Gallieno Ferri.",
+    hr: "Jedan od najcjenjenijih Zagorovih crtača po talentu i po bliskosti crtežu Maestra Galliena Ferrija."
+  },
+  "cap:Zagor n.703 — Zenith n.754: 94 tavole non letterate, da 1 a 94": {
+    en: "The \"bundle\" of 518 original plates making up the complete story",
+    hr: "\"Paket\" od 518 originalnih tabli koje čine kompletnu priču"
+  },
+  "cap:I sei albi della storia completa": {
+    en: "The six albums of the complete story, in original plates, awaiting display in the dedicated binders",
+    hr: "Šest albuma kompletne priče, u originalnim tablama, u iščekivanju izlaganja u namjenskim registratorima"
+  },
+  "cap:Pleasant Point — Zenith n.572": {
+    en: "The \"bundle\" of 338 original plates making up the complete story",
+    hr: "\"Paket\" od 338 originalnih tabli koje čine kompletnu priču"
+  },
+  "cap:I quattro albi della storia completa": {
+    en: "The 4 albums of the complete story, in original plates, awaiting display in the dedicated binders",
+    hr: "4 albuma kompletne priče, u originalnim tablama, u iščekivanju izlaganja u namjenskim registratorima"
+  },
+  "cap:I tre albi della storia completa": {
+    en: "The \"bundle\" of 282 original plates making up the complete story",
+    hr: "\"Paket\" od 282 originalne table koje čine kompletnu priču"
+  },
+  "cap:Mistero sul monte Naatani, I discepoli, Il destino di Hellingen": {
+    en: "The 3 albums of the complete story, in original plates, awaiting display in the dedicated binders",
+    hr: "3 albuma kompletne priče, u originalnim tablama, u iščekivanju izlaganja u namjenskim registratorima"
+  },
+  "cap:Tavola originale e pagina letterata a fronte": {
+    en: "",
+    hr: ""
+  },
+  "cap:Reinterpretazione di una copertina storica del Maestro Gallieno Ferri": {
+    en: "Reinterpretation of a classic cover by Maestro Gallieno Ferri",
+    hr: "Reinterpretacija klasične naslovnice Maestra Galliena Ferrija"
+  },
+
+
   "nota:tex-cart-mondadori": {
     en: "A single series, begun in 1975 with \"Il mio nome è Tex\", a Christmas title published by Mondadori under licence from Sergio Bonelli — whose publishing house was then called CEPIM. The changing imprint on the spines follows the successive names of the publisher, not a change of series: although one is blue and one is yellow, to Tex readers they remain the \"red hardbacks\". Some titles are present in more than one copy. The volumes are kept in protective sleeves inside a closed cabinet. The photographs of front, spine and edges document the condition of some individual copies.",
     hr: "Jedinstvena serija, započeta 1975. naslovom \"Il mio nome è Tex\", božićnim izdanjem koje je objavio Mondadori po licenci Sergia Bonellija — čija se izdavačka kuća tada zvala CEPIM. Promjena znaka izdavača na hrptovima prati kasnije nazive iste kuće, a ne promjenu serije: iako je jedan plav i jedan žut, za Texove čitatelje to ostaju \"crveni tvrdoukoričeni\". Neki naslovi zastupljeni su u više primjeraka. Svesci se čuvaju u zaštitnim vrećicama u zatvorenom ormaru. Fotografije prednje strane, hrpta i reza dokumentiraju stanje pojedinih primjeraka."
